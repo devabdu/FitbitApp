@@ -1,4 +1,3 @@
-import 'package:fitbit/src/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextFormField extends StatelessWidget {
