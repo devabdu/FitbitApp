@@ -29,6 +29,8 @@ flutter:
     - assets/images/facebook_icon.svg
     - assets/images/gmail_icon.svg
     - assets/images/fit_boy.png
+    - assets/images/fit_boy2.png
+    - assets/images/fit_boy3.png
 
   fonts:
     - family: Poppins

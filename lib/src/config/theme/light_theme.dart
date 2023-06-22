@@ -45,9 +45,9 @@ ThemeData appLightTheme() {
     /// elevatedButton theme
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        textStyle: getRegularStyle(
+        textStyle: getBoldStyle(
           color: AppColors.white,
-          fontSize: AppFontSize.s17,
+          fontSize: AppFontSize.s18,
         ),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(AppSize.s12),
@@ -81,9 +81,9 @@ ThemeData appLightTheme() {
         fontSize: AppFontSize.s14,
         color: AppColors.title,
       ),
-      labelSmall: getBoldStyle(
+      labelSmall: getMediumStyle(
         fontSize: AppFontSize.s12,
-        color: AppColors.lightPrimary,
+        color: AppColors.white,
       ),
       bodyMedium: getRegularStyle(
         fontSize: AppFontSize.s12,

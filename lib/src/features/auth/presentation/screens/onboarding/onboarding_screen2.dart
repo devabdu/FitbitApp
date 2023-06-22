@@ -60,7 +60,7 @@ class OnBoardingScreen2 extends StatelessWidget {
         ),
         floatingActionButton: GestureDetector(
           onTap: () {
-            Navigator.pushNamed(context, AppRoutesName.registerRoute);
+            Navigator.pushNamed(context, AppRoutesName.register_1Route);
           },
           child: ClipOval(
             child: Stack(
