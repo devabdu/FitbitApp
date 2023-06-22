@@ -1,3 +1,4 @@
+import 'package:fitbit/src/config/routes/app_routes.dart';
 import 'package:fitbit/src/features/auth/presentation/widgets/custom_form_field_text.dart';
 import 'package:fitbit/src/features/auth/presentation/widgets/custom_text_button_large.dart';
 import 'package:fitbit/src/features/auth/presentation/widgets/custom_text_button_small.dart';
@@ -115,7 +116,9 @@ class _RegisterScreen2State extends State<RegisterScreen2> {
 
   Widget _buildNextButton() {
     return CustomTextButtonLarge(
-      onPressed: () {},
+      onPressed: () {
+        Navigator.pushNamed(context, AppRoutesName.successRegisterationRoute);
+      },
       textButton: 'Next >',
     );
   }
