@@ -15,6 +15,7 @@ dependencies:
     sdk: flutter
   flutter_bloc: ^8.1.2
   flutter_svg: ^2.0.5
+  syncfusion_flutter_charts: ^22.1.36
 
 dev_dependencies:
   flutter_lints: ^2.0.0
@@ -31,6 +32,8 @@ flutter:
     - assets/images/fit_boy.png
     - assets/images/fit_boy2.png
     - assets/images/fit_boy3.png
+    - assets/images/abs_workout_icon.png
+    - assets/images/lower_workout_icon.png
 
   fonts:
     - family: Poppins

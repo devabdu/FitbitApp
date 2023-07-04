@@ -23,18 +23,7 @@ class CustomTextButtonLarge extends StatelessWidget {
       ),
       child: Ink(
         decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [
-              AppColors.darkPrimary,
-              AppColors.lightPrimary,
-            ],
-            stops: [
-              0.0,
-              1.0,
-            ],
-          ),
+          gradient: AppLinearGradientColors.mainColorButton,
           borderRadius: BorderRadius.all(Radius.circular(99)),
         ),
         child: Container(

@@ -1,3 +1,4 @@
+import 'package:fitbit/src/config/routes/app_routes.dart';
 import 'package:fitbit/src/features/auth/presentation/widgets/custom_text_button_large.dart';
 import 'package:fitbit/src/features/auth/presentation/widgets/custom_title_and_subtitle.dart';
 import 'package:flutter/material.dart';
@@ -21,9 +22,11 @@ class SuccessRegisterationScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildGoToHomeButton() {
+  Widget _buildGoToHomeButton(BuildContext context) {
     return CustomTextButtonLarge(
-      onPressed: () {},
+      onPressed: () {
+        Navigator.pushNamed(context, AppRoutesName.dashboardRoute);
+      },
       textButton: 'Go To Home',
     );
   }
@@ -39,7 +42,7 @@ class SuccessRegisterationScreen extends StatelessWidget {
           const Spacer(flex: 3),
           _buildCenterText(),
           const Spacer(flex: 5),
-          _buildGoToHomeButton(),
+          _buildGoToHomeButton(context),
           const Spacer(),
         ]),
       ),

@@ -3,6 +3,7 @@ import 'package:fitbit/src/features/auth/presentation/screens/onboarding/onboard
 import 'package:fitbit/src/features/auth/presentation/screens/register/register_screen1.dart';
 import 'package:fitbit/src/features/auth/presentation/screens/register/register_screen2.dart';
 import 'package:fitbit/src/features/auth/presentation/screens/register/success_registeration_screen.dart';
+import 'package:fitbit/src/features/dashboard/presentation/dashboard_view.dart';
 import 'package:flutter/material.dart';
 
 class AppRoutesName {
@@ -11,6 +12,7 @@ class AppRoutesName {
   static const String register_1Route = "/register1";
   static const String register_2Route = "/register2";
   static const String successRegisterationRoute = "/successRegisteration";
+  static const String dashboardRoute = "/dashboard";
 }
 
 class AppRoutesGenerator {
@@ -35,6 +37,10 @@ class AppRoutesGenerator {
       case AppRoutesName.successRegisterationRoute:
         return MaterialPageRoute(
           builder: (_) => const SuccessRegisterationScreen(),
+        );
+      case AppRoutesName.dashboardRoute:
+        return MaterialPageRoute(
+          builder: (_) => const DashboardView(),
         );
       default:
         return unDefinedRoute();

@@ -18,7 +18,33 @@ class AppColors {
   static const Color black_26 = Colors.black26;
   static const Color transparent = Colors.transparent;
   static const Color formTextFieldFill = Color(0xFFF7F8F8);
-
+  static const Color iconBottomNavigation1 = Color(0xFFE2E2AC);
+  static const Color iconBottomNavigation2 = Color(0xFFEEA4CE);
+  static const Color purple = Color(0xFFC58BF2);
+  static const Color backGroundCircleAvatar = Color(0xFFC4C4C4);
 }
 
 class AppColorsWithOpacity {}
+
+class AppLinearGradientColors {
+  static const LinearGradient mainColorButton = LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: [AppColors.darkPrimary, AppColors.lightPrimary],
+    stops: [0.0, 1.0],
+  );
+
+  static const LinearGradient iconBottomNavigation = LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: [AppColors.iconBottomNavigation1, AppColors.iconBottomNavigation2],
+    stops: [0.0, 1.0],
+  );
+
+  static const LinearGradient circleIcon = LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: [AppColors.purple, AppColors.iconBottomNavigation2],
+    stops: [0.0, 1.0],
+  );
+}
