@@ -2,9 +2,12 @@ import 'package:fitbit/src/config/routes/app_routes.dart';
 import 'package:fitbit/src/core/utils/app_colors.dart';
 import 'package:fitbit/src/core/utils/app_font.dart';
 import 'package:fitbit/src/core/utils/app_values.dart';
+import 'package:fitbit/src/features/auth/presentation/screens/login/login_screen.dart';
 import 'package:fitbit/src/features/auth/presentation/widgets/custom_form_field_text.dart';
 import 'package:fitbit/src/features/auth/presentation/widgets/custom_icon_button.dart';
 import 'package:fitbit/src/features/auth/presentation/widgets/custom_text_button_large.dart';
+
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class ReigsterScreen1 extends StatefulWidget {
@@ -244,16 +247,26 @@ class _ReigsterScreen1State extends State<ReigsterScreen1>
 
   Widget _buildAlreadyHaveAccount(context) {
     return RichText(
-      text: const TextSpan(
+      text: TextSpan(
         text: 'Already have an account?',
-        style: TextStyle(
+        style: const TextStyle(
             color: AppColors.black,
             fontSize: AppFontSize.s18,
             height: AppSize.s1_5),
         children: <TextSpan>[
           TextSpan(
+            recognizer: TapGestureRecognizer()
+              ..onTap = () {
+                Future.delayed(Duration.zero, () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const LoginScreen()),
+                  );
+                });
+              },
             text: ' Login',
-            style: TextStyle(
+            style: const TextStyle(
               color: Colors.purple,
             ),
           ),
@@ -306,5 +319,9 @@ class _ReigsterScreen1State extends State<ReigsterScreen1>
         ),
       ),
     );
+  }
+
+  _navigateToLoginScreen(BuildContext context) {
+    Navigator.pushNamed(context, AppRoutesName.loginRoute);
   }
 }

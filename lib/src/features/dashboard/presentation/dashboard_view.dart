@@ -48,9 +48,11 @@ class _DashboardViewState extends State<DashboardView> {
           child: BottomNavigationBar(
             showSelectedLabels: false,
             showUnselectedLabels: false,
+            elevation: 1.5,
             selectedItemColor: AppColors.lightPrimary,
             unselectedItemColor: AppColors.grey,
             currentIndex: _currentIndex,
+            type: BottomNavigationBarType.fixed,
             onTap: onTap,
             items: [
               BottomNavigationBarItem(
@@ -60,7 +62,7 @@ class _DashboardViewState extends State<DashboardView> {
                   children: [
                     GradientIcon(
                       Icons.home_filled,
-                      24.0,
+                      26.0,
                       AppLinearGradientColors.iconBottomNavigation,
                     ),
                     SizedBox(
@@ -140,13 +142,22 @@ class _DashboardViewState extends State<DashboardView> {
             ],
           ),
         ),
-        floatingActionButton: const CircleAvatar(
-          radius: 30,
-          backgroundColor: AppColors.lightPrimary,
-          child: Icon(
-            Icons.fitness_center_outlined,
-            color: AppColors.white,
-            //size: AppSize.s24,
+        floatingActionButton: ElevatedButton(
+          onPressed: () {},
+          style: ElevatedButton.styleFrom(
+            shape: const CircleBorder(),
+          ),
+          child: Ink(
+            decoration: const BoxDecoration(
+              gradient: AppLinearGradientColors.mainColorButton,
+              borderRadius: BorderRadius.all(Radius.circular(60)),
+            ),
+            child: Container(
+              width: 60,
+              height: 60,
+              alignment: Alignment.center,
+              child: const Icon(Icons.fitness_center_outlined),
+            ),
           ),
         ),
         floatingActionButtonLocation:
