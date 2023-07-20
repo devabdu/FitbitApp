@@ -2,13 +2,19 @@ import 'package:fitbit/src/core/utils/app_colors.dart';
 import 'package:fitbit/src/core/utils/app_font.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class CustomTextButtonLarge extends StatelessWidget {
   final void Function()? onPressed;
   final String textButton;
-  const CustomTextButtonLarge({
+  double? width;
+  double? height;
+
+  CustomTextButtonLarge({
     super.key,
     required this.textButton,
     required this.onPressed,
+    this.width,
+    this.height,
   });
 
   @override
@@ -27,8 +33,8 @@ class CustomTextButtonLarge extends StatelessWidget {
           borderRadius: BorderRadius.all(Radius.circular(99)),
         ),
         child: Container(
-          width: 315,
-          height: 60,
+          width: width ?? 315,
+          height: height ?? 60,
           alignment: Alignment.center,
           child: Text(
             textButton,

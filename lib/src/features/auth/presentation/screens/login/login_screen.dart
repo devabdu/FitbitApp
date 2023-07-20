@@ -3,12 +3,9 @@ import 'package:fitbit/src/core/utils/app_colors.dart';
 import 'package:fitbit/src/core/utils/app_font.dart';
 import 'package:fitbit/src/core/utils/app_values.dart';
 import 'package:fitbit/src/features/auth/presentation/screens/register/register_screen1.dart';
-import 'package:fitbit/src/features/auth/presentation/screens/register/register_screen2.dart';
 import 'package:fitbit/src/features/auth/presentation/widgets/custom_form_field_text.dart';
 import 'package:fitbit/src/features/auth/presentation/widgets/custom_icon_button.dart';
 import 'package:fitbit/src/features/auth/presentation/widgets/custom_text_button_large.dart';
-import 'package:fitbit/src/features/dashboard/presentation/dashboard_view.dart';
-import 'package:fitbit/src/features/dashboard/presentation/screens/home_screen.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 

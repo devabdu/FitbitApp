@@ -9,7 +9,9 @@ environment:
 
 dependencies:
   auto_route: ^7.1.0
+  circular_countdown_timer: ^0.2.3
   cupertino_icons: ^1.0.2
+  data_tables: ^1.4.0
   equatable: ^2.0.5
   flutter:
     sdk: flutter
@@ -34,6 +36,7 @@ flutter:
     - assets/images/fit_boy3.png
     - assets/images/abs_workout_icon.png
     - assets/images/lower_workout_icon.png
+    - assets/images/finish_workout.png
 
   fonts:
     - family: Poppins

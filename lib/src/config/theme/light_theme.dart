@@ -19,11 +19,11 @@ ThemeData appLightTheme() {
     appBarTheme: AppBarTheme(
       centerTitle: true,
       color: AppColors.lightPrimary,
-      elevation: AppSize.s4,
+      elevation: AppSize.s0,
       shadowColor: AppColors.lightPrimary,
-      titleTextStyle: getRegularStyle(
-        fontSize: AppFontSize.s16,
-        color: AppColors.white,
+      titleTextStyle: getBoldStyle(
+        fontSize: AppFontSize.s18,
+        color: AppColors.title,
       ),
     ),
 

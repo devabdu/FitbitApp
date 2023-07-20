@@ -1,5 +1,6 @@
 import 'package:fitbit/src/core/utils/app_colors.dart';
 import 'package:fitbit/src/core/utils/app_font.dart';
+import 'package:fitbit/src/features/dashboard/presentation/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
@@ -35,19 +36,10 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   PreferredSizeWidget? _appBar() {
-    return AppBar(
+    return CustomAppBar(
       automaticallyImplyLeading: false,
-      backgroundColor: AppColors.background,
-      elevation: 0,
-      actions: [
-        IconButton(
-          onPressed: () {},
-          icon: const Icon(
-            Icons.notifications_none_outlined,
-            color: AppColors.black,
-          ),
-        ),
-      ],
+      onPressed: () {},
+      icon: Icons.notifications_none_outlined,
     );
   }
 

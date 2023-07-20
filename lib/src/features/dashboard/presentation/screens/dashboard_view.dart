@@ -1,9 +1,10 @@
+import 'package:fitbit/src/config/routes/app_routes.dart';
 import 'package:fitbit/src/core/utils/app_colors.dart';
 import 'package:fitbit/src/core/utils/app_values.dart';
-import 'package:fitbit/src/features/dashboard/presentation/screens/home_screen.dart';
-import 'package:fitbit/src/features/dashboard/presentation/screens/notification_screen.dart';
-import 'package:fitbit/src/features/dashboard/presentation/screens/profile_screen.dart';
-import 'package:fitbit/src/features/dashboard/presentation/screens/workouts_screen.dart';
+import 'package:fitbit/src/features/dashboard/presentation/screens/dashboard/home_screen.dart';
+import 'package:fitbit/src/features/dashboard/presentation/screens/dashboard/notification_screen.dart';
+import 'package:fitbit/src/features/dashboard/presentation/screens/dashboard/profile_screen.dart';
+import 'package:fitbit/src/features/dashboard/presentation/screens/dashboard/history_workouts_screen.dart';
 import 'package:fitbit/src/features/dashboard/presentation/widgets/gradient_icon.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +19,7 @@ class _DashboardViewState extends State<DashboardView> {
   List<Widget> screens = [
     const HomeScreen(),
     const NotificationScreen(),
-    const WorkoutsScreen(),
+    HistoryWorkoutsScreen(),
     const ProfileScreen(),
   ];
 
@@ -143,7 +144,9 @@ class _DashboardViewState extends State<DashboardView> {
           ),
         ),
         floatingActionButton: ElevatedButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, AppRoutesName.workouts_1Route);
+          },
           style: ElevatedButton.styleFrom(
             shape: const CircleBorder(),
           ),
