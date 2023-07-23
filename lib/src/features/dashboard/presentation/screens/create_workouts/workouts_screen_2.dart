@@ -32,19 +32,20 @@ class _WorkoutsScreen2State extends State<WorkoutsScreen2> {
   final List<int> reps = [12, 10, 8];
   final List<double> weights = [15, 17.5, 20];
 
-  final List<ExercisesData> _exerciseData = [
-    ExercisesData(sets: 1, reps: 12, weights: 15),
-    ExercisesData(sets: 2, reps: 10, weights: 17.5),
-    ExercisesData(sets: 3, reps: 8, weights: 20),
-  ];
+  // final List<ExercisesData> _exerciseData = [
+  //   ExercisesData(sets: 1, reps: 12, weights: 15),
+  //   ExercisesData(sets: 2, reps: 10, weights: 17.5),
+  //   ExercisesData(sets: 3, reps: 8, weights: 20),
+  // ];
+
   bool isPressed = false;
   bool isShowDataOfExercies = false;
 
-  final List<Map<String, dynamic>> _data = [
-    {'sets': 1, 'reps': 12, 'weights': 15},
-    {'sets': 2, 'reps': 10, 'weights': 17.5},
-    {'sets': 3, 'reps': 8, 'weights': 20},
-  ];
+  // final List<Map<String, dynamic>> _data = [
+  //   {'sets': 1, 'reps': 12, 'weights': 15},
+  //   {'sets': 2, 'reps': 10, 'weights': 17.5},
+  //   {'sets': 3, 'reps': 8, 'weights': 20},
+  // ];
 
   PreferredSizeWidget? _buildAppBar(BuildContext context) {
     return CustomAppBar(
