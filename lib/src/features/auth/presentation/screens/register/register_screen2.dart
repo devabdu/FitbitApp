@@ -1,4 +1,5 @@
 import 'package:fitbit/src/config/routes/app_routes.dart';
+import 'package:fitbit/src/core/utils/app_strings.dart';
 import 'package:fitbit/src/features/auth/presentation/widgets/custom_form_field_text.dart';
 import 'package:fitbit/src/features/auth/presentation/widgets/custom_text_button_large.dart';
 import 'package:fitbit/src/features/auth/presentation/widgets/custom_text_button_small.dart';
@@ -44,8 +45,8 @@ class _RegisterScreen2State extends State<RegisterScreen2> {
 
   Widget _buildCenterText() {
     return const CustomTitleAndSubtitle(
-      title: "Let's complete your profile",
-      subTitle: 'It will help us to know more about you!',
+      title: AppStrings.letsCompleteProfile,
+      subTitle: AppStrings.itWillhelpUsToKnowAboutYOu,
     );
   }
 
@@ -54,8 +55,8 @@ class _RegisterScreen2State extends State<RegisterScreen2> {
       textEditingController: TextEditingController(text: _selectedValue),
       keyBoardType: TextInputType.text,
       prefixIcon: const Icon(Icons.people_outline),
-      hintText: 'Choose Gender',
-      labelText: 'Choose Gender',
+      hintText: AppStrings.chooseGender,
+      labelText: AppStrings.chooseGender,
       suffixIcon: PopupMenuButton<String>(
         icon: const Icon(Icons.keyboard_arrow_down),
         itemBuilder: (BuildContext context) => _popupItems,
@@ -77,15 +78,15 @@ class _RegisterScreen2State extends State<RegisterScreen2> {
           child: CustomTextFormField(
             textEditingController: weightController,
             keyBoardType: TextInputType.number,
-            hintText: 'Your Weight',
-            labelText: 'Your Weight',
+            hintText: AppStrings.yourWeight,
+            labelText: AppStrings.yourWeight,
             prefixIcon: const Icon(Icons.monitor_weight_outlined),
           ),
         ),
         const Spacer(),
         const Expanded(
           flex: 2,
-          child: CustomTextButtonSmall(title: 'KG'),
+          child: CustomTextButtonSmall(title: AppStrings.kg),
         ),
       ],
     );
@@ -100,15 +101,15 @@ class _RegisterScreen2State extends State<RegisterScreen2> {
           child: CustomTextFormField(
             textEditingController: heightController,
             keyBoardType: TextInputType.number,
-            hintText: 'Your Height',
-            labelText: 'Your Height',
+            hintText: AppStrings.yourHeight,
+            labelText: AppStrings.yourHeight,
             prefixIcon: const Icon(Icons.import_export_outlined),
           ),
         ),
         const Spacer(),
         const Expanded(
           flex: 2,
-          child: CustomTextButtonSmall(title: 'CM'),
+          child: CustomTextButtonSmall(title: AppStrings.cm),
         ),
       ],
     );
@@ -119,7 +120,7 @@ class _RegisterScreen2State extends State<RegisterScreen2> {
       onPressed: () {
         Navigator.pushNamed(context, AppRoutesName.successRegisterationRoute);
       },
-      textButton: 'Next >',
+      textButton: AppStrings.next,
     );
   }
 

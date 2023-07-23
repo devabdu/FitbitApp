@@ -1,5 +1,6 @@
 import 'package:fitbit/src/config/routes/app_routes.dart';
 import 'package:fitbit/src/core/utils/app_colors.dart';
+import 'package:fitbit/src/core/utils/app_strings.dart';
 import 'package:fitbit/src/core/utils/app_values.dart';
 import 'package:fitbit/src/features/auth/presentation/widgets/custom_text_button_large.dart';
 import 'package:fitbit/src/features/dashboard/presentation/screens/create_workouts/workouts_screen_1.dart';
@@ -50,7 +51,7 @@ class _WorkoutsScreen2State extends State<WorkoutsScreen2> {
   PreferredSizeWidget? _buildAppBar(BuildContext context) {
     return CustomAppBar(
       title: const Text(
-        'Leg Day',
+        AppStrings.legDay,
       ),
       onPressed: () {},
       icon: Icons.more_horiz_outlined,
@@ -62,11 +63,12 @@ class _WorkoutsScreen2State extends State<WorkoutsScreen2> {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
-          'Add Exercises to the leg day',
+          AppPharses()
+              .phraseConstruction(AppStrings.addExercies, AppStrings.legDay),
           style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 16),
         ),
         CustomTextButtonLarge(
-          textButton: 'Add',
+          textButton: AppStrings.add,
           width: 80,
           height: 40,
           onPressed: () {
@@ -144,11 +146,11 @@ class _WorkoutsScreen2State extends State<WorkoutsScreen2> {
             padding: EdgeInsets.only(left: 10),
             child: Row(
               children: [
-                Text('Sets'),
+                Text(AppStrings.sets),
                 SizedBox(width: 75),
-                Text('Reps'),
+                Text(AppStrings.reps),
                 SizedBox(width: 70),
-                Text('Weights'),
+                Text(AppStrings.weights),
               ],
             ),
           ),
@@ -189,7 +191,7 @@ class _WorkoutsScreen2State extends State<WorkoutsScreen2> {
 
   Widget _buildRestButton(BuildContext context) {
     return CustomTextButtonLarge(
-      textButton: 'Rest',
+      textButton: AppStrings.rest,
       onPressed: () {
         Navigator.pushNamed(context, AppRoutesName.workouts_3Route);
       },
@@ -198,7 +200,7 @@ class _WorkoutsScreen2State extends State<WorkoutsScreen2> {
 
   Widget _buildDoneButton(BuildContext context) {
     return CustomTextButtonLarge(
-      textButton: 'Done',
+      textButton: AppStrings.done,
       onPressed: () {
         Navigator.pushNamed(context, AppRoutesName.workouts_4Route);
       },
@@ -209,7 +211,6 @@ class _WorkoutsScreen2State extends State<WorkoutsScreen2> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _buildAppBar(context),
-
       body: Stack(
         children: [
           Padding(
@@ -221,43 +222,6 @@ class _WorkoutsScreen2State extends State<WorkoutsScreen2> {
                 Flexible(
                   child: Container(child: _buildAddExerciseToListView()),
                 ),
-                // // Row(
-                // //   children: [
-                // //     Expanded(
-                // //       child: ListView.builder(
-                // //           shrinkWrap: true,
-                // //           scrollDirection: Axis.vertical,
-                // //           itemCount: sets.length,
-                // //           itemBuilder: (BuildContext context, int index) {
-                // //             return ListTile(
-                // //               title: Text(sets[index].toString()),
-                // //             );
-                // //           }),
-                // //     ),
-                // //     Expanded(
-                // //       child: ListView.builder(
-                // //           shrinkWrap: true,
-                // //           scrollDirection: Axis.vertical,
-                // //           itemCount: reps.length,
-                // //           itemBuilder: (BuildContext context, int index) {
-                // //             return ListTile(
-                // //               title: Text(reps[index].toString()),
-                // //             );
-                // //           }),
-                // //     ),
-                // //     Expanded(
-                // //       child: ListView.builder(
-                // //           shrinkWrap: true,
-                // //           scrollDirection: Axis.vertical,
-                // //           itemCount: weights.length,
-                // //           itemBuilder: (BuildContext context, int index) {
-                // //             return ListTile(
-                // //               title: Text('${weights[index]} Kg'),
-                // //             );
-                // //           }),
-                // //     ),
-                // //   ],
-                // // ),
               ],
             ),
           ),
@@ -275,38 +239,6 @@ class _WorkoutsScreen2State extends State<WorkoutsScreen2> {
           ),
         ],
       ),
-
-      // body: Stack(
-      //   children: [
-      //     Padding(
-      //       padding: const EdgeInsets.symmetric(
-      //           horizontal: AppPadding.p24, vertical: AppPadding.p32),
-      //       child: Column(
-      //         children: [
-      //           _buildAddExerciseTextAndButton(context),
-      //           CustomScrollView(slivers: [
-      //             SliverList(
-      //               delegate: SliverChildBuilderDelegate(
-      //                 (context, index) {
-      //                   return ListTile(
-      //                     title: Text(sets[index].toString()),
-      //                   );
-      //                 },
-      //                 childCount: sets.length,
-      //               ),
-      //             ),
-      //           ]),
-      //         ],
-      //       ),
-      //     ),
-      //     Positioned(
-      //       bottom: 60.0,
-      //       right: 40,
-      //       left: 40,
-      //       child: _buildDoneButton(context),
-      //     ),
-      //   ],
-      // ),
     );
   }
 
@@ -330,7 +262,7 @@ class _WorkoutsScreen2State extends State<WorkoutsScreen2> {
                 children: <Widget>[
                   CustomTextField(
                     textEditingController: _exerciseController,
-                    textSection: 'Exercise Name',
+                    textSection: AppStrings.exeeciseName,
                     onChangedTextField: (exercise) => newItem = exercise,
                     selections: _exercicesAdd,
                     choices: _exerciseChoices,
@@ -343,7 +275,7 @@ class _WorkoutsScreen2State extends State<WorkoutsScreen2> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       CustomTextButtonLarge(
-                        textButton: 'Save',
+                        textButton: AppStrings.save,
                         width: 80,
                         height: 40,
                         onPressed: () {
@@ -355,7 +287,7 @@ class _WorkoutsScreen2State extends State<WorkoutsScreen2> {
                         },
                       ),
                       CustomTextButtonLarge(
-                        textButton: 'Cancel',
+                        textButton: AppStrings.cancel,
                         width: 80,
                         height: 40,
                         onPressed: () {
@@ -372,44 +304,4 @@ class _WorkoutsScreen2State extends State<WorkoutsScreen2> {
       },
     );
   }
-}
-
-class ExercisesData {
-  final int sets;
-  final int reps;
-  final double weights;
-
-  ExercisesData(
-      {required this.sets, required this.reps, required this.weights});
-}
-
-class _MyDataSource extends DataTableSource {
-  final List<Map<String, dynamic>> _data;
-
-  _MyDataSource(this._data);
-
-  @override
-  DataRow? getRow(int index) {
-    if (index >= _data.length) {
-      return null;
-    }
-    final row = _data[index];
-    return DataRow.byIndex(
-      index: index,
-      cells: [
-        DataCell(Text(row['sets'].toString())),
-        DataCell(Text(row['reps'].toString())),
-        DataCell(Text(row['weights'].toString())),
-      ],
-    );
-  }
-
-  @override
-  bool get isRowCountApproximate => false;
-
-  @override
-  int get rowCount => _data.length;
-
-  @override
-  int get selectedRowCount => 0;
 }

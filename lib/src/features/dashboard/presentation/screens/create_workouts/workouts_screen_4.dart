@@ -1,5 +1,6 @@
 import 'package:fitbit/src/config/routes/app_routes.dart';
 import 'package:fitbit/src/core/utils/app_font.dart';
+import 'package:fitbit/src/core/utils/app_strings.dart';
 import 'package:fitbit/src/core/utils/app_values.dart';
 import 'package:fitbit/src/features/auth/presentation/widgets/custom_text_button_large.dart';
 import 'package:fitbit/src/features/auth/presentation/widgets/custom_title_and_subtitle.dart';
@@ -25,11 +26,11 @@ class WorkoutsScreen4 extends StatelessWidget {
 
   Widget _buildCenterText() {
     return const CustomTitleAndSubtitle(
-      title: "Congratulations",
+      title: AppStrings.congratulations,
       fontSizeTitle: AppFontSize.s30,
 
       //paddingHorizontalOfSubTitle: 60,
-      subTitle: 'you have finished your Workout',
+      subTitle: AppStrings.youHaveFinishedYourWorkouts,
       fontSizeSubTitle: AppFontSize.s16,
     );
   }
@@ -39,7 +40,7 @@ class WorkoutsScreen4 extends StatelessWidget {
       onPressed: () {
         Navigator.pushNamed(context, AppRoutesName.dashboardRoute);
       },
-      textButton: 'Go To Home',
+      textButton: AppStrings.goToHome,
     );
   }
 

@@ -1,6 +1,7 @@
 import 'package:fitbit/src/config/routes/app_routes.dart';
 import 'package:fitbit/src/core/utils/app_colors.dart';
 import 'package:fitbit/src/core/utils/app_font.dart';
+import 'package:fitbit/src/core/utils/app_strings.dart';
 import 'package:fitbit/src/core/utils/app_values.dart';
 import 'package:fitbit/src/features/auth/presentation/screens/register/register_screen1.dart';
 import 'package:fitbit/src/features/auth/presentation/widgets/custom_form_field_text.dart';
@@ -29,16 +30,16 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Widget _buildEmailTextFormFiled(BuildContext context) {
     return CustomTextFormField(
-      textEditingController: _emailController,
-      keyBoardType: TextInputType.emailAddress,
-      prefixIcon: const Icon(
-        Icons.email_outlined,
-        color: AppColors.grey1,
-      ),
-      hintText: 'Email',
-      labelText: 'Email',
-      //errorText: 'Error',
-    );
+        textEditingController: _emailController,
+        keyBoardType: TextInputType.emailAddress,
+        prefixIcon: const Icon(
+          Icons.email_outlined,
+          color: AppColors.grey1,
+        ),
+        hintText: AppStrings.email,
+        labelText: AppStrings.email
+        //errorText: 'Error',
+        );
   }
 
   Widget _buildLoginButton(BuildContext context) {
@@ -46,7 +47,7 @@ class _LoginScreenState extends State<LoginScreen> {
       onPressed: () {
         Navigator.pushNamed(context, AppRoutesName.dashboardRoute);
       },
-      textButton: 'Login',
+      textButton: AppStrings.login,
     );
   }
 
@@ -60,7 +61,7 @@ class _LoginScreenState extends State<LoginScreen> {
           color: Colors.grey,
         ),
         Text(
-          'Or',
+          AppStrings.or,
           style: Theme.of(context).textTheme.titleSmall,
         ),
         Container(
@@ -92,22 +93,13 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget _buildDoNotHaveAccount(context) {
     return RichText(
       text: TextSpan(
-        text: 'Don\'t have an account?',
+        text: AppStrings.dontHaveAccount,
         style: const TextStyle(
             color: AppColors.black,
             fontSize: AppFontSize.s18,
             height: AppSize.s1_5),
         children: [
           TextSpan(
-            // recognizer: TapGestureRecognizer()
-            //   ..onTap = () {
-            //     Future.delayed(Duration.zero).then((_) {
-            //       setState(() {
-            //         Navigator.pushNamed(
-            //             context, AppRoutesName.register_1Route);
-            //       });
-            //     });
-            //   },
             recognizer: TapGestureRecognizer()
               ..onTap = () {
                 Future.delayed(Duration.zero, () {
@@ -118,7 +110,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   );
                 });
               },
-            text: ' Register',
+            text: AppStrings.register,
             style: const TextStyle(
               color: Colors.purple,
             ),

@@ -1,5 +1,6 @@
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:fitbit/src/core/utils/app_colors.dart';
+import 'package:fitbit/src/core/utils/app_strings.dart';
 import 'package:fitbit/src/core/utils/app_values.dart';
 import 'package:fitbit/src/features/dashboard/presentation/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +18,7 @@ class _WorkoutsScreen3State extends State<WorkoutsScreen3> {
   PreferredSizeWidget? _buildAppBar() {
     return CustomAppBar(
       title: const Text(
-        'Leg Day',
+        AppStrings.legDay,
       ),
       onPressed: () {},
       icon: Icons.more_horiz_outlined,
@@ -83,7 +84,7 @@ class _WorkoutsScreen3State extends State<WorkoutsScreen3> {
                         ),
                       ),
                     ),
-                    const Text('Pause'),
+                    const Text(AppStrings.pause),
                   ],
                 ),
                 Column(
@@ -103,7 +104,7 @@ class _WorkoutsScreen3State extends State<WorkoutsScreen3> {
                         ),
                       ),
                     ),
-                    const Text('Start'),
+                    const Text(AppStrings.start),
                   ],
                 ),
                 Column(
@@ -123,7 +124,7 @@ class _WorkoutsScreen3State extends State<WorkoutsScreen3> {
                         ),
                       ),
                     ),
-                    const Text('Reset'),
+                    const Text(AppStrings.reset),
                   ],
                 ),
               ],

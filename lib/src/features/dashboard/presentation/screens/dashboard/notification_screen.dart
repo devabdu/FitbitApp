@@ -1,3 +1,4 @@
+import 'package:fitbit/src/core/utils/app_strings.dart';
 import 'package:flutter/material.dart';
 
 class NotificationScreen extends StatelessWidget {
@@ -6,7 +7,7 @@ class NotificationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: Center(child: Text('Notification Screen')),
+      body: Center(child: Text(AppStrings.notificationScreen)),
     );
   }
 }

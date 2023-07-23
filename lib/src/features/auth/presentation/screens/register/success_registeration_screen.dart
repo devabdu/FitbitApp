@@ -1,4 +1,5 @@
 import 'package:fitbit/src/config/routes/app_routes.dart';
+import 'package:fitbit/src/core/utils/app_strings.dart';
 import 'package:fitbit/src/features/auth/presentation/widgets/custom_text_button_large.dart';
 import 'package:fitbit/src/features/auth/presentation/widgets/custom_title_and_subtitle.dart';
 import 'package:flutter/material.dart';
@@ -16,9 +17,9 @@ class SuccessRegisterationScreen extends StatelessWidget {
 
   Widget _buildCenterText() {
     return const CustomTitleAndSubtitle(
-      title: "Welcome, Jack",
+      title: AppStrings.welcome,
       paddingHorizontalOfSubTitle: 50,
-      subTitle: 'You are all set now, let\'s reach your goals together with us',
+      subTitle: AppStrings.youAreAllSet,
     );
   }
 
@@ -27,7 +28,7 @@ class SuccessRegisterationScreen extends StatelessWidget {
       onPressed: () {
         Navigator.pushNamed(context, AppRoutesName.dashboardRoute);
       },
-      textButton: 'Go To Home',
+      textButton: AppStrings.goToHome,
     );
   }
 

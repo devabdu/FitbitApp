@@ -1,5 +1,6 @@
 import 'package:fitbit/src/config/routes/app_routes.dart';
 import 'package:fitbit/src/core/utils/app_colors.dart';
+import 'package:fitbit/src/core/utils/app_strings.dart';
 import 'package:flutter/material.dart';
 
 class OnBoardingScreen2 extends StatelessWidget {
@@ -44,14 +45,15 @@ class OnBoardingScreen2 extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Track Your Goal',
+                      AppStrings.trackYourGoal,
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
                     const SizedBox(
                       height: 10,
                     ),
                     Text(
-                      "Don't worry if you have trouble determining your goals, We can help you determine your goals and track your goals",
+                      AppPharses().phraseConstruction(
+                          AppStrings.dontHaveAccount, AppStrings.weCanHelpYou),
                       style: Theme.of(context).textTheme.titleMedium,
                     ),
                   ]),

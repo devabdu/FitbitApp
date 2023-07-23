@@ -1,6 +1,7 @@
 import 'package:fitbit/src/config/routes/app_routes.dart';
 import 'package:fitbit/src/core/utils/app_colors.dart';
 import 'package:fitbit/src/core/utils/app_font.dart';
+import 'package:fitbit/src/core/utils/app_strings.dart';
 import 'package:fitbit/src/core/utils/app_values.dart';
 import 'package:fitbit/src/features/auth/presentation/screens/login/login_screen.dart';
 import 'package:fitbit/src/features/auth/presentation/widgets/custom_form_field_text.dart';
@@ -44,14 +45,14 @@ class _ReigsterScreen1State extends State<ReigsterScreen1>
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
-          'Hey there,',
+          AppStrings.heyThere,
           style: Theme.of(context)
               .textTheme
               .titleMedium!
               .copyWith(color: AppColors.title),
         ),
         Text(
-          'Create an Account',
+          AppStrings.createAccount,
           style: Theme.of(context).textTheme.bodyLarge,
         ),
       ],
@@ -63,8 +64,8 @@ class _ReigsterScreen1State extends State<ReigsterScreen1>
       textEditingController: _firstNameController,
       keyBoardType: TextInputType.name,
       prefixIcon: const Icon(Icons.person_outlined, color: AppColors.grey1),
-      hintText: 'First Name',
-      labelText: 'First Name',
+      hintText: AppStrings.firstName,
+      labelText: AppStrings.firstName,
     );
   }
 
@@ -76,8 +77,8 @@ class _ReigsterScreen1State extends State<ReigsterScreen1>
         Icons.email_outlined,
         color: AppColors.grey1,
       ),
-      hintText: 'Email',
-      labelText: 'Email',
+      hintText: AppStrings.email,
+      labelText: AppStrings.email,
       //errorText: 'Error',
     );
   }
@@ -96,7 +97,7 @@ class _ReigsterScreen1State extends State<ReigsterScreen1>
         ),
         Expanded(
           child: Text(
-            'By continuing you accept our Privacy Policy and Term of Use',
+            AppStrings.acceptOurPrivacyPolicyAndTerms,
             //overflow: TextOverflow.ellipsis,
             maxLines: 2,
             style: Theme.of(context).textTheme.titleMedium!.copyWith(
@@ -114,50 +115,8 @@ class _ReigsterScreen1State extends State<ReigsterScreen1>
       onPressed: () {
         Navigator.pushNamed(context, AppRoutesName.register_2Route);
       },
-      textButton: 'Register',
+      textButton: AppStrings.register,
     );
-    // return ElevatedButton(
-    //   onPressed: () {
-    //     /// todo navigate
-    //     // Navigator.pushNamed(context, AppRoutesName.onBoarding_2Route);
-    //   },
-    //   style: ElevatedButton.styleFrom(
-    //     shape: const RoundedRectangleBorder(
-    //       borderRadius: BorderRadius.all(Radius.circular(99)),
-    //     ),
-    //     padding: const EdgeInsets.all(0),
-    //   ),
-    //   child: Ink(
-    //     decoration: const BoxDecoration(
-    //       gradient: LinearGradient(
-    //         begin: Alignment.topLeft,
-    //         end: Alignment.bottomRight,
-    //         colors: [
-    //           AppColors.darkPrimary,
-    //           AppColors.lightPrimary,
-    //         ],
-    //         stops: [
-    //           0.0,
-    //           1.0,
-    //         ],
-    //       ),
-    //       borderRadius: BorderRadius.all(Radius.circular(99)),
-    //     ),
-    //     child: Container(
-    //       width: 315,
-    //       height: 60,
-    //       alignment: Alignment.center,
-    //       child: const Text(
-    //         'Register',
-    //         style: TextStyle(
-    //           color: Colors.white,
-    //           fontSize: AppFontSize.s18,
-    //           fontWeight: FontWeight.bold,
-    //         ),
-    //       ),
-    //     ),
-    //   ),
-    // );
   }
 
   Widget _buildOrDivider(BuildContext context) {
@@ -170,7 +129,7 @@ class _ReigsterScreen1State extends State<ReigsterScreen1>
           color: Colors.grey,
         ),
         Text(
-          'Or',
+          AppStrings.or,
           style: Theme.of(context).textTheme.titleSmall,
         ),
         Container(
@@ -189,58 +148,12 @@ class _ReigsterScreen1State extends State<ReigsterScreen1>
         CustomIconButton(
           assetImage: 'assets/images/gmail_icon.svg',
         ),
-        // GestureDetector(
-        //   onTap: () {},
-        //   child: Container(
-        //     width: 50,
-        //     height: 50,
-        //     decoration: BoxDecoration(
-        //       border: Border.all(
-        //         //width: 0.8,
-        //         color: AppColors.grey3,
-        //       ),
-        //       borderRadius: const BorderRadius.all(
-        //         Radius.circular(14),
-        //       ),
-        //     ),
-        //     child: Padding(
-        //       padding: const EdgeInsets.all(10.0),
-        //       child: SvgPicture.asset(
-        //         'assets/images/gmail_icon.svg',
-        //         fit: BoxFit.scaleDown,
-        //       ),
-        //     ),
-        //   ),
-        // ),
         SizedBox(
           width: 30,
         ),
         CustomIconButton(
           assetImage: 'assets/images/facebook_icon.svg',
         ),
-        // GestureDetector(
-        //   onTap: () {},
-        //   child: Container(
-        //     width: 50,
-        //     height: 50,
-        //     decoration: BoxDecoration(
-        //       border: Border.all(
-        //         width: 0.8,
-        //         color: AppColors.grey3,
-        //       ),
-        //       borderRadius: const BorderRadius.all(
-        //         Radius.circular(14),
-        //       ),
-        //     ),
-        //     child: Padding(
-        //       padding: const EdgeInsets.all(10.0),
-        //       child: SvgPicture.asset(
-        //         'assets/images/facebook_icon.svg',
-        //         fit: BoxFit.scaleDown,
-        //       ),
-        //     ),
-        //   ),
-        // ),
       ],
     );
   }
@@ -248,7 +161,7 @@ class _ReigsterScreen1State extends State<ReigsterScreen1>
   Widget _buildAlreadyHaveAccount(context) {
     return RichText(
       text: TextSpan(
-        text: 'Already have an account?',
+        text: AppStrings.alreadyHaveAccount,
         style: const TextStyle(
             color: AppColors.black,
             fontSize: AppFontSize.s18,
@@ -265,7 +178,7 @@ class _ReigsterScreen1State extends State<ReigsterScreen1>
                   );
                 });
               },
-            text: ' Login',
+            text: AppStrings.login,
             style: const TextStyle(
               color: Colors.purple,
             ),

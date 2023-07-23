@@ -1,5 +1,6 @@
 import 'package:fitbit/src/config/routes/app_routes.dart';
 import 'package:fitbit/src/core/utils/app_colors.dart';
+import 'package:fitbit/src/core/utils/app_strings.dart';
 import 'package:fitbit/src/core/utils/app_values.dart';
 import 'package:fitbit/src/features/dashboard/presentation/screens/dashboard/home_screen.dart';
 import 'package:fitbit/src/features/dashboard/presentation/screens/dashboard/notification_screen.dart';
@@ -24,13 +25,13 @@ class _DashboardViewState extends State<DashboardView> {
   ];
 
   List<String> titles = [
-    'home',
-    'notification',
-    'workouts',
-    'profile',
+    AppStrings.home,
+    AppStrings.notification,
+    AppStrings.workouts,
+    AppStrings.profile,
   ];
 
-  var _title = 'home';
+  var _title = AppStrings.home;
   var _currentIndex = 0;
 
   @override

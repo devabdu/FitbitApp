@@ -82,7 +82,7 @@ class AppRoutesGenerator {
         );
       case AppRoutesName.workouts_4Route:
         return MaterialPageRoute(
-          builder: (_) => WorkoutsScreen4(),
+          builder: (_) => const WorkoutsScreen4(),
         );
       case AppRoutesName.historyWorkoutsRoute:
         return MaterialPageRoute(

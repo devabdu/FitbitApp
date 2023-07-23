@@ -1,5 +1,6 @@
 import 'package:fitbit/src/core/utils/app_colors.dart';
 import 'package:fitbit/src/core/utils/app_font.dart';
+import 'package:fitbit/src/core/utils/app_strings.dart';
 import 'package:fitbit/src/features/dashboard/presentation/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
@@ -48,13 +49,13 @@ class _HomeScreenState extends State<HomeScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Welcome Back,',
+          AppStrings.welcomeBack,
           style: Theme.of(context).textTheme.titleSmall!.copyWith(
                 color: AppColors.grey2,
               ),
         ),
         Text(
-          'Jack',
+          AppStrings.userName,
           style: Theme.of(context).textTheme.titleLarge!.copyWith(
                 fontSize: AppFontSize.s22,
                 color: AppColors.title,
@@ -69,7 +70,7 @@ class _HomeScreenState extends State<HomeScreen> {
       margin: const EdgeInsets.only(top: 12),
       plotAreaBorderWidth: 0,
       title: ChartTitle(
-        text: 'Workout Progress',
+        text: AppStrings.workoutProgress,
         textStyle: Theme.of(context)
             .textTheme
             .displayLarge!
@@ -96,7 +97,7 @@ class _HomeScreenState extends State<HomeScreen> {
           //xValueMapper: (_WorkoutsProgress workouts, _) => workouts.day,
           xValueMapper: (_WorkoutsProgress workouts, _) => workouts.day,
           yValueMapper: (_WorkoutsProgress workouts, _) => workouts.progress,
-          name: 'Last Week',
+          name: AppStrings.lastWeek,
           color: AppColors.grey3,
           // Enable data label
           // dataLabelSettings: const DataLabelSettings(isVisible: true),
@@ -107,7 +108,7 @@ class _HomeScreenState extends State<HomeScreen> {
           //xValueMapper: (_WorkoutsProgress workouts, _) => workouts.day,
           xValueMapper: (_WorkoutsProgress workouts, _) => workouts.day,
           yValueMapper: (_WorkoutsProgress workouts, _) => workouts.progress,
-          name: 'This Week',
+          name: AppStrings.thisWeek,
           color: AppColors.iconBottomNavigation2,
           width: 3,
           animationDuration: 1,
@@ -169,7 +170,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    _selectedValue ?? 'Weekly',
+                    _selectedValue ?? AppStrings.weekly,
                     style: Theme.of(context).textTheme.titleMedium!.copyWith(
                         fontSize: AppFontSize.s12, color: AppColors.white),
                   ),
@@ -197,7 +198,7 @@ class _HomeScreenState extends State<HomeScreen> {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
-          'Latest Workout',
+          AppStrings.latestWorkout,
           style: Theme.of(context)
               .textTheme
               .displayLarge!
@@ -212,7 +213,7 @@ class _HomeScreenState extends State<HomeScreen> {
             overlayColor: MaterialStateProperty.all(AppColors.lightPrimary),
           ),
           child: Text(
-            'See more',
+            AppStrings.seeMore,
             style: Theme.of(context).textTheme.titleSmall!.copyWith(
                   color: AppColors.grey2,
                 ),
@@ -228,14 +229,14 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           ListTile(
             title: Text(
-              'Fullbody Workout',
+              AppStrings.fullbodyWorkout,
               style: Theme.of(context)
                   .textTheme
                   .labelSmall!
                   .copyWith(color: AppColors.title, fontSize: AppFontSize.s14),
             ),
             subtitle: const Text(
-              '180 Calories Burn | 20minutes',
+              AppStrings.burnCaloriesInTwentyMins,
             ),
             leading: const SizedBox(
               width: 50,
@@ -262,13 +263,13 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           ListTile(
             title: Text(
-              'Lowerbody Workout',
+              AppStrings.loweBodyWorkout,
               style: Theme.of(context)
                   .textTheme
                   .labelSmall!
                   .copyWith(color: AppColors.title, fontSize: AppFontSize.s14),
             ),
-            subtitle: const Text('200 Calories Burn | 30minutes'),
+            subtitle: const Text(AppStrings.burnCaloriesInThrityMins),
             leading: const SizedBox(
               width: 50,
               height: 50,
@@ -294,13 +295,13 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           ListTile(
             title: Text(
-              'Ab Workout',
+              AppStrings.abWorkout,
               style: Theme.of(context)
                   .textTheme
                   .labelSmall!
                   .copyWith(color: AppColors.title, fontSize: AppFontSize.s14),
             ),
-            subtitle: const Text('180 Calories Burn | 20minutes'),
+            subtitle: const Text(AppStrings.burnCaloriesInTwentyMins),
             leading: const SizedBox(
               width: 50,
               height: 50,
@@ -326,15 +327,13 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           ListTile(
             title: Text(
-              'Fullbody Workout',
+              AppStrings.fullbodyWorkout,
               style: Theme.of(context)
                   .textTheme
                   .labelSmall!
                   .copyWith(color: AppColors.title, fontSize: AppFontSize.s14),
             ),
-            subtitle: const Text(
-              '180 Calories Burn | 20minutes',
-            ),
+            subtitle: const Text(AppStrings.burnCaloriesInTwentyMins),
             leading: const SizedBox(
               width: 50,
               height: 50,

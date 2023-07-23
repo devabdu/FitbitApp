@@ -1,5 +1,6 @@
 import 'package:fitbit/src/config/routes/app_routes.dart';
 import 'package:fitbit/src/core/utils/app_colors.dart';
+import 'package:fitbit/src/core/utils/app_strings.dart';
 import 'package:fitbit/src/core/utils/app_values.dart';
 import 'package:fitbit/src/features/auth/presentation/widgets/custom_text_button_large.dart';
 import 'package:fitbit/src/features/dashboard/presentation/widgets/custom_app_bar.dart';
@@ -39,7 +40,7 @@ class WorkoutsScreen1 extends StatelessWidget {
   PreferredSizeWidget? _buildAppBar(BuildContext context) {
     return CustomAppBar(
       title: const Text(
-        'Create Workout',
+        AppStrings.createWorkout,
       ),
       onPressed: () {},
       icon: Icons.more_horiz_outlined,
@@ -49,7 +50,7 @@ class WorkoutsScreen1 extends StatelessWidget {
   Widget _buildWorkoutNameSection(BuildContext context) {
     return CustomTextField(
       textEditingController: _workoutNameController,
-      textSection: 'Workout Name',
+      textSection: AppStrings.workoutName,
       choices: _workoutsChoices,
     );
   }
@@ -57,14 +58,14 @@ class WorkoutsScreen1 extends StatelessWidget {
   Widget _buildWorkoutDaySection(BuildContext context) {
     return CustomTextField(
       textEditingController: _workoutDayController,
-      textSection: 'Day of the week',
+      textSection: AppStrings.dayOfTheWeek,
       choices: _dayChoices,
     );
   }
 
   Widget _buildNextButton(BuildContext context) {
     return CustomTextButtonLarge(
-      textButton: 'Next',
+      textButton: AppStrings.next,
       onPressed: () {
         Navigator.pushNamed(context, AppRoutesName.workouts_2Route);
       },

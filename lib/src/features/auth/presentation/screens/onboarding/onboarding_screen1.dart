@@ -35,49 +35,8 @@ class OnBoardingScreen1 extends StatelessWidget {
             onPressed: () {
               Navigator.pushNamed(context, AppRoutesName.onBoarding_2Route);
             },
-            textButton: 'Get Started',
+            textButton: AppStrings.getStarted,
           ),
-          // ElevatedButton(
-          //   onPressed: () {
-          //     Navigator.pushNamed(context, AppRoutesName.onBoarding_2Route);
-          //   },
-          //   style: ElevatedButton.styleFrom(
-          //     shape: const RoundedRectangleBorder(
-          //       borderRadius: BorderRadius.all(Radius.circular(15)),
-          //     ),
-          //     padding: const EdgeInsets.all(0),
-          //   ),
-          //   child: Ink(
-          //     decoration: const BoxDecoration(
-          //       gradient: LinearGradient(
-          //         begin: Alignment.topLeft,
-          //         end: Alignment.bottomRight,
-          //         colors: [
-          //           AppColors.lightPrimary,
-          //           AppColors.darkPrimary,
-          //         ],
-          //         stops: [
-          //           0.0,
-          //           1.0,
-          //         ],
-          //       ),
-          //       borderRadius: BorderRadius.all(Radius.circular(15)),
-          //     ),
-          //     child: Container(
-          //       width: 315,
-          //       height: 60,
-          //       alignment: Alignment.center,
-          //       child: const Text(
-          //         'Get Started',
-          //         style: TextStyle(
-          //           color: Colors.white,
-          //           fontSize: AppFontSize.s18,
-          //           fontWeight: FontWeight.bold,
-          //         ),
-          //       ),
-          //     ),
-          //   ),
-          // ),
         ],
       ),
     );
