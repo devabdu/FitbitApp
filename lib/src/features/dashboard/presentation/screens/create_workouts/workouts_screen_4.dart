@@ -1,4 +1,5 @@
 import 'package:fitbit/src/config/routes/app_routes.dart';
+import 'package:fitbit/src/core/utils/app_assets.dart';
 import 'package:fitbit/src/core/utils/app_font.dart';
 import 'package:fitbit/src/core/utils/app_strings.dart';
 import 'package:fitbit/src/core/utils/app_values.dart';
@@ -20,7 +21,7 @@ class WorkoutsScreen4 extends StatelessWidget {
     return SizedBox(
       height: 326,
       width: 290,
-      child: Image.asset('assets/images/finish_workout.png'),
+      child: Image.asset(AppImagesPng.finishWorkout),
     );
   }
 

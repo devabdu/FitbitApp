@@ -1,4 +1,5 @@
 import 'package:fitbit/src/config/routes/app_routes.dart';
+import 'package:fitbit/src/core/utils/app_assets.dart';
 import 'package:fitbit/src/core/utils/app_colors.dart';
 import 'package:fitbit/src/core/utils/app_font.dart';
 import 'package:fitbit/src/core/utils/app_strings.dart';
@@ -146,13 +147,13 @@ class _ReigsterScreen1State extends State<ReigsterScreen1>
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         CustomIconButton(
-          assetImage: 'assets/images/gmail_icon.svg',
+          assetImage: AppImagesSvg.gmailLogo,
         ),
         SizedBox(
           width: 30,
         ),
         CustomIconButton(
-          assetImage: 'assets/images/facebook_icon.svg',
+          assetImage: AppImagesSvg.facebookLogo,
         ),
       ],
     );

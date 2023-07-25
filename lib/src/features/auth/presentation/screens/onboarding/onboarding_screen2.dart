@@ -1,4 +1,5 @@
 import 'package:fitbit/src/config/routes/app_routes.dart';
+import 'package:fitbit/src/core/utils/app_assets.dart';
 import 'package:fitbit/src/core/utils/app_colors.dart';
 import 'package:fitbit/src/core/utils/app_strings.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +34,7 @@ class OnBoardingScreen2 extends StatelessWidget {
                 ),
               ),
               child: const Image(
-                image: AssetImage('assets/images/fit_boy.png'),
+                image: AssetImage(AppImagesPng.onBoardingLogo2),
               ),
             ),
             const SizedBox(

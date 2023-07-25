@@ -1,4 +1,5 @@
 import 'package:fitbit/src/config/routes/app_routes.dart';
+import 'package:fitbit/src/core/utils/app_assets.dart';
 import 'package:fitbit/src/core/utils/app_strings.dart';
 import 'package:fitbit/src/features/auth/presentation/widgets/custom_form_field_text.dart';
 import 'package:fitbit/src/features/auth/presentation/widgets/custom_text_button_large.dart';
@@ -39,7 +40,7 @@ class _RegisterScreen2State extends State<RegisterScreen2> {
     return SizedBox(
       width: 258,
       height: 243.56,
-      child: Image.asset('assets/images/fit_boy2.png'),
+      child: Image.asset(AppImagesPng.fitBoy2),
     );
   }
 

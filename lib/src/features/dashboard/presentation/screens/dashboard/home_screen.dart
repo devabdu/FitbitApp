@@ -1,3 +1,4 @@
+import 'package:fitbit/src/core/utils/app_assets.dart';
 import 'package:fitbit/src/core/utils/app_colors.dart';
 import 'package:fitbit/src/core/utils/app_font.dart';
 import 'package:fitbit/src/core/utils/app_strings.dart';
@@ -243,8 +244,7 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 50,
               child: CircleAvatar(
                 backgroundColor: AppColors.backGroundCircleAvatar,
-                backgroundImage:
-                    AssetImage('assets/images/abs_workout_icon.png'),
+                backgroundImage: AssetImage(AppImagesPng.absWorkoutIcon),
               ),
             ),
             trailing: ShaderMask(
@@ -275,8 +275,7 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 50,
               child: CircleAvatar(
                 backgroundColor: AppColors.backGroundCircleAvatar,
-                backgroundImage:
-                    AssetImage('assets/images/lower_workout_icon.png'),
+                backgroundImage: AssetImage(AppImagesPng.lowerWorkoutIcon),
               ),
             ),
             trailing: ShaderMask(
@@ -307,8 +306,7 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 50,
               child: CircleAvatar(
                 backgroundColor: AppColors.backGroundCircleAvatar,
-                backgroundImage:
-                    AssetImage('assets/images/abs_workout_icon.png'),
+                backgroundImage: AssetImage(AppImagesPng.absWorkoutIcon),
               ),
             ),
             trailing: ShaderMask(
@@ -339,8 +337,7 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 50,
               child: CircleAvatar(
                 backgroundColor: AppColors.backGroundCircleAvatar,
-                backgroundImage:
-                    AssetImage('assets/images/abs_workout_icon.png'),
+                backgroundImage: AssetImage(AppImagesPng.absWorkoutIcon),
               ),
             ),
             trailing: ShaderMask(

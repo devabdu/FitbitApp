@@ -1,4 +1,5 @@
 import 'package:fitbit/src/config/routes/app_routes.dart';
+import 'package:fitbit/src/core/utils/app_assets.dart';
 import 'package:fitbit/src/core/utils/app_strings.dart';
 import 'package:fitbit/src/features/auth/presentation/widgets/custom_text_button_large.dart';
 import 'package:fitbit/src/features/auth/presentation/widgets/custom_title_and_subtitle.dart';
@@ -11,7 +12,7 @@ class SuccessRegisterationScreen extends StatelessWidget {
     return SizedBox(
       width: 308.03,
       height: 236.49,
-      child: Image.asset('assets/images/fit_boy3.png'),
+      child: Image.asset(AppImagesPng.fitBoy3),
     );
   }
 

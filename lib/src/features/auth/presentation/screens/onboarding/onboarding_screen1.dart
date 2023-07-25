@@ -1,4 +1,5 @@
 import 'package:fitbit/src/config/routes/app_routes.dart';
+import 'package:fitbit/src/core/utils/app_assets.dart';
 import 'package:fitbit/src/core/utils/app_colors.dart';
 import 'package:fitbit/src/core/utils/app_strings.dart';
 import 'package:fitbit/src/features/auth/presentation/widgets/custom_text_button_large.dart';
@@ -17,9 +18,7 @@ class OnBoardingScreen1 extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           const Image(
-            image: AssetImage(
-              'assets/images/dumbbell.png',
-            ),
+            image: AssetImage(AppImagesPng.onBoardingLogo1),
           ),
           const SizedBox(
             height: 10,

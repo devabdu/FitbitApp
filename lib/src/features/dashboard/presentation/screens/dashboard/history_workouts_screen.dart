@@ -1,3 +1,4 @@
+import 'package:fitbit/src/core/utils/app_assets.dart';
 import 'package:fitbit/src/core/utils/app_colors.dart';
 import 'package:fitbit/src/core/utils/app_font.dart';
 import 'package:fitbit/src/core/utils/app_strings.dart';
@@ -47,7 +48,7 @@ class HistoryWorkoutsScreen extends StatelessWidget {
                       child: CircleAvatar(
                         backgroundColor: AppColors.backGroundCircleAvatar,
                         backgroundImage:
-                            AssetImage('assets/images/abs_workout_icon.png'),
+                            AssetImage(AppImagesPng.absWorkoutIcon),
                       ),
                     ),
                     title: Text(
