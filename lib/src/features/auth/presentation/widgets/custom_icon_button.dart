@@ -1,5 +1,7 @@
 import 'package:fitbit/src/core/utils/app_colors.dart';
+import 'package:fitbit/src/core/utils/app_values.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class CustomIconButton extends StatelessWidget {
@@ -20,19 +22,19 @@ class CustomIconButton extends StatelessWidget {
       onTap: onTap,
       child: Container(
         color: containerColor,
-        width: 50,
-        height: 50,
+        width: AppSize.s50.w,
+        height: AppSize.s50.h,
         decoration: BoxDecoration(
           border: Border.all(
             //width: 0.8,
             color: AppColors.grey3,
           ),
-          borderRadius: const BorderRadius.all(
-            Radius.circular(14),
+          borderRadius: BorderRadius.all(
+            Radius.circular(AppSize.s14.r),
           ),
         ),
         child: Padding(
-          padding: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(AppPadding.p10),
           child: SvgPicture.asset(
             assetImage,
             fit: BoxFit.scaleDown,

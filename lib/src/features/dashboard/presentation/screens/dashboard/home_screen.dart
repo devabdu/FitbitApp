@@ -2,8 +2,10 @@ import 'package:fitbit/src/core/utils/app_assets.dart';
 import 'package:fitbit/src/core/utils/app_colors.dart';
 import 'package:fitbit/src/core/utils/app_font.dart';
 import 'package:fitbit/src/core/utils/app_strings.dart';
+import 'package:fitbit/src/core/utils/app_values.dart';
 import 'package:fitbit/src/features/dashboard/presentation/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -68,23 +70,25 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _buildWorkoutProgressChart(BuildContext context) {
     return SfCartesianChart(
-      margin: const EdgeInsets.only(top: 12),
+      margin: EdgeInsets.only(top: AppPadding.p12.h),
       plotAreaBorderWidth: 0,
       title: ChartTitle(
         text: AppStrings.workoutProgress,
         textStyle: Theme.of(context)
             .textTheme
             .displayLarge!
-            .copyWith(color: AppColors.title, fontSize: 15),
+            .copyWith(color: AppColors.title, fontSize: AppFontSize.s16),
         alignment: ChartAlignment.near,
       ),
       primaryXAxis: CategoryAxis(),
       primaryYAxis: NumericAxis(
         labelAlignment: LabelAlignment.center,
         labelFormat: '{value}%',
+        ///////////////Try edit when running the app///////////////////////
         minimum: 0,
         maximum: 100,
         interval: 20,
+        //////////////////////////////////////////////////////////////////
         axisLine: const AxisLine(width: 0),
         majorTickLines: const MajorTickLines(color: Colors.transparent),
       ),
@@ -153,19 +157,19 @@ class _HomeScreenState extends State<HomeScreen> {
             });
           },
           style: ElevatedButton.styleFrom(
-            shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(99)),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(AppSize.s99.r)),
             ),
-            padding: const EdgeInsets.all(0),
+            padding: const EdgeInsets.all(AppPadding.p0),
           ),
           child: Ink(
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
               gradient: AppLinearGradientColors.mainColorButton,
-              borderRadius: BorderRadius.all(Radius.circular(99)),
+              borderRadius: BorderRadius.all(Radius.circular(AppSize.s99.r)),
             ),
             child: Container(
-              width: 90,
-              height: 40,
+              width: AppSize.s90.w,
+              height: AppSize.s40.h,
               alignment: Alignment.center,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -210,7 +214,7 @@ class _HomeScreenState extends State<HomeScreen> {
           style: ButtonStyle(
             shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                 RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(18.0))),
+                    borderRadius: BorderRadius.circular(AppSize.s18.r))),
             overlayColor: MaterialStateProperty.all(AppColors.lightPrimary),
           ),
           child: Text(
@@ -239,10 +243,10 @@ class _HomeScreenState extends State<HomeScreen> {
             subtitle: const Text(
               AppStrings.burnCaloriesInTwentyMins,
             ),
-            leading: const SizedBox(
-              width: 50,
-              height: 50,
-              child: CircleAvatar(
+            leading: SizedBox(
+              width: AppSize.s50.w,
+              height: AppSize.s50.h,
+              child: const CircleAvatar(
                 backgroundColor: AppColors.backGroundCircleAvatar,
                 backgroundImage: AssetImage(AppImagesPng.absWorkoutIcon),
               ),
@@ -252,9 +256,9 @@ class _HomeScreenState extends State<HomeScreen> {
               shaderCallback: (Rect bounds) {
                 return AppLinearGradientColors.circleIcon.createShader(bounds);
               },
-              child: const Icon(
+              child: Icon(
                 Icons.circle_outlined,
-                size: 28,
+                size: AppSize.s28.r,
               ),
             ),
             onTap: () {
@@ -270,10 +274,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   .copyWith(color: AppColors.title, fontSize: AppFontSize.s14),
             ),
             subtitle: const Text(AppStrings.burnCaloriesInThrityMins),
-            leading: const SizedBox(
-              width: 50,
-              height: 50,
-              child: CircleAvatar(
+            leading: SizedBox(
+              width: AppSize.s50.w,
+              height: AppSize.s50.h,
+              child: const CircleAvatar(
                 backgroundColor: AppColors.backGroundCircleAvatar,
                 backgroundImage: AssetImage(AppImagesPng.lowerWorkoutIcon),
               ),
@@ -283,9 +287,9 @@ class _HomeScreenState extends State<HomeScreen> {
               shaderCallback: (Rect bounds) {
                 return AppLinearGradientColors.circleIcon.createShader(bounds);
               },
-              child: const Icon(
+              child: Icon(
                 Icons.circle_outlined,
-                size: 28,
+                size: AppSize.s28.r,
               ),
             ),
             onTap: () {
@@ -301,10 +305,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   .copyWith(color: AppColors.title, fontSize: AppFontSize.s14),
             ),
             subtitle: const Text(AppStrings.burnCaloriesInTwentyMins),
-            leading: const SizedBox(
-              width: 50,
-              height: 50,
-              child: CircleAvatar(
+            leading: SizedBox(
+              width: AppSize.s50.w,
+              height: AppSize.s50.h,
+              child: const CircleAvatar(
                 backgroundColor: AppColors.backGroundCircleAvatar,
                 backgroundImage: AssetImage(AppImagesPng.absWorkoutIcon),
               ),
@@ -314,9 +318,9 @@ class _HomeScreenState extends State<HomeScreen> {
               shaderCallback: (Rect bounds) {
                 return AppLinearGradientColors.circleIcon.createShader(bounds);
               },
-              child: const Icon(
+              child: Icon(
                 Icons.circle_outlined,
-                size: 28,
+                size: AppSize.s28.r,
               ),
             ),
             onTap: () {
@@ -332,10 +336,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   .copyWith(color: AppColors.title, fontSize: AppFontSize.s14),
             ),
             subtitle: const Text(AppStrings.burnCaloriesInTwentyMins),
-            leading: const SizedBox(
-              width: 50,
-              height: 50,
-              child: CircleAvatar(
+            leading: SizedBox(
+              width: AppSize.s50.w,
+              height: AppSize.s50.h,
+              child: const CircleAvatar(
                 backgroundColor: AppColors.backGroundCircleAvatar,
                 backgroundImage: AssetImage(AppImagesPng.absWorkoutIcon),
               ),
@@ -345,9 +349,9 @@ class _HomeScreenState extends State<HomeScreen> {
               shaderCallback: (Rect bounds) {
                 return AppLinearGradientColors.circleIcon.createShader(bounds);
               },
-              child: const Icon(
+              child: Icon(
                 Icons.circle_outlined,
-                size: 28,
+                size: AppSize.s28.r,
               ),
             ),
             onTap: () {
@@ -364,17 +368,17 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: _appBar(),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 30),
+        padding: EdgeInsets.symmetric(horizontal: AppPadding.p30.w),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             _buildIntroText(context),
-            const SizedBox(
-              height: 50,
+             SizedBox(
+              height: AppSize.s50.h,
             ),
             _buildButtonAndProgressChart(context),
-            const SizedBox(
-              height: 25,
+             SizedBox(
+              height: AppSize.s25.h,
             ),
             _buildRowOfLatestWorkoutsAndSeeMoreText(context),
             _buildListOfLatestWorkouts(context),

@@ -1,11 +1,13 @@
 import 'package:fitbit/src/config/routes/app_routes.dart';
 import 'package:fitbit/src/core/utils/app_assets.dart';
 import 'package:fitbit/src/core/utils/app_strings.dart';
+import 'package:fitbit/src/core/utils/app_values.dart';
 import 'package:fitbit/src/features/auth/presentation/widgets/custom_form_field_text.dart';
 import 'package:fitbit/src/features/auth/presentation/widgets/custom_text_button_large.dart';
 import 'package:fitbit/src/features/auth/presentation/widgets/custom_text_button_small.dart';
 import 'package:fitbit/src/features/auth/presentation/widgets/custom_title_and_subtitle.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class RegisterScreen2 extends StatefulWidget {
   const RegisterScreen2({super.key});
@@ -38,8 +40,8 @@ class _RegisterScreen2State extends State<RegisterScreen2> {
 
   Widget _buildFitBoyImage() {
     return SizedBox(
-      width: 258,
-      height: 243.56,
+      width: AppSize.s258.w,
+      height: AppSize.s243_56.h,
       child: Image.asset(AppImagesPng.fitBoy2),
     );
   }
@@ -130,29 +132,29 @@ class _RegisterScreen2State extends State<RegisterScreen2> {
     return SafeArea(
       child: Scaffold(
         body: Padding(
-          padding: const EdgeInsets.only(top: 80, right: 30, left: 30),
+          padding: ConstEdgeInsetsGeometry.defaultPaddingAuth,
           child: SingleChildScrollView(
             child: Column(
               children: [
                 _buildFitBoyImage(),
-                const SizedBox(
-                  height: 45,
+                SizedBox(
+                  height: AppSize.s45.h,
                 ),
                 _buildCenterText(),
-                const SizedBox(
-                  height: 75,
+                SizedBox(
+                  height: AppSize.s75.h,
                 ),
                 _buildGenderTextFormField(),
-                const SizedBox(
-                  height: 18,
+                SizedBox(
+                  height: AppSize.s18.h,
                 ),
                 _buildWeightTextFormField(),
-                const SizedBox(
-                  height: 18,
+                SizedBox(
+                  height: AppSize.s18.h,
                 ),
                 _buildHeightTextFormField(),
-                const SizedBox(
-                  height: 54,
+                SizedBox(
+                  height: AppSize.s54.h,
                 ),
                 _buildNextButton(),
               ],

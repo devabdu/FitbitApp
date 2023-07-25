@@ -8,6 +8,7 @@ import 'package:fitbit/src/features/dashboard/presentation/screens/dashboard/pro
 import 'package:fitbit/src/features/dashboard/presentation/screens/dashboard/history_workouts_screen.dart';
 import 'package:fitbit/src/features/dashboard/presentation/widgets/gradient_icon.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DashboardView extends StatefulWidget {
   const DashboardView({super.key});
@@ -50,7 +51,7 @@ class _DashboardViewState extends State<DashboardView> {
           child: BottomNavigationBar(
             showSelectedLabels: false,
             showUnselectedLabels: false,
-            elevation: 1.5,
+            elevation: AppElevation.e1_5,
             selectedItemColor: AppColors.lightPrimary,
             unselectedItemColor: AppColors.grey,
             currentIndex: _currentIndex,
@@ -60,19 +61,19 @@ class _DashboardViewState extends State<DashboardView> {
               BottomNavigationBarItem(
                 icon: const Icon(Icons.home_filled),
                 label: titles[0],
-                activeIcon: const Column(
+                activeIcon: Column(
                   children: [
                     GradientIcon(
                       Icons.home_filled,
-                      26.0,
+                      AppSize.s26.r,
                       AppLinearGradientColors.iconBottomNavigation,
                     ),
                     SizedBox(
-                      height: 2,
+                      height: AppSize.s2.h,
                     ),
                     GradientIcon(
                       Icons.lens,
-                      AppSize.s8,
+                      AppSize.s8.r,
                       AppLinearGradientColors.iconBottomNavigation,
                     ),
                   ],
@@ -81,19 +82,19 @@ class _DashboardViewState extends State<DashboardView> {
               BottomNavigationBarItem(
                 icon: const Icon(Icons.photo_filter_rounded),
                 label: titles[1],
-                activeIcon: const Column(
+                activeIcon: Column(
                   children: [
                     GradientIcon(
                       Icons.photo_filter_rounded,
-                      26.0,
+                      AppSize.s26.r,
                       AppLinearGradientColors.iconBottomNavigation,
                     ),
                     SizedBox(
-                      height: 2,
+                      height: AppSize.s2.h,
                     ),
                     GradientIcon(
                       Icons.lens,
-                      AppSize.s8,
+                      AppSize.s8.r,
                       AppLinearGradientColors.iconBottomNavigation,
                     ),
                   ],
@@ -102,19 +103,19 @@ class _DashboardViewState extends State<DashboardView> {
               BottomNavigationBarItem(
                 icon: const Icon(Icons.edit_square),
                 label: titles[2],
-                activeIcon: const Column(
+                activeIcon: Column(
                   children: [
                     GradientIcon(
                       Icons.edit_square,
-                      26.0,
+                      AppSize.s26.r,
                       AppLinearGradientColors.iconBottomNavigation,
                     ),
                     SizedBox(
-                      height: 2,
+                      height: AppSize.s2.h,
                     ),
                     GradientIcon(
                       Icons.lens,
-                      AppSize.s8,
+                      AppSize.s8.r,
                       AppLinearGradientColors.iconBottomNavigation,
                     ),
                   ],
@@ -123,19 +124,19 @@ class _DashboardViewState extends State<DashboardView> {
               BottomNavigationBarItem(
                 icon: const Icon(Icons.person_outline),
                 label: titles[3],
-                activeIcon: const Column(
+                activeIcon: Column(
                   children: [
                     GradientIcon(
                       Icons.person_outline,
-                      26.0,
+                      AppSize.s26.r,
                       AppLinearGradientColors.iconBottomNavigation,
                     ),
                     SizedBox(
-                      height: 2,
+                      height: AppSize.s2.h,
                     ),
                     GradientIcon(
                       Icons.lens,
-                      AppSize.s8,
+                      AppSize.s8.r,
                       AppLinearGradientColors.iconBottomNavigation,
                     ),
                   ],
@@ -152,13 +153,13 @@ class _DashboardViewState extends State<DashboardView> {
             shape: const CircleBorder(),
           ),
           child: Ink(
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
               gradient: AppLinearGradientColors.mainColorButton,
-              borderRadius: BorderRadius.all(Radius.circular(60)),
+              borderRadius: BorderRadius.all(Radius.circular(AppSize.s60.r)),
             ),
             child: Container(
-              width: 60,
-              height: 60,
+              width: AppSize.s60.w,
+              height: AppSize.s60.h,
               alignment: Alignment.center,
               child: const Icon(Icons.fitness_center_outlined),
             ),

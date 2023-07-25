@@ -6,6 +6,7 @@ import 'package:fitbit/src/features/auth/presentation/widgets/custom_text_button
 import 'package:fitbit/src/features/dashboard/presentation/widgets/custom_app_bar.dart';
 import 'package:fitbit/src/features/dashboard/presentation/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class WorkoutsScreen1 extends StatelessWidget {
   WorkoutsScreen1({super.key});
@@ -79,8 +80,7 @@ class WorkoutsScreen1 extends StatelessWidget {
       body: Stack(
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(
-                horizontal: AppPadding.p24, vertical: AppPadding.p32),
+            padding: ConstEdgeInsetsGeometry.defaultPaddingWorkoutScreens,
             child: Column(
               children: [
                 _buildWorkoutNameSection(context),
@@ -93,9 +93,9 @@ class WorkoutsScreen1 extends StatelessWidget {
             ),
           ),
           Positioned(
-            bottom: 60.0,
-            right: 40,
-            left: 40,
+            bottom: AppSize.s60.h,
+            right: AppSize.s40.w,
+            left: AppSize.s40.w,
             child: _buildNextButton(context),
           ),
         ],

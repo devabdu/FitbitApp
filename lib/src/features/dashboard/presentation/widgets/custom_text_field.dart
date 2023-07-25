@@ -1,6 +1,8 @@
 import 'package:fitbit/src/core/utils/app_colors.dart';
 import 'package:fitbit/src/core/utils/app_font.dart';
+import 'package:fitbit/src/core/utils/app_values.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // ignore: must_be_immutable
 class CustomTextField extends StatefulWidget {
@@ -38,7 +40,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
       children: [
         Text(
           widget.textSection,
-          style: const TextStyle(fontSize: 14),
+          style: TextStyle(fontSize: AppFontSize.s14),
         ),
         const Divider(
           thickness: 0,
@@ -55,7 +57,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
         ),
         if (widget._showChoices)
           SizedBox(
-            height: 60,
+            height: AppSize.s60.h,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: widget.choices.length,
@@ -69,10 +71,11 @@ class _CustomTextFieldState extends State<CustomTextField> {
                             widget.selections.add(widget.choices[index].title);
                           }),
                   child: Padding(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
+                    padding: EdgeInsets.symmetric(
+                        horizontal: AppPadding.p5.w,
+                        vertical: AppPadding.p10.h),
                     child: Container(
-                      padding: const EdgeInsets.all(10),
+                      padding: EdgeInsets.all(AppSize.s10.r),
                       decoration: BoxDecoration(
                         border: Border.all(
                           color: AppColors.lightPrimary,
@@ -80,7 +83,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
                         ),
                         //gradient: AppLinearGradientColors.mainColorButton,
                         borderRadius:
-                            const BorderRadius.all(Radius.circular(16)),
+                             BorderRadius.all(Radius.circular(AppSize.s16.r)),
                       ),
                       child: Text(
                         widget.choices[index].title,

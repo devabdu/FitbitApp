@@ -1,9 +1,11 @@
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:fitbit/src/core/utils/app_colors.dart';
+import 'package:fitbit/src/core/utils/app_font.dart';
 import 'package:fitbit/src/core/utils/app_strings.dart';
 import 'package:fitbit/src/core/utils/app_values.dart';
 import 'package:fitbit/src/features/dashboard/presentation/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class WorkoutsScreen3 extends StatefulWidget {
   const WorkoutsScreen3({super.key});
@@ -30,10 +32,7 @@ class _WorkoutsScreen3State extends State<WorkoutsScreen3> {
     return Scaffold(
       appBar: _buildAppBar(),
       body: Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: AppPadding.p24,
-          vertical: AppPadding.p32,
-        ),
+        padding: ConstEdgeInsetsGeometry.defaultPaddingWorkoutScreens,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
@@ -49,10 +48,10 @@ class _WorkoutsScreen3State extends State<WorkoutsScreen3> {
               fillGradient: null,
               backgroundColor: Colors.transparent,
               backgroundGradient: null,
-              strokeWidth: 20.0,
+              strokeWidth: AppSize.s20.w,
               strokeCap: StrokeCap.round,
-              textStyle: const TextStyle(
-                fontSize: 33.0,
+              textStyle: TextStyle(
+                fontSize: AppFontSize.s32,
                 color: Colors.black,
                 fontWeight: FontWeight.bold,
               ),
@@ -70,10 +69,10 @@ class _WorkoutsScreen3State extends State<WorkoutsScreen3> {
                 Column(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(bottom: AppPadding.p10),
+                      padding: EdgeInsets.only(bottom: AppPadding.p10.h),
                       child: Container(
-                        width: 70,
-                        height: 70,
+                        width: AppSize.s70.w,
+                        height: AppSize.s70.h,
                         decoration: const BoxDecoration(
                           color: AppColors.backGroundCircleAvatar,
                           shape: BoxShape.circle,
@@ -90,10 +89,10 @@ class _WorkoutsScreen3State extends State<WorkoutsScreen3> {
                 Column(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(bottom: AppPadding.p10),
+                      padding: EdgeInsets.only(bottom: AppPadding.p10.h),
                       child: Container(
-                        width: 70,
-                        height: 70,
+                        width: AppSize.s70.w,
+                        height: AppSize.s70.h,
                         decoration: const BoxDecoration(
                           color: AppColors.backGroundCircleAvatar,
                           shape: BoxShape.circle,
@@ -110,10 +109,10 @@ class _WorkoutsScreen3State extends State<WorkoutsScreen3> {
                 Column(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(bottom: AppPadding.p10),
+                      padding: EdgeInsets.only(bottom: AppPadding.p10.h),
                       child: Container(
-                        width: 70,
-                        height: 70,
+                        width: AppSize.s70.w,
+                        height: AppSize.s70.h,
                         decoration: const BoxDecoration(
                           color: AppColors.backGroundCircleAvatar,
                           shape: BoxShape.circle,

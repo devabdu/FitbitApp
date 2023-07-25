@@ -1,13 +1,15 @@
 import 'package:fitbit/src/core/utils/app_colors.dart';
+import 'package:fitbit/src/core/utils/app_values.dart';
 import 'package:fitbit/src/features/dashboard/presentation/widgets/custom_icon_with_background.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({
     super.key,
     this.automaticallyImplyLeading = true,
     this.backgroundColor = AppColors.background,
-    this.elevation = 0,
+    this.elevation = AppElevation.e0,
     this.title,
     this.onPressed,
     this.icon,
@@ -30,7 +32,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     return CustomIconWithBackground(
       child: Icon(
         Icons.arrow_back_ios_outlined,
-        size: 20,
+        size: AppSize.s20.r,
         color: iconColor ?? AppColors.black,
       ),
     );
@@ -56,7 +58,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10),
+      padding: EdgeInsets.symmetric(horizontal: AppPadding.p10.w),
       child: AppBar(
         automaticallyImplyLeading: automaticallyImplyLeading,
         leading: automaticallyImplyLeading ? buildLeadingIcon() : null,

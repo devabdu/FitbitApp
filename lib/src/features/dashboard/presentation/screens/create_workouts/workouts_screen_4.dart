@@ -7,6 +7,7 @@ import 'package:fitbit/src/features/auth/presentation/widgets/custom_text_button
 import 'package:fitbit/src/features/auth/presentation/widgets/custom_title_and_subtitle.dart';
 import 'package:fitbit/src/features/dashboard/presentation/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class WorkoutsScreen4 extends StatelessWidget {
   const WorkoutsScreen4({super.key});
@@ -19,14 +20,14 @@ class WorkoutsScreen4 extends StatelessWidget {
 
   Widget _buildFitBoyImage() {
     return SizedBox(
-      height: 326,
-      width: 290,
+      height: AppSize.s326.h,
+      width: AppSize.s290.w,
       child: Image.asset(AppImagesPng.finishWorkout),
     );
   }
 
   Widget _buildCenterText() {
-    return const CustomTitleAndSubtitle(
+    return CustomTitleAndSubtitle(
       title: AppStrings.congratulations,
       fontSizeTitle: AppFontSize.s30,
 
@@ -53,8 +54,7 @@ class WorkoutsScreen4 extends StatelessWidget {
         body: Stack(
           children: [
             Padding(
-              padding: const EdgeInsets.symmetric(
-                  horizontal: AppPadding.p30, vertical: AppPadding.p32),
+              padding: ConstEdgeInsetsGeometry.defaultPaddingWorkoutScreens,
               child: Center(
                 child: Column(
                   children: [
@@ -65,9 +65,9 @@ class WorkoutsScreen4 extends StatelessWidget {
               ),
             ),
             Positioned(
-              bottom: 60.0,
-              right: 40,
-              left: 40,
+              bottom: AppSize.s60.h,
+              right: AppSize.s40.w,
+              left: AppSize.s40.w,
               child: _buildGoToHomeButton(context),
             ),
           ],

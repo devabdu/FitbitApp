@@ -5,6 +5,7 @@ import 'package:fitbit/src/core/utils/app_strings.dart';
 import 'package:fitbit/src/core/utils/app_values.dart';
 import 'package:fitbit/src/features/dashboard/presentation/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HistoryWorkoutsScreen extends StatelessWidget {
   HistoryWorkoutsScreen({super.key});
@@ -30,22 +31,21 @@ class HistoryWorkoutsScreen extends StatelessWidget {
     return Scaffold(
       appBar: _buildAppBar(),
       body: Padding(
-        padding: const EdgeInsets.symmetric(
-            horizontal: AppPadding.p24, vertical: AppPadding.p32),
+        padding: ConstEdgeInsetsGeometry.defaultPaddingWorkoutScreens,
         child: ListView.builder(
           itemCount: workouts.length, // number of cards to display
           itemBuilder: (BuildContext context, int index) {
             return Card(
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(16.0),
+                borderRadius: BorderRadius.circular(AppSize.s16.r),
               ),
               child: Column(
                 children: [
                   ListTile(
-                    leading: const SizedBox(
-                      width: 50,
-                      height: 50,
-                      child: CircleAvatar(
+                    leading: SizedBox(
+                      width: AppSize.s50.w,
+                      height: AppSize.s50.h,
+                      child: const CircleAvatar(
                         backgroundColor: AppColors.backGroundCircleAvatar,
                         backgroundImage:
                             AssetImage(AppImagesPng.absWorkoutIcon),

@@ -1,4 +1,5 @@
 import 'package:fitbit/src/core/utils/app_font.dart';
+import 'package:fitbit/src/core/utils/app_values.dart';
 import 'package:flutter/material.dart';
 
 class CustomTitleAndSubtitle extends StatelessWidget {
@@ -12,7 +13,7 @@ class CustomTitleAndSubtitle extends StatelessWidget {
     super.key,
     required this.title,
     required this.subTitle,
-    this.paddingHorizontalOfSubTitle = 0,
+    this.paddingHorizontalOfSubTitle = AppPadding.p0,
     this.fontSizeTitle,
     this.fontSizeSubTitle,
   });

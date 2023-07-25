@@ -2,7 +2,9 @@ import 'package:fitbit/src/config/routes/app_routes.dart';
 import 'package:fitbit/src/core/utils/app_assets.dart';
 import 'package:fitbit/src/core/utils/app_colors.dart';
 import 'package:fitbit/src/core/utils/app_strings.dart';
+import 'package:fitbit/src/core/utils/app_values.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class OnBoardingScreen2 extends StatelessWidget {
   const OnBoardingScreen2({super.key});
@@ -14,13 +16,13 @@ class OnBoardingScreen2 extends StatelessWidget {
         body: Column(
           children: [
             Container(
-              width: 448,
-              height: 448,
-              decoration: const BoxDecoration(
+              width: AppSize.s488.w,
+              height: AppSize.s488.h,
+              decoration: BoxDecoration(
                 shape: BoxShape.rectangle,
-                borderRadius:
-                    BorderRadius.only(bottomRight: Radius.circular(150)),
-                gradient: LinearGradient(
+                borderRadius: BorderRadius.only(
+                    bottomRight: Radius.circular(AppSize.s150.w)),
+                gradient: const LinearGradient(
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
                   colors: [
@@ -37,11 +39,11 @@ class OnBoardingScreen2 extends StatelessWidget {
                 image: AssetImage(AppImagesPng.onBoardingLogo2),
               ),
             ),
-            const SizedBox(
-              height: 40,
+            SizedBox(
+              height: AppSize.s40.h,
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
+              padding: EdgeInsets.symmetric(horizontal: AppPadding.p20.w),
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -49,8 +51,8 @@ class OnBoardingScreen2 extends StatelessWidget {
                       AppStrings.trackYourGoal,
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
-                    const SizedBox(
-                      height: 10,
+                    SizedBox(
+                      height: AppSize.s10.h,
                     ),
                     Text(
                       AppPharses().phraseConstruction(
@@ -69,8 +71,8 @@ class OnBoardingScreen2 extends StatelessWidget {
             child: Stack(
               children: [
                 Container(
-                  width: 80,
-                  height: 80,
+                  width: AppSize.s80.w,
+                  height: AppSize.s80.h,
                   decoration: const BoxDecoration(
                     color: Color(0xFFE2E2AC),
                     shape: BoxShape.circle,
@@ -80,8 +82,8 @@ class OnBoardingScreen2 extends StatelessWidget {
                   child: Align(
                     alignment: Alignment.center,
                     child: Container(
-                      width: 80 * 0.8,
-                      height: 80 * 0.8,
+                      width: AppMultipliedSize.sizeOfSmallContainer.w,
+                      height: AppMultipliedSize.sizeOfSmallContainer.h,
                       decoration: const BoxDecoration(
                         shape: BoxShape.circle,
                         gradient: LinearGradient(
@@ -97,10 +99,10 @@ class OnBoardingScreen2 extends StatelessWidget {
                           ],
                         ),
                       ),
-                      child: const Center(
+                      child: Center(
                         child: Icon(
                           Icons.arrow_right_rounded,
-                          size: 50,
+                          size: AppSize.s50.r,
                           color: AppColors.white,
                         ),
                       ),

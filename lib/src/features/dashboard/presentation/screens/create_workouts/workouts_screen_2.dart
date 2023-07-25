@@ -1,5 +1,6 @@
 import 'package:fitbit/src/config/routes/app_routes.dart';
 import 'package:fitbit/src/core/utils/app_colors.dart';
+import 'package:fitbit/src/core/utils/app_font.dart';
 import 'package:fitbit/src/core/utils/app_strings.dart';
 import 'package:fitbit/src/core/utils/app_values.dart';
 import 'package:fitbit/src/features/auth/presentation/widgets/custom_text_button_large.dart';
@@ -7,6 +8,7 @@ import 'package:fitbit/src/features/dashboard/presentation/screens/create_workou
 import 'package:fitbit/src/features/dashboard/presentation/widgets/custom_app_bar.dart';
 import 'package:fitbit/src/features/dashboard/presentation/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class WorkoutsScreen2 extends StatefulWidget {
   const WorkoutsScreen2({super.key});
@@ -65,12 +67,15 @@ class _WorkoutsScreen2State extends State<WorkoutsScreen2> {
         Text(
           AppPharses()
               .phraseConstruction(AppStrings.addExercies, AppStrings.legDay),
-          style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 16),
+          style: Theme.of(context)
+              .textTheme
+              .bodyLarge!
+              .copyWith(fontSize: AppFontSize.s16),
         ),
         CustomTextButtonLarge(
           textButton: AppStrings.add,
-          width: 80,
-          height: 40,
+          width: AppSize.s80.w,
+          height: AppSize.s40.h,
           onPressed: () {
             _showModalBottomSheet(context);
           },
@@ -93,7 +98,7 @@ class _WorkoutsScreen2State extends State<WorkoutsScreen2> {
                 style: const TextStyle(color: Colors.black),
               ),
               trailing: SizedBox(
-                width: 150.0,
+                width: AppSize.s150.w,
                 child: Row(
                   children: [
                     IconButton(
@@ -139,18 +144,18 @@ class _WorkoutsScreen2State extends State<WorkoutsScreen2> {
 
   Widget _buildAddSetsAndRepsAndWeights() {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10),
+      padding: EdgeInsets.symmetric(horizontal: AppPadding.p10.w),
       child: Column(
         children: [
-          const Padding(
-            padding: EdgeInsets.only(left: 10),
+          Padding(
+            padding: EdgeInsets.only(left: AppPadding.p10.w),
             child: Row(
               children: [
-                Text(AppStrings.sets),
-                SizedBox(width: 75),
-                Text(AppStrings.reps),
-                SizedBox(width: 70),
-                Text(AppStrings.weights),
+                const Text(AppStrings.sets),
+                SizedBox(width: AppSize.s75.w),
+                const Text(AppStrings.reps),
+                SizedBox(width: AppSize.s70.w),
+                const Text(AppStrings.weights),
               ],
             ),
           ),
@@ -176,9 +181,9 @@ class _WorkoutsScreen2State extends State<WorkoutsScreen2> {
                       title: Text(weights[index].toString()),
                     ),
                   ),
-                  const Icon(
+                  Icon(
                     Icons.edit_square,
-                    size: AppSize.s18,
+                    size: AppSize.s18.r,
                   ),
                 ],
               );
@@ -214,8 +219,7 @@ class _WorkoutsScreen2State extends State<WorkoutsScreen2> {
       body: Stack(
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(
-                horizontal: AppPadding.p24, vertical: AppPadding.p32),
+            padding: ConstEdgeInsetsGeometry.defaultPaddingWorkoutScreens,
             child: Column(
               children: [
                 _buildAddExerciseTextAndButton(context),
@@ -226,15 +230,15 @@ class _WorkoutsScreen2State extends State<WorkoutsScreen2> {
             ),
           ),
           Positioned(
-            bottom: 150.0,
-            right: 40,
-            left: 40,
+            bottom: AppSize.s150.h,
+            right: AppSize.s40.w,
+            left: AppSize.s40.w,
             child: _buildRestButton(context),
           ),
           Positioned(
-            bottom: 60.0,
-            right: 40,
-            left: 40,
+            bottom: AppSize.s60.h,
+            right: AppSize.s40.w,
+            left: AppSize.s40.w,
             child: _buildDoneButton(context),
           ),
         ],
@@ -253,10 +257,10 @@ class _WorkoutsScreen2State extends State<WorkoutsScreen2> {
           padding:
               EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
           child: Container(
-            height: 250.0,
+            height: AppSize.s250.h,
             color: Colors.white,
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: AppPadding.p24),
+              padding: EdgeInsets.symmetric(horizontal: AppPadding.p24.w),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
@@ -276,8 +280,8 @@ class _WorkoutsScreen2State extends State<WorkoutsScreen2> {
                     children: [
                       CustomTextButtonLarge(
                         textButton: AppStrings.save,
-                        width: 80,
-                        height: 40,
+                        width: AppSize.s80.w,
+                        height: AppSize.s40.h,
                         onPressed: () {
                           setState(() {
                             _exercicesAdd.add(newItem);
@@ -288,8 +292,8 @@ class _WorkoutsScreen2State extends State<WorkoutsScreen2> {
                       ),
                       CustomTextButtonLarge(
                         textButton: AppStrings.cancel,
-                        width: 80,
-                        height: 40,
+                        width: AppSize.s80.w,
+                        height: AppSize.s40.h,
                         onPressed: () {
                           Navigator.pop(context);
                         },

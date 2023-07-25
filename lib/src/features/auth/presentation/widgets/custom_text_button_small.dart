@@ -1,5 +1,7 @@
 import 'package:fitbit/src/core/utils/app_colors.dart';
+import 'package:fitbit/src/core/utils/app_values.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomTextButtonSmall extends StatelessWidget {
   final void Function()? onTap;
@@ -27,12 +29,12 @@ class CustomTextButtonSmall extends StatelessWidget {
             //width: 0.8,
             color: AppColors.grey3,
           ),
-          borderRadius: const BorderRadius.all(
-            Radius.circular(99),
+          borderRadius: BorderRadius.all(
+            Radius.circular(AppSize.s99.r),
           ),
         ),
         child: Padding(
-          padding: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(AppPadding.p10),
           child: Center(
             child: Text(
               title,
