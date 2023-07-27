@@ -1,16 +1,16 @@
 import 'package:fitbit/src/config/routes/app_routes.dart';
-import 'package:fitbit/src/core/utils/app_assets.dart';
 import 'package:fitbit/src/core/utils/app_colors.dart';
 import 'package:fitbit/src/core/utils/app_font.dart';
 import 'package:fitbit/src/core/utils/app_icons.dart';
 import 'package:fitbit/src/core/utils/app_strings.dart';
 import 'package:fitbit/src/core/utils/app_values.dart';
 import 'package:fitbit/src/core/widgets/custom_form_field_text.dart';
-import 'package:fitbit/src/core/widgets/custom_icon_button.dart';
+import 'package:fitbit/src/core/widgets/custom_rich_text.dart';
 import 'package:fitbit/src/core/widgets/custom_text_button_large.dart';
 import 'package:fitbit/src/features/auth/presentation/screens/login/login_screen.dart';
-
-import 'package:flutter/gestures.dart';
+import 'package:fitbit/src/features/auth/presentation/widgets/build_email_text_form_field.dart';
+import 'package:fitbit/src/features/auth/presentation/widgets/build_gmail_facebook_icons_sections.dart';
+import 'package:fitbit/src/features/auth/presentation/widgets/build_or_divider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -62,7 +62,7 @@ class _ReigsterScreen1State extends State<ReigsterScreen1>
     );
   }
 
-  Widget _buildFirstNameTextFormFiled(BuildContext context) {
+  Widget _buildFirstNameTextFormFiled() {
     return CustomTextFormField(
       textEditingController: _firstNameController,
       keyBoardType: TextInputType.name,
@@ -72,20 +72,6 @@ class _ReigsterScreen1State extends State<ReigsterScreen1>
       ),
       hintText: AppStrings.firstName,
       labelText: AppStrings.firstName,
-    );
-  }
-
-  Widget _buildEmailTextFormFiled(BuildContext context) {
-    return CustomTextFormField(
-      textEditingController: _emailController,
-      keyBoardType: TextInputType.emailAddress,
-      prefixIcon: const Icon(
-        AppIcons.emailOutlined,
-        color: AppColors.grey1,
-      ),
-      hintText: AppStrings.email,
-      labelText: AppStrings.email,
-      //errorText: 'Error',
     );
   }
 
@@ -125,72 +111,11 @@ class _ReigsterScreen1State extends State<ReigsterScreen1>
     );
   }
 
-  Widget _buildOrDivider(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        Container(
-          width: AppSize.s141.w,
-          height: AppSize.s1.h,
-          color: Colors.grey,
-        ),
-        Text(
-          AppStrings.or,
-          style: Theme.of(context).textTheme.titleSmall,
-        ),
-        Container(
-          width: AppSize.s141.w,
-          height: AppSize.s1.h,
-          color: Colors.grey,
-        ),
-      ],
-    );
-  }
-
-  Widget _buildGmailAndFacebookIcon(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        const CustomIconButton(
-          assetImage: AppImagesSvg.gmailLogo,
-        ),
-        SizedBox(
-          width: AppSize.s30.w,
-        ),
-        const CustomIconButton(
-          assetImage: AppImagesSvg.facebookLogo,
-        ),
-      ],
-    );
-  }
-
-  Widget _buildAlreadyHaveAccount(context) {
-    return RichText(
-      text: TextSpan(
-        text: AppStrings.alreadyHaveAccount,
-        style: TextStyle(
-            color: AppColors.black,
-            fontSize: AppFontSize.s18,
-            height: AppSize.s1_5.h),
-        children: <TextSpan>[
-          TextSpan(
-            recognizer: TapGestureRecognizer()
-              ..onTap = () {
-                Future.delayed(Duration.zero, () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const LoginScreen()),
-                  );
-                });
-              },
-            text: AppStrings.login,
-            style: const TextStyle(
-              color: Colors.purple,
-            ),
-          ),
-        ],
-      ),
+  Widget _buildAlreadyHaveAccount() {
+    return const CustomRichText(
+      mainText: AppStrings.alreadyHaveAccount,
+      highlightText: AppStrings.login,
+      nextWidget: LoginScreen(),
     );
   }
 
@@ -207,11 +132,12 @@ class _ReigsterScreen1State extends State<ReigsterScreen1>
                 SizedBox(
                   height: AppSize.s45.h,
                 ),
-                _buildFirstNameTextFormFiled(context),
+                _buildFirstNameTextFormFiled(),
                 SizedBox(
                   height: AppSize.s18.h,
                 ),
-                _buildEmailTextFormFiled(context),
+                BuildEmailTextFormField(
+                    textEditingController: _emailController),
                 SizedBox(
                   height: AppSize.s36.h,
                 ),
@@ -223,24 +149,20 @@ class _ReigsterScreen1State extends State<ReigsterScreen1>
                 SizedBox(
                   height: AppSize.s29.h,
                 ),
-                _buildOrDivider(context),
+                const BuildOrDivider(),
                 SizedBox(
                   height: AppSize.s29.h,
                 ),
-                _buildGmailAndFacebookIcon(context),
+                const BuildGmailAndFacebookIconsSection(),
                 SizedBox(
                   height: AppSize.s30.h,
                 ),
-                _buildAlreadyHaveAccount(context),
+                _buildAlreadyHaveAccount(),
               ],
             ),
           ),
         ),
       ),
     );
-  }
-
-  _navigateToLoginScreen(BuildContext context) {
-    Navigator.pushNamed(context, AppRoutesName.loginRoute);
   }
 }

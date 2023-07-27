@@ -7,6 +7,7 @@ import 'package:fitbit/src/core/widgets/custom_form_field_text.dart';
 import 'package:fitbit/src/core/widgets/custom_text_button_large.dart';
 import 'package:fitbit/src/core/widgets/custom_text_button_small.dart';
 import 'package:fitbit/src/core/widgets/custom_title_and_subtitle.dart';
+import 'package:fitbit/src/features/auth/presentation/widgets/build_measurement_text_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -75,51 +76,24 @@ class _RegisterScreen2State extends State<RegisterScreen2> {
   }
 
   Widget _buildWeightTextFormField() {
-    return Row(
-      children: [
-        Expanded(
-          flex: 10,
-          child: CustomTextFormField(
-            textEditingController: weightController,
-            keyBoardType: TextInputType.number,
-            hintText: AppStrings.yourWeight,
-            labelText: AppStrings.yourWeight,
-            prefixIcon: const Icon(AppIcons.weightOutlined),
-          ),
-        ),
-        const Spacer(),
-        const Expanded(
-          flex: 2,
-          child: CustomTextButtonSmall(title: AppStrings.kg),
-        ),
-      ],
+    return BuildMeasurementTextFormField(
+      textEditingController: weightController,
+      hintAndLabelText: AppStrings.yourWeight,
+      prefixIcon: AppIcons.weightOutlined,
+      textButton: AppStrings.kg,
     );
   }
 
   Widget _buildHeightTextFormField() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Expanded(
-          flex: 10,
-          child: CustomTextFormField(
-            textEditingController: heightController,
-            keyBoardType: TextInputType.number,
-            hintText: AppStrings.yourHeight,
-            labelText: AppStrings.yourHeight,
-            prefixIcon: const Icon(AppIcons.heightOutlined),
-          ),
-        ),
-        const Spacer(),
-        const Expanded(
-          flex: 2,
-          child: CustomTextButtonSmall(title: AppStrings.cm),
-        ),
-      ],
+    return BuildMeasurementTextFormField(
+      textEditingController: heightController,
+      hintAndLabelText: AppStrings.yourHeight,
+      prefixIcon: AppIcons.heightOutlined,
+      textButton: AppStrings.cm,
     );
   }
 
-  Widget _buildNextButton() {
+  Widget _buildNextButton(BuildContext context) {
     return CustomTextButtonLarge(
       onPressed: () {
         Navigator.pushNamed(context, AppRoutesName.successRegisterationRoute);
@@ -157,7 +131,7 @@ class _RegisterScreen2State extends State<RegisterScreen2> {
                 SizedBox(
                   height: AppSize.s54.h,
                 ),
-                _buildNextButton(),
+                _buildNextButton(context),
               ],
             ),
           ),

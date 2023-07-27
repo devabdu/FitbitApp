@@ -10,6 +10,28 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class OnBoardingScreen1 extends StatelessWidget {
   const OnBoardingScreen1({super.key});
 
+  Widget _buildMainLogo() {
+    return const Image(
+      image: AssetImage(AppImagesPng.onBoardingLogo1),
+    );
+  }
+
+  Widget _buildGetStartedButton(BuildContext context) {
+    return CustomTextButtonLarge(
+      onPressed: () {
+        Navigator.pushNamed(context, AppRoutesName.onBoarding_2Route);
+      },
+      textButton: AppStrings.getStarted,
+    );
+  }
+
+  Widget _buildCenterText(BuildContext context) {
+    return Text(
+      AppStrings.trackEasily,
+      style: Theme.of(context).textTheme.titleMedium,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -19,25 +41,15 @@ class OnBoardingScreen1 extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const Image(
-            image: AssetImage(AppImagesPng.onBoardingLogo1),
-          ),
+          _buildMainLogo(),
           SizedBox(
             height: AppSize.s10.h,
           ),
-          Text(
-            AppStrings.trackEasily,
-            style: Theme.of(context).textTheme.titleMedium,
-          ),
+          _buildCenterText(context),
           SizedBox(
             height: AppSize.s200.h,
           ),
-          CustomTextButtonLarge(
-            onPressed: () {
-              Navigator.pushNamed(context, AppRoutesName.onBoarding_2Route);
-            },
-            textButton: AppStrings.getStarted,
-          ),
+          _buildGetStartedButton(context),
         ],
       ),
     );
