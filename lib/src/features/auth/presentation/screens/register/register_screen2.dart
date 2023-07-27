@@ -1,5 +1,6 @@
 import 'package:fitbit/src/config/routes/app_routes.dart';
 import 'package:fitbit/src/core/utils/app_assets.dart';
+import 'package:fitbit/src/core/utils/app_icons.dart';
 import 'package:fitbit/src/core/utils/app_strings.dart';
 import 'package:fitbit/src/core/utils/app_values.dart';
 import 'package:fitbit/src/features/auth/presentation/widgets/custom_form_field_text.dart';
@@ -57,7 +58,7 @@ class _RegisterScreen2State extends State<RegisterScreen2> {
     return CustomTextFormField(
       textEditingController: TextEditingController(text: _selectedValue),
       keyBoardType: TextInputType.text,
-      prefixIcon: const Icon(Icons.people_outline),
+      prefixIcon: const Icon(AppIcons.peoplepOutline),
       hintText: AppStrings.chooseGender,
       labelText: AppStrings.chooseGender,
       suffixIcon: PopupMenuButton<String>(
@@ -83,7 +84,7 @@ class _RegisterScreen2State extends State<RegisterScreen2> {
             keyBoardType: TextInputType.number,
             hintText: AppStrings.yourWeight,
             labelText: AppStrings.yourWeight,
-            prefixIcon: const Icon(Icons.monitor_weight_outlined),
+            prefixIcon: const Icon(AppIcons.weightOutlined),
           ),
         ),
         const Spacer(),
@@ -106,7 +107,7 @@ class _RegisterScreen2State extends State<RegisterScreen2> {
             keyBoardType: TextInputType.number,
             hintText: AppStrings.yourHeight,
             labelText: AppStrings.yourHeight,
-            prefixIcon: const Icon(Icons.import_export_outlined),
+            prefixIcon: const Icon(AppIcons.heightOutlined),
           ),
         ),
         const Spacer(),

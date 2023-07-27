@@ -2,6 +2,7 @@ import 'package:fitbit/src/config/routes/app_routes.dart';
 import 'package:fitbit/src/core/utils/app_assets.dart';
 import 'package:fitbit/src/core/utils/app_colors.dart';
 import 'package:fitbit/src/core/utils/app_font.dart';
+import 'package:fitbit/src/core/utils/app_icons.dart';
 import 'package:fitbit/src/core/utils/app_strings.dart';
 import 'package:fitbit/src/core/utils/app_values.dart';
 import 'package:fitbit/src/features/auth/presentation/screens/login/login_screen.dart';
@@ -65,7 +66,10 @@ class _ReigsterScreen1State extends State<ReigsterScreen1>
     return CustomTextFormField(
       textEditingController: _firstNameController,
       keyBoardType: TextInputType.name,
-      prefixIcon: const Icon(Icons.person_outlined, color: AppColors.grey1),
+      prefixIcon: const Icon(
+        AppIcons.personOutlined,
+        color: AppColors.grey1,
+      ),
       hintText: AppStrings.firstName,
       labelText: AppStrings.firstName,
     );
@@ -76,7 +80,7 @@ class _ReigsterScreen1State extends State<ReigsterScreen1>
       textEditingController: _emailController,
       keyBoardType: TextInputType.emailAddress,
       prefixIcon: const Icon(
-        Icons.email_outlined,
+        AppIcons.emailOutlined,
         color: AppColors.grey1,
       ),
       hintText: AppStrings.email,

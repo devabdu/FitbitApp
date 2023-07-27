@@ -1,6 +1,7 @@
 import 'package:fitbit/src/config/routes/app_routes.dart';
 import 'package:fitbit/src/core/utils/app_colors.dart';
 import 'package:fitbit/src/core/utils/app_font.dart';
+import 'package:fitbit/src/core/utils/app_icons.dart';
 import 'package:fitbit/src/core/utils/app_strings.dart';
 import 'package:fitbit/src/core/utils/app_values.dart';
 import 'package:fitbit/src/features/auth/presentation/widgets/custom_text_button_large.dart';
@@ -56,7 +57,7 @@ class _WorkoutsScreen2State extends State<WorkoutsScreen2> {
         AppStrings.legDay,
       ),
       onPressed: () {},
-      icon: Icons.more_horiz_outlined,
+      icon: AppIcons.moreHorizOutlined,
     );
   }
 
@@ -107,15 +108,15 @@ class _WorkoutsScreen2State extends State<WorkoutsScreen2> {
                           isPressed = !isPressed;
                         });
                       },
-                      icon: const Icon(Icons.add),
+                      icon: const Icon(AppIcons.add),
                     ),
                     if (isPressed)
                       Row(
                         children: [
                           IconButton(
                             icon: isShowDataOfExercies
-                                ? const Icon(Icons.keyboard_arrow_down)
-                                : const Icon(Icons.keyboard_arrow_up),
+                                ? const Icon(AppIcons.arrowDown)
+                                : const Icon(AppIcons.arrowUp),
                             onPressed: () {
                               setState(() {
                                 isShowDataOfExercies = !isShowDataOfExercies;
@@ -125,7 +126,7 @@ class _WorkoutsScreen2State extends State<WorkoutsScreen2> {
                           IconButton(
                             onPressed: () {},
                             icon: const Icon(
-                              Icons.cancel,
+                              AppIcons.cancel,
                               color: AppColors.error,
                             ),
                           ),
@@ -182,7 +183,7 @@ class _WorkoutsScreen2State extends State<WorkoutsScreen2> {
                     ),
                   ),
                   Icon(
-                    Icons.edit_square,
+                    AppIcons.editSquare,
                     size: AppSize.s18.r,
                   ),
                 ],

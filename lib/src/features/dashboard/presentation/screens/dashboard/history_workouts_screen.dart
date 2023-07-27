@@ -1,6 +1,7 @@
 import 'package:fitbit/src/core/utils/app_assets.dart';
 import 'package:fitbit/src/core/utils/app_colors.dart';
 import 'package:fitbit/src/core/utils/app_font.dart';
+import 'package:fitbit/src/core/utils/app_icons.dart';
 import 'package:fitbit/src/core/utils/app_strings.dart';
 import 'package:fitbit/src/core/utils/app_values.dart';
 import 'package:fitbit/src/features/dashboard/presentation/widgets/custom_app_bar.dart';
@@ -16,7 +17,7 @@ class HistoryWorkoutsScreen extends StatelessWidget {
         AppStrings.historyWorkouts,
       ),
       onPressed: () {},
-      icon: Icons.add,
+      icon: AppIcons.add,
     );
   }
 

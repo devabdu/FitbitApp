@@ -1,5 +1,6 @@
 import 'package:fitbit/src/config/routes/app_routes.dart';
 import 'package:fitbit/src/core/utils/app_colors.dart';
+import 'package:fitbit/src/core/utils/app_icons.dart';
 import 'package:fitbit/src/core/utils/app_strings.dart';
 import 'package:fitbit/src/core/utils/app_values.dart';
 import 'package:fitbit/src/features/dashboard/presentation/screens/dashboard/home_screen.dart';
@@ -59,12 +60,12 @@ class _DashboardViewState extends State<DashboardView> {
             onTap: onTap,
             items: [
               BottomNavigationBarItem(
-                icon: const Icon(Icons.home_filled),
+                icon: const Icon(AppIcons.homeFilled),
                 label: titles[0],
                 activeIcon: Column(
                   children: [
                     GradientIcon(
-                      Icons.home_filled,
+                      AppIcons.homeFilled,
                       AppSize.s26.r,
                       AppLinearGradientColors.iconBottomNavigation,
                     ),
@@ -72,7 +73,7 @@ class _DashboardViewState extends State<DashboardView> {
                       height: AppSize.s2.h,
                     ),
                     GradientIcon(
-                      Icons.lens,
+                      AppIcons.solidBall,
                       AppSize.s8.r,
                       AppLinearGradientColors.iconBottomNavigation,
                     ),
@@ -80,12 +81,12 @@ class _DashboardViewState extends State<DashboardView> {
                 ),
               ),
               BottomNavigationBarItem(
-                icon: const Icon(Icons.photo_filter_rounded),
+                icon: const Icon(AppIcons.notification),
                 label: titles[1],
                 activeIcon: Column(
                   children: [
                     GradientIcon(
-                      Icons.photo_filter_rounded,
+                      AppIcons.notification,
                       AppSize.s26.r,
                       AppLinearGradientColors.iconBottomNavigation,
                     ),
@@ -93,7 +94,7 @@ class _DashboardViewState extends State<DashboardView> {
                       height: AppSize.s2.h,
                     ),
                     GradientIcon(
-                      Icons.lens,
+                      AppIcons.solidBall,
                       AppSize.s8.r,
                       AppLinearGradientColors.iconBottomNavigation,
                     ),
@@ -101,12 +102,12 @@ class _DashboardViewState extends State<DashboardView> {
                 ),
               ),
               BottomNavigationBarItem(
-                icon: const Icon(Icons.edit_square),
+                icon: const Icon(AppIcons.editSquare),
                 label: titles[2],
                 activeIcon: Column(
                   children: [
                     GradientIcon(
-                      Icons.edit_square,
+                      AppIcons.editSquare,
                       AppSize.s26.r,
                       AppLinearGradientColors.iconBottomNavigation,
                     ),
@@ -114,7 +115,7 @@ class _DashboardViewState extends State<DashboardView> {
                       height: AppSize.s2.h,
                     ),
                     GradientIcon(
-                      Icons.lens,
+                      AppIcons.solidBall,
                       AppSize.s8.r,
                       AppLinearGradientColors.iconBottomNavigation,
                     ),
@@ -122,12 +123,12 @@ class _DashboardViewState extends State<DashboardView> {
                 ),
               ),
               BottomNavigationBarItem(
-                icon: const Icon(Icons.person_outline),
+                icon: const Icon(AppIcons.personOutlined),
                 label: titles[3],
                 activeIcon: Column(
                   children: [
                     GradientIcon(
-                      Icons.person_outline,
+                      AppIcons.personOutlined,
                       AppSize.s26.r,
                       AppLinearGradientColors.iconBottomNavigation,
                     ),
@@ -135,7 +136,7 @@ class _DashboardViewState extends State<DashboardView> {
                       height: AppSize.s2.h,
                     ),
                     GradientIcon(
-                      Icons.lens,
+                      AppIcons.solidBall,
                       AppSize.s8.r,
                       AppLinearGradientColors.iconBottomNavigation,
                     ),
@@ -161,7 +162,7 @@ class _DashboardViewState extends State<DashboardView> {
               width: AppSize.s60.w,
               height: AppSize.s60.h,
               alignment: Alignment.center,
-              child: const Icon(Icons.fitness_center_outlined),
+              child: const Icon(AppIcons.dummble),
             ),
           ),
         ),

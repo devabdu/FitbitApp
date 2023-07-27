@@ -2,6 +2,7 @@ import 'package:fitbit/src/config/routes/app_routes.dart';
 import 'package:fitbit/src/core/utils/app_assets.dart';
 import 'package:fitbit/src/core/utils/app_colors.dart';
 import 'package:fitbit/src/core/utils/app_font.dart';
+import 'package:fitbit/src/core/utils/app_icons.dart';
 import 'package:fitbit/src/core/utils/app_strings.dart';
 import 'package:fitbit/src/core/utils/app_values.dart';
 import 'package:fitbit/src/features/auth/presentation/screens/register/register_screen1.dart';
@@ -35,7 +36,7 @@ class _LoginScreenState extends State<LoginScreen> {
         textEditingController: _emailController,
         keyBoardType: TextInputType.emailAddress,
         prefixIcon: const Icon(
-          Icons.email_outlined,
+          AppIcons.emailOutlined,
           color: AppColors.grey1,
         ),
         hintText: AppStrings.email,

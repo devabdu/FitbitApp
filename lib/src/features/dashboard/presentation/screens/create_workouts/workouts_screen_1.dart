@@ -1,5 +1,6 @@
 import 'package:fitbit/src/config/routes/app_routes.dart';
 import 'package:fitbit/src/core/utils/app_colors.dart';
+import 'package:fitbit/src/core/utils/app_icons.dart';
 import 'package:fitbit/src/core/utils/app_strings.dart';
 import 'package:fitbit/src/core/utils/app_values.dart';
 import 'package:fitbit/src/features/auth/presentation/widgets/custom_text_button_large.dart';
@@ -44,7 +45,7 @@ class WorkoutsScreen1 extends StatelessWidget {
         AppStrings.createWorkout,
       ),
       onPressed: () {},
-      icon: Icons.more_horiz_outlined,
+      icon: AppIcons.moreHorizOutlined,
     );
   }
 

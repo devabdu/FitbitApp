@@ -1,6 +1,7 @@
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:fitbit/src/core/utils/app_colors.dart';
 import 'package:fitbit/src/core/utils/app_font.dart';
+import 'package:fitbit/src/core/utils/app_icons.dart';
 import 'package:fitbit/src/core/utils/app_strings.dart';
 import 'package:fitbit/src/core/utils/app_values.dart';
 import 'package:fitbit/src/features/dashboard/presentation/widgets/custom_app_bar.dart';
@@ -23,7 +24,7 @@ class _WorkoutsScreen3State extends State<WorkoutsScreen3> {
         AppStrings.legDay,
       ),
       onPressed: () {},
-      icon: Icons.more_horiz_outlined,
+      icon: AppIcons.moreHorizOutlined,
     );
   }
 
@@ -79,7 +80,7 @@ class _WorkoutsScreen3State extends State<WorkoutsScreen3> {
                         ),
                         child: IconButton(
                           onPressed: _controller.pause,
-                          icon: const Icon(Icons.pause),
+                          icon: const Icon(AppIcons.pause),
                         ),
                       ),
                     ),
@@ -99,7 +100,7 @@ class _WorkoutsScreen3State extends State<WorkoutsScreen3> {
                         ),
                         child: IconButton(
                           onPressed: _controller.start,
-                          icon: const Icon(Icons.play_arrow),
+                          icon: const Icon(AppIcons.play),
                         ),
                       ),
                     ),
@@ -119,7 +120,7 @@ class _WorkoutsScreen3State extends State<WorkoutsScreen3> {
                         ),
                         child: IconButton(
                           onPressed: _controller.restart,
-                          icon: const Icon(Icons.rectangle_rounded),
+                          icon: const Icon(AppIcons.restart),
                         ),
                       ),
                     ),

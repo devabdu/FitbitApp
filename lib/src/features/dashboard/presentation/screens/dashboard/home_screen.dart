@@ -1,6 +1,7 @@
 import 'package:fitbit/src/core/utils/app_assets.dart';
 import 'package:fitbit/src/core/utils/app_colors.dart';
 import 'package:fitbit/src/core/utils/app_font.dart';
+import 'package:fitbit/src/core/utils/app_icons.dart';
 import 'package:fitbit/src/core/utils/app_strings.dart';
 import 'package:fitbit/src/core/utils/app_values.dart';
 import 'package:fitbit/src/features/dashboard/presentation/widgets/custom_app_bar.dart';
@@ -43,7 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return CustomAppBar(
       automaticallyImplyLeading: false,
       onPressed: () {},
-      icon: Icons.notifications_none_outlined,
+      icon: AppIcons.notificationsNoneOutlined,
     );
   }
 
@@ -179,7 +180,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     style: Theme.of(context).textTheme.titleMedium!.copyWith(
                         fontSize: AppFontSize.s12, color: AppColors.white),
                   ),
-                  const Icon(Icons.arrow_drop_down_rounded),
+                  const Icon(AppIcons.arrowDropDown),
                 ],
               ),
             ),
@@ -257,7 +258,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 return AppLinearGradientColors.circleIcon.createShader(bounds);
               },
               child: Icon(
-                Icons.circle_outlined,
+                AppIcons.circleOutlined,
                 size: AppSize.s28.r,
               ),
             ),
@@ -288,7 +289,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 return AppLinearGradientColors.circleIcon.createShader(bounds);
               },
               child: Icon(
-                Icons.circle_outlined,
+                AppIcons.circleOutlined,
                 size: AppSize.s28.r,
               ),
             ),
@@ -319,7 +320,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 return AppLinearGradientColors.circleIcon.createShader(bounds);
               },
               child: Icon(
-                Icons.circle_outlined,
+                AppIcons.circleOutlined,
                 size: AppSize.s28.r,
               ),
             ),
@@ -350,7 +351,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 return AppLinearGradientColors.circleIcon.createShader(bounds);
               },
               child: Icon(
-                Icons.circle_outlined,
+                AppIcons.circleOutlined,
                 size: AppSize.s28.r,
               ),
             ),
@@ -373,11 +374,11 @@ class _HomeScreenState extends State<HomeScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             _buildIntroText(context),
-             SizedBox(
+            SizedBox(
               height: AppSize.s50.h,
             ),
             _buildButtonAndProgressChart(context),
-             SizedBox(
+            SizedBox(
               height: AppSize.s25.h,
             ),
             _buildRowOfLatestWorkoutsAndSeeMoreText(context),
