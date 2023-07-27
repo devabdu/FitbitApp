@@ -3,10 +3,10 @@ import 'package:fitbit/src/core/utils/app_assets.dart';
 import 'package:fitbit/src/core/utils/app_icons.dart';
 import 'package:fitbit/src/core/utils/app_strings.dart';
 import 'package:fitbit/src/core/utils/app_values.dart';
-import 'package:fitbit/src/features/auth/presentation/widgets/custom_form_field_text.dart';
-import 'package:fitbit/src/features/auth/presentation/widgets/custom_text_button_large.dart';
-import 'package:fitbit/src/features/auth/presentation/widgets/custom_text_button_small.dart';
-import 'package:fitbit/src/features/auth/presentation/widgets/custom_title_and_subtitle.dart';
+import 'package:fitbit/src/core/widgets/custom_form_field_text.dart';
+import 'package:fitbit/src/core/widgets/custom_text_button_large.dart';
+import 'package:fitbit/src/core/widgets/custom_text_button_small.dart';
+import 'package:fitbit/src/core/widgets/custom_title_and_subtitle.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

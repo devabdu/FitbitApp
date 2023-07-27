@@ -3,9 +3,9 @@ import 'package:fitbit/src/core/utils/app_colors.dart';
 import 'package:fitbit/src/core/utils/app_icons.dart';
 import 'package:fitbit/src/core/utils/app_strings.dart';
 import 'package:fitbit/src/core/utils/app_values.dart';
-import 'package:fitbit/src/features/auth/presentation/widgets/custom_text_button_large.dart';
-import 'package:fitbit/src/features/dashboard/presentation/widgets/custom_app_bar.dart';
-import 'package:fitbit/src/features/dashboard/presentation/widgets/custom_text_field.dart';
+import 'package:fitbit/src/core/widgets/custom_app_bar.dart';
+import 'package:fitbit/src/core/widgets/custom_text_button_large.dart';
+import 'package:fitbit/src/core/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

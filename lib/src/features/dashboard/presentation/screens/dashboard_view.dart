@@ -3,11 +3,11 @@ import 'package:fitbit/src/core/utils/app_colors.dart';
 import 'package:fitbit/src/core/utils/app_icons.dart';
 import 'package:fitbit/src/core/utils/app_strings.dart';
 import 'package:fitbit/src/core/utils/app_values.dart';
+import 'package:fitbit/src/core/widgets/gradient_icon.dart';
 import 'package:fitbit/src/features/dashboard/presentation/screens/dashboard/home_screen.dart';
 import 'package:fitbit/src/features/dashboard/presentation/screens/dashboard/notification_screen.dart';
 import 'package:fitbit/src/features/dashboard/presentation/screens/dashboard/profile_screen.dart';
 import 'package:fitbit/src/features/dashboard/presentation/screens/dashboard/history_workouts_screen.dart';
-import 'package:fitbit/src/features/dashboard/presentation/widgets/gradient_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

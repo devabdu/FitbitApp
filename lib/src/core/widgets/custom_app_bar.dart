@@ -1,6 +1,6 @@
 import 'package:fitbit/src/core/utils/app_colors.dart';
 import 'package:fitbit/src/core/utils/app_values.dart';
-import 'package:fitbit/src/features/dashboard/presentation/widgets/custom_icon_with_background.dart';
+import 'package:fitbit/src/core/widgets/custom_icon_with_background.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
