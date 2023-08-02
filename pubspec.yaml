@@ -11,7 +11,6 @@ dependencies:
   auto_route: ^7.1.0
   circular_countdown_timer: ^0.2.3
   cupertino_icons: ^1.0.2
-  data_tables: ^1.4.0
   equatable: ^2.0.5
   flutter:
     sdk: flutter

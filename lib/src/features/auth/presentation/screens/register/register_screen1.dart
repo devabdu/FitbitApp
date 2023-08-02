@@ -6,11 +6,10 @@ import 'package:fitbit/src/core/utils/app_strings.dart';
 import 'package:fitbit/src/core/utils/app_values.dart';
 import 'package:fitbit/src/core/widgets/custom_form_field_text.dart';
 import 'package:fitbit/src/core/widgets/custom_rich_text.dart';
-import 'package:fitbit/src/core/widgets/custom_text_button_large.dart';
+import 'package:fitbit/src/core/widgets/custom_text_button.dart';
 import 'package:fitbit/src/features/auth/presentation/screens/login/login_screen.dart';
-import 'package:fitbit/src/features/auth/presentation/widgets/build_email_text_form_field.dart';
-import 'package:fitbit/src/features/auth/presentation/widgets/build_gmail_facebook_icons_sections.dart';
-import 'package:fitbit/src/features/auth/presentation/widgets/build_or_divider.dart';
+import 'package:fitbit/src/features/auth/presentation/widgets/build_compination_auth_icons_and_or_divider_widget.dart';
+import 'package:fitbit/src/features/auth/presentation/widgets/build_email_text_form_field_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -31,6 +30,7 @@ class _ReigsterScreen1State extends State<ReigsterScreen1>
 
   @override
   String? get restorationId => 'checkbox_demo';
+  final AppPharses appPharses = AppPharses();
 
   @override
   void restoreState(RestorationBucket? oldBucket, bool initialRestore) {
@@ -44,19 +44,17 @@ class _ReigsterScreen1State extends State<ReigsterScreen1>
   }
 
   Widget _buildWelcomeAndCreateAccountText(BuildContext context) {
+    TextTheme themeTextStyle = Theme.of(context).textTheme;
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
           AppStrings.heyThere,
-          style: Theme.of(context)
-              .textTheme
-              .titleMedium!
-              .copyWith(color: AppColors.title),
+          style: themeTextStyle.titleMedium,
         ),
         Text(
           AppStrings.createAccount,
-          style: Theme.of(context).textTheme.bodyLarge,
+          style: themeTextStyle.bodyLarge,
         ),
       ],
     );
@@ -90,10 +88,9 @@ class _ReigsterScreen1State extends State<ReigsterScreen1>
         Expanded(
           child: Text(
             AppStrings.acceptOurPrivacyPolicyAndTerms,
-            //overflow: TextOverflow.ellipsis,
-            maxLines: 2,
+            maxLines: AppCounts.c2,
             style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                  fontSize: AppFontSize.s12,
+                  fontSize: AppFontSize.s10.sp,
                   fontWeight: AppFontWeight.regular,
                 ),
           ),
@@ -103,7 +100,7 @@ class _ReigsterScreen1State extends State<ReigsterScreen1>
   }
 
   Widget _buildRegisterButton(BuildContext context) {
-    return CustomTextButtonLarge(
+    return CustomTextButton(
       onPressed: () {
         Navigator.pushNamed(context, AppRoutesName.register_2Route);
       },
@@ -112,54 +109,35 @@ class _ReigsterScreen1State extends State<ReigsterScreen1>
   }
 
   Widget _buildAlreadyHaveAccount() {
-    return const CustomRichText(
+    return CustomRichText(
       mainText: AppStrings.alreadyHaveAccount,
-      highlightText: AppStrings.login,
-      nextWidget: LoginScreen(),
+      highlightText:
+          appPharses.phraseConstructionWithFirstStringEmpty(AppStrings.login),
+      nextWidget: const LoginScreen(),
     );
   }
 
   @override
   Widget build(BuildContext context) {
+    double mediaQuerySizeOfHeight = MediaQuery.of(context).size.height;
     return SafeArea(
       child: Scaffold(
-        body: Padding(
+        body: SingleChildScrollView(
           padding: ConstEdgeInsetsGeometry.defaultPaddingAuth,
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                _buildWelcomeAndCreateAccountText(context),
-                SizedBox(
-                  height: AppSize.s45.h,
-                ),
-                _buildFirstNameTextFormFiled(),
-                SizedBox(
-                  height: AppSize.s18.h,
-                ),
-                BuildEmailTextFormField(
-                    textEditingController: _emailController),
-                SizedBox(
-                  height: AppSize.s36.h,
-                ),
-                _buildLineOfAcceptOurPrivacyAndTerms(context),
-                SizedBox(
-                  height: AppSize.s169.h,
-                ),
-                _buildRegisterButton(context),
-                SizedBox(
-                  height: AppSize.s29.h,
-                ),
-                const BuildOrDivider(),
-                SizedBox(
-                  height: AppSize.s29.h,
-                ),
-                const BuildGmailAndFacebookIconsSection(),
-                SizedBox(
-                  height: AppSize.s30.h,
-                ),
-                _buildAlreadyHaveAccount(),
-              ],
-            ),
+          child: Column(
+            children: [
+              _buildWelcomeAndCreateAccountText(context),
+              SizedBox(height: mediaQuerySizeOfHeight / 15),
+              _buildFirstNameTextFormFiled(),
+              SizedBox(height: mediaQuerySizeOfHeight / 30),
+              BuildEmailTextFormField(textEditingController: _emailController),
+              SizedBox(height: mediaQuerySizeOfHeight / 15),
+              _buildLineOfAcceptOurPrivacyAndTerms(context),
+              SizedBox(height: mediaQuerySizeOfHeight / 9),
+              _buildRegisterButton(context),
+              const BuildCombinationAuthIconsAndOrDividerWidget(),
+              _buildAlreadyHaveAccount(),
+            ],
           ),
         ),
       ),

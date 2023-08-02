@@ -21,20 +21,19 @@ class CustomTextButtonSmall extends StatelessWidget {
       onTap: onTap,
       child: Container(
         color: containerColor,
-        //  width: 60,
-        //  height: 60,
+        width: AppSize.s40.w,
+        height: AppSize.s40.h,
         decoration: BoxDecoration(
-          gradient: AppLinearGradientColors.mainColorButton,
+          gradient: AppLinearGradientColors.mainGradientColor,
           border: Border.all(
-            //width: 0.8,
             color: AppColors.grey3,
           ),
           borderRadius: BorderRadius.all(
-            Radius.circular(AppSize.s99.r),
+            Radius.circular(AppSize.s14.r),
           ),
         ),
         child: Padding(
-          padding: const EdgeInsets.all(AppPadding.p10),
+          padding: EdgeInsets.all(AppPadding.p10.r),
           child: Center(
             child: Text(
               title,

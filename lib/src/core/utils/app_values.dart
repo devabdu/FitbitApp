@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppMargin {
+  static const double m6 = 6.0;
   static const double m8 = 8.0;
   static const double m10 = 10.0;
   static const double m12 = 12.0;
@@ -42,8 +43,11 @@ class AppPadding {
 class AppSize {
   static const double s0 = 0;
   static const double s1 = 1;
-  static const double s2 = 2;
+
   static const double s1_5 = 1.5;
+
+  static const double s2 = 2;
+  static const double s3 = 3;
   static const double s4 = 4.0;
   static const double s8 = 8.0;
   static const double s10 = 10.0;
@@ -90,11 +94,13 @@ class AppSize {
   static const double s308_03 = 308.03;
   static const double s315 = 315.0;
   static const double s326 = 326.0;
-  static const double s488 = 488.0;
+  static const double s350 = 350.0;
+  static const double s400 = 400.0;
+  static const double s430 = 430.0;
 }
 
 class AppMultipliedSize {
-  static const double sizeOfSmallContainer = 80 * 0.8;
+  static const double sizeOfSmallContainer = 70 * 0.8;
 
   double multipliedSizeX1_2(double size) {
     return size * 1.2;
@@ -117,8 +123,11 @@ class AppElevation {
 
 class ConstEdgeInsetsGeometry {
   static EdgeInsetsGeometry defaultPaddingAuth = EdgeInsets.only(
-      top: AppPadding.p80.h, right: AppPadding.p30.w, left: AppPadding.p30.w);
+      top: AppPadding.p50.h, right: AppPadding.p30.w, left: AppPadding.p30.w);
 
   static EdgeInsetsGeometry defaultPaddingWorkoutScreens = EdgeInsets.symmetric(
       horizontal: AppPadding.p24.w, vertical: AppPadding.p32.h);
+
+  static EdgeInsetsGeometry defaultPaddingHomeScreen =
+      EdgeInsets.only(right: AppPadding.p30.w, left: AppPadding.p30.w);
 }

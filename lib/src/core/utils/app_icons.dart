@@ -21,6 +21,7 @@ class AppIcons {
   static const IconData dummble = Icons.fitness_center_outlined;
   static const IconData notificationsNoneOutlined =
       Icons.notifications_none_outlined;
-  static const IconData arrowDropDown = Icons.arrow_drop_down_rounded;
+  static const IconData arrowDropDown = Icons.keyboard_arrow_down_rounded;
+  static const IconData arrowRight = Icons.arrow_forward_ios_rounded;
   static const IconData circleOutlined = Icons.circle_outlined;
 }

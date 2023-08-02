@@ -1,4 +1,5 @@
 class AppStrings {
+  static const String emptySpace = ' ';
   static const String trackEasily = 'Track your Training easily';
 
   //Login Screen
@@ -95,4 +96,10 @@ class AppPharses {
   String phraseConstruction(String firstString, String secondString) {
     return firstString + secondString;
   }
+
+  String phraseConstructionWithFirstStringEmpty(String secondString) {
+    return AppStrings.emptySpace + secondString;
+  }
+
+  phraseConsphraseConstructionWithFirstStringEmptyruction(secondString) {}
 }

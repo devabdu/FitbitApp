@@ -4,7 +4,8 @@ import 'package:fitbit/src/core/utils/app_font.dart';
 import 'package:fitbit/src/core/utils/app_strings.dart';
 import 'package:fitbit/src/core/utils/app_values.dart';
 import 'package:fitbit/src/core/widgets/custom_app_bar.dart';
-import 'package:fitbit/src/core/widgets/custom_text_button_large.dart';
+import 'package:fitbit/src/core/widgets/custom_positioned_button.dart';
+import 'package:fitbit/src/core/widgets/custom_text_button.dart';
 import 'package:fitbit/src/core/widgets/custom_title_and_subtitle.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -29,16 +30,16 @@ class WorkoutsScreen4 extends StatelessWidget {
   Widget _buildCenterText() {
     return CustomTitleAndSubtitle(
       title: AppStrings.congratulations,
-      fontSizeTitle: AppFontSize.s30,
+      fontSizeTitle: AppFontSize.s30.sp,
 
       //paddingHorizontalOfSubTitle: 60,
       subTitle: AppStrings.youHaveFinishedYourWorkouts,
-      fontSizeSubTitle: AppFontSize.s16,
+      fontSizeSubTitle: AppFontSize.s16.sp,
     );
   }
 
   Widget _buildGoToHomeButton(BuildContext context) {
-    return CustomTextButtonLarge(
+    return CustomTextButton(
       onPressed: () {
         Navigator.pushNamed(context, AppRoutesName.dashboardRoute);
       },
@@ -64,10 +65,7 @@ class WorkoutsScreen4 extends StatelessWidget {
                 ),
               ),
             ),
-            Positioned(
-              bottom: AppSize.s60.h,
-              right: AppSize.s40.w,
-              left: AppSize.s40.w,
+            CustomPositionedButton(
               child: _buildGoToHomeButton(context),
             ),
           ],

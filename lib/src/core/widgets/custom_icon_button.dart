@@ -22,15 +22,15 @@ class CustomIconButton extends StatelessWidget {
       onTap: onTap,
       child: Container(
         color: containerColor,
-        width: AppSize.s50.w,
-        height: AppSize.s50.h,
+        width: AppSize.s45.w,
+        height: AppSize.s45.h,
         decoration: BoxDecoration(
           border: Border.all(
             //width: 0.8,
             color: AppColors.grey3,
           ),
           borderRadius: BorderRadius.all(
-            Radius.circular(AppSize.s14.r),
+            Radius.circular(AppSize.s16.r),
           ),
         ),
         child: Padding(

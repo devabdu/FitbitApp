@@ -3,6 +3,7 @@ import 'package:fitbit/src/core/utils/app_font.dart';
 import 'package:fitbit/src/core/utils/app_values.dart';
 import 'package:fitbit/src/core/utils/app_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 ThemeData appLightTheme() {
   return ThemeData(
@@ -22,7 +23,7 @@ ThemeData appLightTheme() {
       elevation: AppSize.s0,
       shadowColor: AppColors.lightPrimary,
       titleTextStyle: getBoldStyle(
-        fontSize: AppFontSize.s18,
+        fontSize: AppFontSize.s18.sp,
         color: AppColors.title,
       ),
     ),
@@ -47,7 +48,7 @@ ThemeData appLightTheme() {
       style: ElevatedButton.styleFrom(
         textStyle: getBoldStyle(
           color: AppColors.white,
-          fontSize: AppFontSize.s18,
+          fontSize: AppFontSize.s18.sp,
         ),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(AppSize.s12),
@@ -58,40 +59,40 @@ ThemeData appLightTheme() {
     /// text theme
     textTheme: TextTheme(
       displayLarge: getSemiBoldStyle(
-        fontSize: AppFontSize.s16,
+        fontSize: AppFontSize.s16.sp,
         color: AppColors.darkGrey,
       ),
       headlineLarge: getSemiBoldStyle(
-        fontSize: AppFontSize.s16,
+        fontSize: AppFontSize.s16.sp,
         color: AppColors.darkGrey,
       ),
       headlineMedium: getRegularStyle(
-        fontSize: AppFontSize.s14,
+        fontSize: AppFontSize.s14.sp,
         color: AppColors.darkGrey,
       ),
       titleLarge: getLargeStyle(
-        color: const Color(0xFF1D1617),
-        fontSize: AppFontSize.s26,
+        color: AppColors.title,
+        fontSize: AppFontSize.s26.sp,
       ),
       titleMedium: getRegularStyle(
         color: AppColors.subTitle,
-        fontSize: AppFontSize.s16,
+        fontSize: AppFontSize.s16.sp,
       ),
       titleSmall: getRegularStyle(
-        fontSize: AppFontSize.s14,
+        fontSize: AppFontSize.s14.sp,
         color: AppColors.title,
       ),
       labelSmall: getMediumStyle(
-        fontSize: AppFontSize.s12,
+        fontSize: AppFontSize.s12.sp,
         color: AppColors.white,
       ),
       bodyMedium: getRegularStyle(
-        fontSize: AppFontSize.s12,
+        fontSize: AppFontSize.s12.sp,
         color: AppColors.grey2,
       ),
       bodyLarge: getBoldStyle(
         color: AppColors.title,
-        fontSize: AppFontSize.s20,
+        fontSize: AppFontSize.s20.sp,
       ),
       bodySmall: getRegularStyle(color: AppColors.grey),
     ),
@@ -102,15 +103,15 @@ ThemeData appLightTheme() {
       filled: true,
       contentPadding: const EdgeInsets.all(AppPadding.p8),
       hintStyle: getRegularStyle(
-        fontSize: AppSize.s14,
+        fontSize: AppSize.s14.sp,
         color: AppColors.grey2,
       ),
       labelStyle: getMediumStyle(
-        fontSize: AppSize.s14,
+        fontSize: AppSize.s14.sp,
         color: AppColors.grey2,
       ),
       errorStyle: getRegularStyle(
-        fontSize: AppSize.s14,
+        fontSize: AppSize.s14.sp,
         color: AppColors.error,
       ),
       enabledBorder: const OutlineInputBorder(

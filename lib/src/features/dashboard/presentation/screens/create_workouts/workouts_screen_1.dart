@@ -1,13 +1,11 @@
 import 'package:fitbit/src/config/routes/app_routes.dart';
-import 'package:fitbit/src/core/utils/app_colors.dart';
-import 'package:fitbit/src/core/utils/app_icons.dart';
 import 'package:fitbit/src/core/utils/app_strings.dart';
 import 'package:fitbit/src/core/utils/app_values.dart';
-import 'package:fitbit/src/core/widgets/custom_app_bar.dart';
-import 'package:fitbit/src/core/widgets/custom_text_button_large.dart';
+import 'package:fitbit/src/core/widgets/custom_positioned_button.dart';
+import 'package:fitbit/src/core/widgets/custom_text_button.dart';
 import 'package:fitbit/src/core/widgets/custom_text_field.dart';
+import 'package:fitbit/src/features/dashboard/presentation/screens/create_workouts/widgets/workouts_app_bar_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class WorkoutsScreen1 extends StatelessWidget {
   WorkoutsScreen1({super.key});
@@ -39,17 +37,7 @@ class WorkoutsScreen1 extends StatelessWidget {
     Choice(title: 'Sunday'),
   ];
 
-  PreferredSizeWidget? _buildAppBar(BuildContext context) {
-    return CustomAppBar(
-      title: const Text(
-        AppStrings.createWorkout,
-      ),
-      onPressed: () {},
-      icon: AppIcons.moreHorizOutlined,
-    );
-  }
-
-  Widget _buildWorkoutNameSection(BuildContext context) {
+  Widget _buildWorkoutNameSection() {
     return CustomTextField(
       textEditingController: _workoutNameController,
       textSection: AppStrings.workoutName,
@@ -57,7 +45,7 @@ class WorkoutsScreen1 extends StatelessWidget {
     );
   }
 
-  Widget _buildWorkoutDaySection(BuildContext context) {
+  Widget _buildWorkoutDaySection() {
     return CustomTextField(
       textEditingController: _workoutDayController,
       textSection: AppStrings.dayOfTheWeek,
@@ -66,7 +54,7 @@ class WorkoutsScreen1 extends StatelessWidget {
   }
 
   Widget _buildNextButton(BuildContext context) {
-    return CustomTextButtonLarge(
+    return CustomTextButton(
       textButton: AppStrings.next,
       onPressed: () {
         Navigator.pushNamed(context, AppRoutesName.workouts_2Route);
@@ -77,26 +65,25 @@ class WorkoutsScreen1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _buildAppBar(context),
+      appBar: WorkoutsAppBar(
+        titleAppBar: AppStrings.createWorkout,
+        onPressed: () {},
+      ),
       body: Stack(
         children: [
           Padding(
             padding: ConstEdgeInsetsGeometry.defaultPaddingWorkoutScreens,
             child: Column(
               children: [
-                _buildWorkoutNameSection(context),
-                const Divider(
-                  thickness: 0,
-                  color: AppColors.transparent,
+                _buildWorkoutNameSection(),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height / 30,
                 ),
-                _buildWorkoutDaySection(context),
+                _buildWorkoutDaySection(),
               ],
             ),
           ),
-          Positioned(
-            bottom: AppSize.s60.h,
-            right: AppSize.s40.w,
-            left: AppSize.s40.w,
+          CustomPositionedButton(
             child: _buildNextButton(context),
           ),
         ],

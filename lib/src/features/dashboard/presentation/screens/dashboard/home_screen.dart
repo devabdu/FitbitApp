@@ -49,36 +49,33 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget _buildIntroText(BuildContext context) {
+    TextTheme themeTextStyle = Theme.of(context).textTheme;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           AppStrings.welcomeBack,
-          style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                color: AppColors.grey2,
-              ),
+          style: themeTextStyle.titleSmall!.copyWith(
+            color: AppColors.grey2,
+          ),
         ),
         Text(
           AppStrings.userName,
-          style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                fontSize: AppFontSize.s22,
-                color: AppColors.title,
-              ),
+          style: themeTextStyle.bodyLarge,
         ),
       ],
     );
   }
 
   Widget _buildWorkoutProgressChart(BuildContext context) {
+    TextTheme themeTextStyle = Theme.of(context).textTheme;
     return SfCartesianChart(
-      margin: EdgeInsets.only(top: AppPadding.p12.h),
-      plotAreaBorderWidth: 0,
+      margin: EdgeInsets.only(top: AppMargin.m8.h),
+      plotAreaBorderWidth: AppSize.s0.w,
       title: ChartTitle(
         text: AppStrings.workoutProgress,
-        textStyle: Theme.of(context)
-            .textTheme
-            .displayLarge!
-            .copyWith(color: AppColors.title, fontSize: AppFontSize.s16),
+        textStyle: themeTextStyle.headlineLarge!
+            .copyWith(color: AppColors.title, fontSize: AppSize.s14.sp),
         alignment: ChartAlignment.near,
       ),
       primaryXAxis: CategoryAxis(),
@@ -115,8 +112,8 @@ class _HomeScreenState extends State<HomeScreen> {
           xValueMapper: (_WorkoutsProgress workouts, _) => workouts.day,
           yValueMapper: (_WorkoutsProgress workouts, _) => workouts.progress,
           name: AppStrings.thisWeek,
-          color: AppColors.iconBottomNavigation2,
-          width: 3,
+          color: AppColors.lightPink,
+          width: AppSize.s3.w,
           animationDuration: 1,
           // Enable data label
           //dataLabelSettings: const DataLabelSettings(isVisible: true),
@@ -135,8 +132,8 @@ class _HomeScreenState extends State<HomeScreen> {
             RenderBox? button = context.findRenderObject() as RenderBox?;
             Offset buttonPosition = button!.localToGlobal(Offset.zero);
             Offset position = Offset(
-              buttonPosition.dx,
-              buttonPosition.dy + button.size.height,
+              buttonPosition.dx.w,
+              buttonPosition.dy.h + button.size.height.h,
             );
             RelativeRect rect = RelativeRect.fromSize(
               Rect.fromPoints(
@@ -159,30 +156,35 @@ class _HomeScreenState extends State<HomeScreen> {
           },
           style: ElevatedButton.styleFrom(
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(AppSize.s99.r)),
+              borderRadius: BorderRadius.all(Radius.circular(AppSize.s50.r)),
             ),
-            padding: const EdgeInsets.all(AppPadding.p0),
+            padding: EdgeInsets.all(AppPadding.p0.r),
           ),
           child: Ink(
             decoration: BoxDecoration(
-              gradient: AppLinearGradientColors.mainColorButton,
-              borderRadius: BorderRadius.all(Radius.circular(AppSize.s99.r)),
+              gradient: AppLinearGradientColors.mainGradientColor,
+              borderRadius: BorderRadius.all(Radius.circular(AppSize.s50.r)),
             ),
-            child: Container(
-              width: AppSize.s90.w,
-              height: AppSize.s40.h,
-              alignment: Alignment.center,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    _selectedValue ?? AppStrings.weekly,
-                    style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                        fontSize: AppFontSize.s12, color: AppColors.white),
+            child: Column(
+              children: [
+                Container(
+                  width: AppSize.s80.w,
+                  height: AppSize.s30.h,
+                  alignment: Alignment.center,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        _selectedValue ?? AppStrings.weekly,
+                        style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                            fontSize: AppFontSize.s10.sp,
+                            color: AppColors.white),
+                      ),
+                      const Icon(AppIcons.arrowDropDown),
+                    ],
                   ),
-                  const Icon(AppIcons.arrowDropDown),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ),
@@ -200,29 +202,25 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget _buildRowOfLatestWorkoutsAndSeeMoreText(BuildContext context) {
+    TextTheme themeTextStyle = Theme.of(context).textTheme;
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
           AppStrings.latestWorkout,
-          style: Theme.of(context)
-              .textTheme
-              .displayLarge!
-              .copyWith(color: AppColors.title, fontSize: AppFontSize.s18),
+          style: themeTextStyle.headlineLarge!.copyWith(color: AppColors.title),
         ),
         TextButton(
           onPressed: () {},
           style: ButtonStyle(
             shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                 RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(AppSize.s18.r))),
+                    borderRadius: BorderRadius.circular(AppSize.s16.r))),
             overlayColor: MaterialStateProperty.all(AppColors.lightPrimary),
           ),
           child: Text(
             AppStrings.seeMore,
-            style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                  color: AppColors.grey2,
-                ),
+            style: Theme.of(context).textTheme.bodyMedium,
           ),
         )
       ],
@@ -230,7 +228,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget _buildListOfLatestWorkouts(BuildContext context) {
-    return Expanded(
+    return Flexible(
       child: ListView(
         children: [
           ListTile(
@@ -366,21 +364,18 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    double mediaQuerySizeOfHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: _appBar(),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: AppPadding.p30.w),
+        padding: ConstEdgeInsetsGeometry.defaultPaddingHomeScreen,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             _buildIntroText(context),
-            SizedBox(
-              height: AppSize.s50.h,
-            ),
+            SizedBox(height: mediaQuerySizeOfHeight / 25),
             _buildButtonAndProgressChart(context),
-            SizedBox(
-              height: AppSize.s25.h,
-            ),
+            SizedBox(height: mediaQuerySizeOfHeight / 50),
             _buildRowOfLatestWorkoutsAndSeeMoreText(context),
             _buildListOfLatestWorkouts(context),
           ],

@@ -28,12 +28,15 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final IconData? icon;
   final Color? iconColor;
 
-  Widget buildLeadingIcon() {
+  Widget buildLeadingIcon(BuildContext context) {
     return CustomIconWithBackground(
-      child: Icon(
-        Icons.arrow_back_ios_outlined,
-        size: AppSize.s20.r,
-        color: iconColor ?? AppColors.black,
+      child: IconButton(
+        onPressed: () => Navigator.pop(context),
+        icon: Icon(
+          Icons.arrow_back_ios_outlined,
+          size: AppSize.s20.r,
+          color: iconColor ?? AppColors.black,
+        ),
       ),
     );
   }
@@ -61,7 +64,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       padding: EdgeInsets.symmetric(horizontal: AppPadding.p10.w),
       child: AppBar(
         automaticallyImplyLeading: automaticallyImplyLeading,
-        leading: automaticallyImplyLeading ? buildLeadingIcon() : null,
+        leading: automaticallyImplyLeading ? buildLeadingIcon(context) : null,
         backgroundColor: backgroundColor,
         elevation: elevation,
         title: title,

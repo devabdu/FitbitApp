@@ -1,6 +1,7 @@
 import 'package:fitbit/src/core/utils/app_font.dart';
 import 'package:fitbit/src/core/utils/app_values.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomTitleAndSubtitle extends StatelessWidget {
   final String title;
@@ -28,7 +29,7 @@ class CustomTitleAndSubtitle extends StatelessWidget {
           style: Theme.of(context)
               .textTheme
               .titleLarge!
-              .copyWith(fontSize: fontSizeTitle ?? AppFontSize.s20),
+              .copyWith(fontSize: fontSizeTitle ?? AppFontSize.s20.sp),
         ),
         Padding(
           padding:
@@ -39,7 +40,7 @@ class CustomTitleAndSubtitle extends StatelessWidget {
             style: Theme.of(context)
                 .textTheme
                 .titleSmall!
-                .copyWith(fontSize: fontSizeSubTitle ?? AppFontSize.s12),
+                .copyWith(fontSize: fontSizeSubTitle ?? AppFontSize.s12.sp),
           ),
         ),
       ],

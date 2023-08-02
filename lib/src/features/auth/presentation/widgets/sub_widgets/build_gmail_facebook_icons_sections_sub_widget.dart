@@ -1,11 +1,9 @@
 import 'package:fitbit/src/core/utils/app_assets.dart';
-import 'package:fitbit/src/core/utils/app_values.dart';
 import 'package:fitbit/src/core/widgets/custom_icon_button.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class BuildGmailAndFacebookIconsSection extends StatelessWidget {
-  const BuildGmailAndFacebookIconsSection({super.key});
+class BuildGmailAndFacebookIconsSectionSubWidget extends StatelessWidget {
+  const BuildGmailAndFacebookIconsSectionSubWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +14,7 @@ class BuildGmailAndFacebookIconsSection extends StatelessWidget {
           assetImage: AppImagesSvg.gmailLogo,
         ),
         SizedBox(
-          width: AppSize.s30.w,
+          width: MediaQuery.of(context).size.width / 10,
         ),
         const CustomIconButton(
           assetImage: AppImagesSvg.facebookLogo,

@@ -4,12 +4,10 @@ import 'package:fitbit/src/core/utils/app_icons.dart';
 import 'package:fitbit/src/core/utils/app_strings.dart';
 import 'package:fitbit/src/core/utils/app_values.dart';
 import 'package:fitbit/src/core/widgets/custom_form_field_text.dart';
-import 'package:fitbit/src/core/widgets/custom_text_button_large.dart';
-import 'package:fitbit/src/core/widgets/custom_text_button_small.dart';
+import 'package:fitbit/src/core/widgets/custom_text_button.dart';
 import 'package:fitbit/src/core/widgets/custom_title_and_subtitle.dart';
-import 'package:fitbit/src/features/auth/presentation/widgets/build_measurement_text_form_field.dart';
+import 'package:fitbit/src/features/auth/presentation/widgets/build_measurement_text_form_field_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class RegisterScreen2 extends StatefulWidget {
   const RegisterScreen2({super.key});
@@ -41,11 +39,7 @@ class _RegisterScreen2State extends State<RegisterScreen2> {
   final TextEditingController heightController = TextEditingController();
 
   Widget _buildFitBoyImage() {
-    return SizedBox(
-      width: AppSize.s258.w,
-      height: AppSize.s243_56.h,
-      child: Image.asset(AppImagesPng.fitBoy2),
-    );
+    return Image.asset(AppImagesPng.fitBoy2);
   }
 
   Widget _buildCenterText() {
@@ -94,7 +88,7 @@ class _RegisterScreen2State extends State<RegisterScreen2> {
   }
 
   Widget _buildNextButton(BuildContext context) {
-    return CustomTextButtonLarge(
+    return CustomTextButton(
       onPressed: () {
         Navigator.pushNamed(context, AppRoutesName.successRegisterationRoute);
       },
@@ -104,36 +98,27 @@ class _RegisterScreen2State extends State<RegisterScreen2> {
 
   @override
   Widget build(BuildContext context) {
+    double mediaQuerySizeOfHeight = MediaQuery.of(context).size.height;
+    double divideScreenFromHeightBy40 = mediaQuerySizeOfHeight / 40;
+    double divideScreenFromHeightBy15 = mediaQuerySizeOfHeight / 15;
     return SafeArea(
       child: Scaffold(
-        body: Padding(
+        body: SingleChildScrollView(
           padding: ConstEdgeInsetsGeometry.defaultPaddingAuth,
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                _buildFitBoyImage(),
-                SizedBox(
-                  height: AppSize.s45.h,
-                ),
-                _buildCenterText(),
-                SizedBox(
-                  height: AppSize.s75.h,
-                ),
-                _buildGenderTextFormField(),
-                SizedBox(
-                  height: AppSize.s18.h,
-                ),
-                _buildWeightTextFormField(),
-                SizedBox(
-                  height: AppSize.s18.h,
-                ),
-                _buildHeightTextFormField(),
-                SizedBox(
-                  height: AppSize.s54.h,
-                ),
-                _buildNextButton(context),
-              ],
-            ),
+          child: Column(
+            children: [
+              _buildFitBoyImage(),
+              SizedBox(height: divideScreenFromHeightBy15),
+              _buildCenterText(),
+              SizedBox(height: divideScreenFromHeightBy15),
+              _buildGenderTextFormField(),
+              SizedBox(height: divideScreenFromHeightBy40),
+              _buildWeightTextFormField(),
+              SizedBox(height: divideScreenFromHeightBy40),
+              _buildHeightTextFormField(),
+              SizedBox(height: divideScreenFromHeightBy15),
+              _buildNextButton(context),
+            ],
           ),
         ),
       ),
