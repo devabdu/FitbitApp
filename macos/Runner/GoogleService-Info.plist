@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>456696145433-ehf3pe67s6cecjm8nrqdsq990puncmtt.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.456696145433-ehf3pe67s6cecjm8nrqdsq990puncmtt</string>
+	<key>API_KEY</key>
+	<string>AIzaSyA1bFEz6s5NQm2GxfmEzhw4pKDiZTpG_Nc</string>
+	<key>GCM_SENDER_ID</key>
+	<string>456696145433</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.fitbit</string>
+	<key>PROJECT_ID</key>
+	<string>gyminder-70ebb</string>
+	<key>STORAGE_BUCKET</key>
+	<string>gyminder-70ebb.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:456696145433:ios:2b6a20b2722d6e922fac88</string>
+</dict>
+</plist>

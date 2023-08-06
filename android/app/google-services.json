@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "456696145433",
+    "project_id": "gyminder-70ebb",
+    "storage_bucket": "gyminder-70ebb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:456696145433:android:5508b3b1d7d033172fac88",
+        "android_client_info": {
+          "package_name": "com.example.fitbit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "456696145433-ibovgpii6fc6blbh050cbo23d72uhok1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQLFufXAgW3i6eM_5pp6lnJOJe803topA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "456696145433-ibovgpii6fc6blbh050cbo23d72uhok1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "456696145433-ehf3pe67s6cecjm8nrqdsq990puncmtt.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.fitbit"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
