@@ -16,6 +16,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.2
+  flutter_dotenv: ^5.1.0
   flutter_screenutil: ^5.8.4
   flutter_svg: ^2.0.5
   syncfusion_flutter_charts: ^22.1.36
@@ -28,6 +29,7 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
+    - .env
     - assets/images/dumbbell.png
     - assets/images/fit_boy.svg
     - assets/images/facebook_icon.svg

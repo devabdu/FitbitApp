@@ -3,6 +3,7 @@
 import 'package:firebase_core/firebase_core.dart' show FirebaseOptions;
 import 'package:flutter/foundation.dart'
     show defaultTargetPlatform, kIsWeb, TargetPlatform;
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 /// Default [FirebaseOptions] for use with your Firebase apps.
 ///
@@ -26,7 +27,10 @@ class DefaultFirebaseOptions {
       case TargetPlatform.android:
         return android;
       case TargetPlatform.iOS:
-        return ios;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for ios - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.macOS:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for macos - '
@@ -49,21 +53,11 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCQLFufXAgW3i6eM_5pp6lnJOJe803topA',
-    appId: '1:456696145433:android:5508b3b1d7d033172fac88',
-    messagingSenderId: '456696145433',
-    projectId: 'gyminder-70ebb',
-    storageBucket: 'gyminder-70ebb.appspot.com',
-  );
-
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyA1bFEz6s5NQm2GxfmEzhw4pKDiZTpG_Nc',
-    appId: '1:456696145433:ios:2b6a20b2722d6e922fac88',
-    messagingSenderId: '456696145433',
-    projectId: 'gyminder-70ebb',
-    storageBucket: 'gyminder-70ebb.appspot.com',
-    iosClientId: '456696145433-ehf3pe67s6cecjm8nrqdsq990puncmtt.apps.googleusercontent.com',
-    iosBundleId: 'com.example.fitbit',
+  static FirebaseOptions android = FirebaseOptions(
+    apiKey: dotenv.env['API_KEY_Android']!,
+    appId: dotenv.env['APP_ID_Android']!,
+    messagingSenderId: dotenv.env['MESSAGING_SENDER_ID_Android']!,
+    projectId: dotenv.env['PROJECT_ID_Android']!,
+    storageBucket: dotenv.env['STORAGE_BUCKET_Android']!,
   );
 }
