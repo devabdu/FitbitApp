@@ -1,3 +1,3 @@
-# fitbit
+# Our Vision and Mission
 
-A new Flutter project.
+ Track your Training easily
