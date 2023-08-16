@@ -1,9 +1,9 @@
 import 'package:fitbit/src/features/auth/presentation/screens/login/login_screen.dart';
-import 'package:fitbit/src/features/auth/presentation/screens/onboarding/onboarding_screen1.dart';
-import 'package:fitbit/src/features/auth/presentation/screens/onboarding/onboarding_screen2.dart';
 import 'package:fitbit/src/features/auth/presentation/screens/register/register_screen1.dart';
 import 'package:fitbit/src/features/auth/presentation/screens/register/register_screen2.dart';
 import 'package:fitbit/src/features/auth/presentation/screens/register/success_registeration_screen.dart';
+import 'package:fitbit/src/features/auth/presentation/ui/screens/onboarding/onboarding_screen1.dart';
+import 'package:fitbit/src/features/auth/presentation/ui/screens/onboarding/onboarding_screen2.dart';
 import 'package:fitbit/src/features/dashboard/presentation/screens/dashboard/home_screen.dart';
 import 'package:fitbit/src/features/dashboard/presentation/screens/dashboard/notification_screen.dart';
 import 'package:fitbit/src/features/dashboard/presentation/screens/dashboard_view.dart';

@@ -1,17 +1,10 @@
-import 'package:fitbit/src/features/auth/presentation/widgets/sub_widgets/build_gmail_facebook_icons_sections_sub_widget.dart';
-import 'package:fitbit/src/features/auth/presentation/widgets/sub_widgets/build_or_divider_sub_widget.dart';
+import 'package:fitbit/src/features/auth/presentation/ui/widgets/sub_widgets/build_gmail_facebook_icons_sections_sub_widget.dart';
+import 'package:fitbit/src/features/auth/presentation/ui/widgets/sub_widgets/build_or_divider_sub_widget.dart';
 import 'package:flutter/material.dart';
 
-class BuildCombinationAuthIconsAndOrDividerWidget extends StatefulWidget {
+class BuildCombinationAuthIconsAndOrDividerWidget extends StatelessWidget {
   const BuildCombinationAuthIconsAndOrDividerWidget({super.key});
 
-  @override
-  State<BuildCombinationAuthIconsAndOrDividerWidget> createState() =>
-      _BuildCombinationAuthIconsAndOrDividerWidgetState();
-}
-
-class _BuildCombinationAuthIconsAndOrDividerWidgetState
-    extends State<BuildCombinationAuthIconsAndOrDividerWidget> {
   @override
   Widget build(BuildContext context) {
     double mediaQuerySizeOfHeight = MediaQuery.of(context).size.height;

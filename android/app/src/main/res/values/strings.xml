@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources> 
+    <string name="facebook_app_id">220622337605978</string>
+    <string name="fb_login_protocol_scheme">fb220622337605978</string>
+    <string name="facebook_client_token">aa923b7ca52417b8263dcc88c359fca8</string>
+    <string name="app_name">Gymminder</string>
+</resources>
