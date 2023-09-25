@@ -11,6 +11,7 @@ dependencies:
   auto_route: ^7.1.0
   circular_countdown_timer: ^0.2.3
   cupertino_icons: ^1.0.2
+  dartz: ^0.10.1
   equatable: ^2.0.5
   firebase_auth: ^4.7.3
   firebase_core: ^2.15.0
