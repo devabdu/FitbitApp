@@ -1,4 +1,4 @@
-import 'package:fitbit/src/core/utils/app_assets.dart';
+import 'package:fitbit/src/core/utils/resources/app_assets.dart';
 import 'package:flutter/material.dart';
 
 class BuildFitBoyImage extends StatelessWidget {

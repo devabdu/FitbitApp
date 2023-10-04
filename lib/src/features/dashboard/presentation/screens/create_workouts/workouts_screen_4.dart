@@ -1,8 +1,8 @@
 import 'package:fitbit/src/config/routes/app_routes.dart';
-import 'package:fitbit/src/core/utils/app_assets.dart';
-import 'package:fitbit/src/core/utils/app_font.dart';
-import 'package:fitbit/src/core/utils/app_strings.dart';
-import 'package:fitbit/src/core/utils/app_values.dart';
+import 'package:fitbit/src/core/utils/resources/app_assets.dart';
+import 'package:fitbit/src/core/utils/resources/app_font.dart';
+import 'package:fitbit/src/core/utils/resources/app_strings.dart';
+import 'package:fitbit/src/core/utils/resources/app_values.dart';
 import 'package:fitbit/src/core/widgets/custom_app_bar.dart';
 import 'package:fitbit/src/core/widgets/custom_positioned_button.dart';
 import 'package:fitbit/src/core/widgets/custom_text_button.dart';

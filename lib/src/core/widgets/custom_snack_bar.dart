@@ -1,4 +1,4 @@
-import 'package:fitbit/src/core/utils/app_colors.dart';
+import 'package:fitbit/src/core/utils/resources/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class CustomSnackBar extends SnackBar {

@@ -1,10 +1,10 @@
 import 'package:fitbit/src/config/routes/app_routes.dart';
-import 'package:fitbit/src/core/utils/app_assets.dart';
-import 'package:fitbit/src/core/utils/app_colors.dart';
-import 'package:fitbit/src/core/utils/app_font.dart';
-import 'package:fitbit/src/core/utils/app_icons.dart';
-import 'package:fitbit/src/core/utils/app_strings.dart';
-import 'package:fitbit/src/core/utils/app_values.dart';
+import 'package:fitbit/src/core/utils/resources/app_assets.dart';
+import 'package:fitbit/src/core/utils/resources/app_colors.dart';
+import 'package:fitbit/src/core/utils/resources/app_font.dart';
+import 'package:fitbit/src/core/utils/resources/app_icons.dart';
+import 'package:fitbit/src/core/utils/resources/app_strings.dart';
+import 'package:fitbit/src/core/utils/resources/app_values.dart';
 import 'package:fitbit/src/core/widgets/custom_floating_action_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

@@ -1,5 +1,6 @@
-import 'package:fitbit/src/core/utils/app_colors.dart';
-import 'package:fitbit/src/core/utils/app_values.dart';
+
+import 'package:fitbit/src/core/utils/resources/app_colors.dart';
+import 'package:fitbit/src/core/utils/resources/app_values.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';

@@ -1,9 +1,9 @@
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
-import 'package:fitbit/src/core/utils/app_colors.dart';
-import 'package:fitbit/src/core/utils/app_font.dart';
-import 'package:fitbit/src/core/utils/app_icons.dart';
-import 'package:fitbit/src/core/utils/app_strings.dart';
-import 'package:fitbit/src/core/utils/app_values.dart';
+import 'package:fitbit/src/core/utils/resources/app_colors.dart';
+import 'package:fitbit/src/core/utils/resources/app_font.dart';
+import 'package:fitbit/src/core/utils/resources/app_icons.dart';
+import 'package:fitbit/src/core/utils/resources/app_strings.dart';
+import 'package:fitbit/src/core/utils/resources/app_values.dart';
 import 'package:fitbit/src/features/dashboard/presentation/screens/create_workouts/widgets/custom_timer_control_widget.dart';
 import 'package:fitbit/src/features/dashboard/presentation/screens/create_workouts/widgets/workouts_app_bar_widget.dart';
 import 'package:flutter/material.dart';

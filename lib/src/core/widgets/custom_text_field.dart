@@ -1,6 +1,6 @@
-import 'package:fitbit/src/core/utils/app_colors.dart';
-import 'package:fitbit/src/core/utils/app_font.dart';
-import 'package:fitbit/src/core/utils/app_values.dart';
+import 'package:fitbit/src/core/utils/resources/app_colors.dart';
+import 'package:fitbit/src/core/utils/resources/app_font.dart';
+import 'package:fitbit/src/core/utils/resources/app_values.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -83,7 +83,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
                         ),
                         //gradient: AppLinearGradientColors.mainColorButton,
                         borderRadius:
-                             BorderRadius.all(Radius.circular(AppSize.s16.r)),
+                            BorderRadius.all(Radius.circular(AppSize.s16.r)),
                       ),
                       child: Text(
                         widget.choices[index].title,

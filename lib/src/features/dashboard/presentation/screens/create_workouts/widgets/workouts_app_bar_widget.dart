@@ -1,4 +1,4 @@
-import 'package:fitbit/src/core/utils/app_icons.dart';
+import 'package:fitbit/src/core/utils/resources/app_icons.dart';
 import 'package:fitbit/src/core/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 

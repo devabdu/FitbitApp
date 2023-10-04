@@ -1,6 +1,6 @@
 import 'package:fitbit/src/config/routes/app_routes.dart';
-import 'package:fitbit/src/core/utils/app_strings.dart';
-import 'package:fitbit/src/core/utils/app_values.dart';
+import 'package:fitbit/src/core/utils/resources/app_strings.dart';
+import 'package:fitbit/src/core/utils/resources/app_values.dart';
 import 'package:fitbit/src/core/widgets/custom_text_button.dart';
 import 'package:fitbit/src/core/widgets/custom_title_and_subtitle.dart';
 import 'package:fitbit/src/features/auth/presentation/ui/widgets/build_fit_boy_image_widget.dart';

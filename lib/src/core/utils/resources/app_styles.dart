@@ -1,4 +1,4 @@
-import 'package:fitbit/src/core/utils/app_font.dart';
+import 'package:fitbit/src/core/utils/resources/app_font.dart';
 import 'package:flutter/material.dart';
 
 TextStyle _getTextStyle(double fontSize, FontWeight fontWeight, Color color) {

@@ -24,7 +24,9 @@ class AppColors {
   static const Color backGroundCircleAvatar = Color(0xFFC4C4C4);
 }
 
-class AppColorsWithOpacity {}
+class AppColorsWithOpacity {
+  static Color whiteOfZero = Colors.white.withOpacity(0);
+}
 
 class AppLinearGradientColors {
   static const LinearGradient mainGradientColor = LinearGradient(
