@@ -4,8 +4,8 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fitbit/src/config/routes/app_routes.dart';
-import 'package:fitbit/src/features/auth/domain/usecases/sign_in_with_facebool_use_case.dart';
-import 'package:fitbit/src/features/auth/domain/usecases/sign_in_with_gmail_use_case.dart';
+import 'package:fitbit/src/features/auth/domain/usecases/sign_in_with_facebool_usecase.dart';
+import 'package:fitbit/src/features/auth/domain/usecases/sign_in_with_gmail_usecase.dart';
 import 'package:flutter/material.dart';
 
 part 'auth_state.dart';

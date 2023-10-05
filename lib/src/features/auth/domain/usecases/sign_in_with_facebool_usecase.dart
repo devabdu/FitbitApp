@@ -1,7 +1,7 @@
-import 'package:fitbit/src/features/auth/domain/repositories/authentication_repository.dart';
+import 'package:fitbit/src/features/auth/domain/repositories/auth_repository.dart';
 
 class SignInWithFacebookUseCase {
-  final AuthenticationRepository _authenticationRepository;
+  final AuthRepository _authenticationRepository;
 
   SignInWithFacebookUseCase(this._authenticationRepository);
 
