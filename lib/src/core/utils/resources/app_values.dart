@@ -123,7 +123,7 @@ class AppElevation {
 
 class ConstEdgeInsetsGeometry {
   static EdgeInsetsGeometry defaultPaddingAuth = EdgeInsets.only(
-      top: AppPadding.p50.h, right: AppPadding.p30.w, left: AppPadding.p30.w);
+      top: AppPadding.p30.h, right: AppPadding.p30.w, left: AppPadding.p30.w);
 
   static EdgeInsetsGeometry defaultPaddingWorkoutScreens = EdgeInsets.symmetric(
       horizontal: AppPadding.p24.w, vertical: AppPadding.p32.h);

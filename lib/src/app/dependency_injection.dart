@@ -1,29 +1,48 @@
 import 'package:fitbit/src/features/auth/data/datasources/remote_datasource.dart';
 import 'package:fitbit/src/features/auth/data/repositories/auth_repository_impl.dart';
 import 'package:fitbit/src/features/auth/domain/repositories/auth_repository.dart';
-import 'package:fitbit/src/features/auth/domain/usecases/sign_in_with_facebool_usecase.dart';
-import 'package:fitbit/src/features/auth/domain/usecases/sign_in_with_gmail_usecase.dart';
-import 'package:fitbit/src/features/auth/presentation/cubit/auth_cubit.dart';
+import 'package:fitbit/src/features/auth/domain/usecases/create_user_info_usecase.dart';
+import 'package:fitbit/src/features/auth/domain/usecases/get_user_info_usecase.dart';
+import 'package:fitbit/src/features/auth/domain/usecases/sign_in_with_email_password_usecase.dart';
+import 'package:fitbit/src/features/auth/domain/usecases/sign_in_with_facebook_usecase.dart';
+import 'package:fitbit/src/features/auth/domain/usecases/sign_in_with_google_usecase.dart';
+import 'package:fitbit/src/features/auth/domain/usecases/sign_out_usecase.dart';
+import 'package:fitbit/src/features/auth/domain/usecases/sign_up_with_email_password_usecase.dart';
+import 'package:fitbit/src/features/auth/presentation/controllers/login_controller/login_cubit.dart';
+import 'package:fitbit/src/features/auth/presentation/controllers/register_controller/register_cubit.dart';
+import 'package:fitbit/src/features/auth/presentation/controllers/user_controller/user_cubit.dart';
 import 'package:get_it/get_it.dart';
 
 final serviceLocator = GetIt.instance;
 
 Future<void> initAppModule() async {
   // Bloc
+  serviceLocator.registerFactory(() => LoginCubit(
+      serviceLocator(), serviceLocator(), serviceLocator(), serviceLocator()));
   serviceLocator
-      .registerFactory(() => AuthCubit(serviceLocator(), serviceLocator()));
+      .registerFactory(() => RegisterCubit(serviceLocator(), serviceLocator()));
+
+  serviceLocator.registerFactory(() => UserCubit(serviceLocator()));
 
   // UseCases
   serviceLocator
-      .registerLazySingleton(() => SignInWithGmailUseCase(serviceLocator()));
+      .registerLazySingleton(() => CreateUserInfoUseCase(serviceLocator()));
+  serviceLocator
+      .registerLazySingleton(() => GetUserInfoUseCase(serviceLocator()));
+  serviceLocator.registerLazySingleton(
+      () => SignUpWithEmailAndPasswordUseCase(serviceLocator()));
+  serviceLocator.registerLazySingleton(
+      () => SignInWithEmailAndPasswordUseCase(serviceLocator()));
+  serviceLocator
+      .registerLazySingleton(() => SignInWithGoogleUseCase(serviceLocator()));
   serviceLocator
       .registerLazySingleton(() => SignInWithFacebookUseCase(serviceLocator()));
+  serviceLocator.registerLazySingleton(() => SignOutUseCase(serviceLocator()));
 
   // Repositories
   serviceLocator.registerLazySingleton<AuthRepository>(
-      () => AuthRepositoryImpl(serviceLocator(),));
+      () => AuthRepositoryImpl(serviceLocator()));
 
-  // DataSources
   // remoteDataSources
   serviceLocator
       .registerLazySingleton<RemoteDataSoucre>(() => RemoteDataSourceImpl());

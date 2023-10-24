@@ -16,13 +16,17 @@ class CreateUserInfoUseCase extends BaseUseCase<void, UserInfoParameters> {
 }
 
 class UserInfoParameters extends Equatable {
+  final String uid;
   final String gender;
   final double weight;
   final double height;
 
   const UserInfoParameters(
-      {required this.gender, required this.weight, required this.height});
+      {required this.uid,
+      required this.gender,
+      required this.weight,
+      required this.height});
 
   @override
-  List<Object?> get props => [gender, weight, height];
+  List<Object?> get props => [uid, gender, weight, height];
 }

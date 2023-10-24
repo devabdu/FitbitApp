@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 
 class AppIcons {
   static const IconData emailOutlined = Icons.email_outlined;
+  static const IconData password = Icons.password_outlined;
+  static const IconData visibility = Icons.visibility;
+  static const IconData visibilityOff = Icons.visibility_off;
   static const IconData personOutlined = Icons.person_outlined;
   static const IconData peoplepOutline = Icons.people_outline;
   static const IconData weightOutlined = Icons.monitor_weight_outlined;

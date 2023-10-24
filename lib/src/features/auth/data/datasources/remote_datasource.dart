@@ -3,7 +3,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fitbit/src/core/utils/errors/exceptions.dart';
 import 'package:fitbit/src/features/auth/data/auth_exception_handler.dart';
 import 'package:fitbit/src/features/auth/data/firestore_exception_handler.dart';
+import 'package:fitbit/src/features/auth/data/models/user_model.dart';
 import 'package:fitbit/src/features/auth/domain/usecases/create_user_info_usecase.dart';
+import 'package:fitbit/src/features/auth/domain/usecases/get_user_info_usecase.dart';
 import 'package:fitbit/src/features/auth/domain/usecases/sign_in_with_email_password_usecase.dart';
 import 'package:fitbit/src/features/auth/domain/usecases/sign_up_with_email_password_usecase.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
@@ -11,12 +13,12 @@ import 'package:google_sign_in/google_sign_in.dart';
 
 abstract class RemoteDataSoucre {
   Future<void> createUserInfo(UserInfoParameters parameters);
-  Future<void> signUpWithEmailAndPassword(SignUpParameters parameters);
+  Future<UserModel> getUserInfo(GetUserInfoParameters parameters);
+  Future<UserModel> signUpWithEmailAndPassword(SignUpParameters parameters);
   Future<void> signInWithEmailAndPassword(SignInParameters parameters);
-  Future<void> signOut();
-  Future<User?> signInWithGmail();
-  Future<void> signOutWithGmail();
+  Future<User?> signInWithGoogle();
   Future<void> signInWithFacebook();
+  Future<void> signOut();
 }
 
 class RemoteDataSourceImpl implements RemoteDataSoucre {
@@ -26,25 +28,60 @@ class RemoteDataSourceImpl implements RemoteDataSoucre {
   @override
   Future<void> createUserInfo(UserInfoParameters parameters) async {
     try {
-      CollectionReference usersRef = _firestore.collection('users');
-      await usersRef.add({
-        'Gender': parameters.gender,
-        'Weight': parameters.weight,
-        'Height': parameters.height
-      });
+      final userModel = UserModel(
+        gender: parameters.gender,
+        weight: parameters.weight,
+        height: parameters.height,
+      );
+
+      DocumentReference usersRef =
+          _firestore.collection('users').doc(parameters.uid);
+
+      await usersRef.update(userModel.toFirestore());
     } catch (error) {
       FirestoreExceptionHandler.handleException(error);
     }
   }
 
   @override
-  Future<void> signUpWithEmailAndPassword(SignUpParameters parameters) async {
+  Future<UserModel> getUserInfo(GetUserInfoParameters parameters) async {
+    late UserModel userModel;
     try {
-      await _firebaseAuth.createUserWithEmailAndPassword(
-          email: parameters.email, password: parameters.password);
+      final usersRef = _firestore.collection('users').doc(parameters.uid);
+
+      final userSnapshot = await usersRef.get();
+      userModel = UserModel.fromFireStore(userSnapshot, null);
+    } catch (error) {
+      FirestoreExceptionHandler.handleException(error);
+    }
+    return userModel;
+  }
+
+  @override
+  Future<UserModel> signUpWithEmailAndPassword(
+      SignUpParameters parameters) async {
+    late UserModel userModel;
+    try {
+      final UserCredential userCredential =
+          await _firebaseAuth.createUserWithEmailAndPassword(
+              email: parameters.email, password: parameters.password);
+
+      String uId = userCredential.user!.uid;
+      userModel = UserModel(
+        email: parameters.email,
+        name: parameters.name,
+        uid: uId,
+      );
+
+      DocumentReference userRef = _firestore.collection('users').doc(uId);
+
+      await userRef.set(userModel.toFirestore());
+
+      print('${userModel.email} + ${userModel.name} + ${userModel.uid}');
     } catch (error) {
       AuthExceptionHandler.handleException(error);
     }
+    return userModel;
   }
 
   @override
@@ -58,29 +95,19 @@ class RemoteDataSourceImpl implements RemoteDataSoucre {
   }
 
   @override
-  Future<void> signOut() async {
-    try {
-      await _firebaseAuth.signOut();
-    } catch (error) {
-      AuthExceptionHandler.handleException(error);
-    }
-  }
-
-  @override
-  Future<User?> signInWithGmail() async {
+  Future<User?> signInWithGoogle() async {
     User? user;
     final GoogleSignIn googleSignIn = GoogleSignIn(scopes: ['email']);
 
-    final GoogleSignInAccount? googleSignInAccount =
-        await googleSignIn.signIn();
+    final GoogleSignInAccount? googleUser = await googleSignIn.signIn();
 
-    if (googleSignInAccount != null) {
-      final GoogleSignInAuthentication googleSignInAuthentication =
-          await googleSignInAccount.authentication;
+    if (googleUser != null) {
+      final GoogleSignInAuthentication googleAuth =
+          await googleUser.authentication;
 
       final AuthCredential authCredential = GoogleAuthProvider.credential(
-        accessToken: googleSignInAuthentication.accessToken,
-        idToken: googleSignInAuthentication.idToken,
+        accessToken: googleAuth.accessToken,
+        idToken: googleAuth.idToken,
       );
 
       try {
@@ -106,25 +133,30 @@ class RemoteDataSourceImpl implements RemoteDataSoucre {
   }
 
   @override
-  Future<void> signOutWithGmail() async {
-    try {
-      await _firebaseAuth.signOut();
-    } catch (e) {
-      throw SignOutException('Error occurred using Google Sign-In. Try again.');
-    }
-  }
-
-  @override
   Future<void> signInWithFacebook() async {
-    final result = await FacebookAuth.instance.login();
+    final response = await FacebookAuth.instance
+        .login(permissions: ["email", "public_profile"]);
 
-    if (result.status == LoginStatus.success) {
-      final AccessToken accessToken = result.accessToken!;
+    if (response.status == LoginStatus.success) {
+      final AccessToken accessToken = response.accessToken!;
       final AuthCredential authCredential =
           FacebookAuthProvider.credential(accessToken.token);
       await _firebaseAuth.signInWithCredential(authCredential);
     } else {
       throw FacebookSignInException("Facebook login failed");
+    }
+  }
+
+  @override
+  Future<void> signOut() async {
+    try {
+      final GoogleSignIn googleSignIn = GoogleSignIn();
+      await googleSignIn.signOut();
+      final FacebookAuth facebookAuth = FacebookAuth.instance;
+      await facebookAuth.logOut();
+      await _firebaseAuth.signOut();
+    } catch (error) {
+      AuthExceptionHandler.handleException(error);
     }
   }
 }

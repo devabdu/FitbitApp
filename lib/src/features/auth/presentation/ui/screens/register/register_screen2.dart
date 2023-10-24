@@ -1,4 +1,9 @@
+import 'package:fitbit/src/app/dependency_injection.dart';
 import 'package:fitbit/src/config/routes/app_routes.dart';
+import 'package:fitbit/src/core/utils/functions/valid_functions.dart';
+import 'package:fitbit/src/core/utils/helper/navigator.dart';
+import 'package:fitbit/src/core/utils/helper/show_components/show_progress_indicator.dart';
+import 'package:fitbit/src/core/utils/helper/show_components/show_snack_bar.dart';
 import 'package:fitbit/src/core/utils/resources/app_assets.dart';
 import 'package:fitbit/src/core/utils/resources/app_icons.dart';
 import 'package:fitbit/src/core/utils/resources/app_strings.dart';
@@ -6,11 +11,16 @@ import 'package:fitbit/src/core/utils/resources/app_values.dart';
 import 'package:fitbit/src/core/widgets/custom_form_field_text.dart';
 import 'package:fitbit/src/core/widgets/custom_text_button.dart';
 import 'package:fitbit/src/core/widgets/custom_title_and_subtitle.dart';
+import 'package:fitbit/src/features/auth/presentation/controllers/register_controller/register_cubit.dart';
+import 'package:fitbit/src/features/auth/presentation/controllers/user_controller/user_cubit.dart';
+import 'package:fitbit/src/features/auth/presentation/ui/screens/register/success_registeration_screen.dart';
 import 'package:fitbit/src/features/auth/presentation/ui/widgets/build_measurement_text_form_field_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class RegisterScreen2 extends StatefulWidget {
-  const RegisterScreen2({super.key});
+  final String userId;
+  const RegisterScreen2({required this.userId, super.key});
 
   @override
   State<RegisterScreen2> createState() => _RegisterScreen2State();
@@ -30,13 +40,30 @@ class _RegisterScreen2State extends State<RegisterScreen2> {
     ),
   ];
 
+  final _formKey = GlobalKey<FormState>();
+  late final TextEditingController _genderController;
+  late final TextEditingController _weightController;
+  late final TextEditingController _heightController;
+
   late String _selectedValue = '';
+  late String gender;
+  late String weight;
+  late String height;
+  @override
+  void initState() {
+    _genderController = TextEditingController();
+    _weightController = TextEditingController();
+    _heightController = TextEditingController();
+    super.initState();
+  }
 
-  final TextEditingController genderController = TextEditingController();
-
-  final TextEditingController weightController = TextEditingController();
-
-  final TextEditingController heightController = TextEditingController();
+  @override
+  void dispose() {
+    _genderController.dispose();
+    _weightController.dispose();
+    _heightController.dispose();
+    super.dispose();
+  }
 
   Widget _buildFitBoyImage() {
     return Image.asset(AppImagesPng.fitBoy2);
@@ -51,7 +78,7 @@ class _RegisterScreen2State extends State<RegisterScreen2> {
 
   Widget _buildGenderTextFormField() {
     return CustomTextFormField(
-      textEditingController: TextEditingController(text: _selectedValue),
+      textEditingController: _genderController,
       keyBoardType: TextInputType.text,
       prefixIcon: const Icon(AppIcons.peoplepOutline),
       hintText: AppStrings.chooseGender,
@@ -59,39 +86,81 @@ class _RegisterScreen2State extends State<RegisterScreen2> {
       suffixIcon: PopupMenuButton<String>(
         icon: const Icon(Icons.keyboard_arrow_down),
         itemBuilder: (BuildContext context) => _popupItems,
-        onSelected: (String selectedValue) {
+        onSelected: (selectedValue) {
           setState(() {
-            _selectedValue = selectedValue;
+            gender = selectedValue;
           });
         },
       ),
-      readOnly: true,
+      validator: (value) => validateGender(value),
+      onSaved: (newValue) => gender = newValue!,
     );
   }
 
   Widget _buildWeightTextFormField() {
     return BuildMeasurementTextFormField(
-      textEditingController: weightController,
+      textEditingController: _weightController,
       hintAndLabelText: AppStrings.yourWeight,
       prefixIcon: AppIcons.weightOutlined,
+      onSaved: (newValue) => weight = newValue!,
       textButton: AppStrings.kg,
     );
   }
 
   Widget _buildHeightTextFormField() {
     return BuildMeasurementTextFormField(
-      textEditingController: heightController,
+      textEditingController: _heightController,
       hintAndLabelText: AppStrings.yourHeight,
       prefixIcon: AppIcons.heightOutlined,
+      onSaved: (newValue) => height = newValue!,
       textButton: AppStrings.cm,
     );
   }
 
+  Widget _buildCreateUserInfoSubmitedBloc() {
+    return BlocListener<RegisterCubit, RegisterState>(
+      listenWhen: (previous, current) => previous != current,
+      listener: (context, state) {
+        if (state is CreateUserInfoLoading) {
+          showProgressIndicator(context);
+        }
+        if (state is CreateUserInfoSuccess) {
+          navigatePop(context);
+          navigateTo(
+              context,
+              BlocProvider(
+                  create: (_) => serviceLocator<UserCubit>()
+                    ..getUserInfo(uid: widget.userId),
+                  child: const SuccessRegisterationScreen()));
+        }
+        if (state is CreateUserInfoError) {
+          String message = (state).error;
+          showSnackBar(context, message);
+        }
+      },
+      child: Container(
+        height: AppSize.s45,
+      ),
+    );
+  }
+
+  Future<void> _checkValidateCreateUserInfo(BuildContext context) async {
+    if (!_formKey.currentState!.validate()) {
+      return;
+    } else {
+      _formKey.currentState!.save();
+      BlocProvider.of<RegisterCubit>(context).createUserInfo(
+        uid: widget.userId,
+        gender: gender,
+        weight: double.parse(weight.toString()),
+        height: double.parse(height.toString()),
+      );
+    }
+  }
+
   Widget _buildNextButton(BuildContext context) {
     return CustomTextButton(
-      onPressed: () {
-        Navigator.pushNamed(context, AppRoutesName.successRegisterationRoute);
-      },
+      onPressed: () => _checkValidateCreateUserInfo(context),
       textButton: AppStrings.next,
     );
   }
@@ -103,22 +172,26 @@ class _RegisterScreen2State extends State<RegisterScreen2> {
     double divideScreenFromHeightBy15 = mediaQuerySizeOfHeight / 15;
     return SafeArea(
       child: Scaffold(
-        body: SingleChildScrollView(
-          padding: ConstEdgeInsetsGeometry.defaultPaddingAuth,
-          child: Column(
-            children: [
-              _buildFitBoyImage(),
-              SizedBox(height: divideScreenFromHeightBy15),
-              _buildCenterText(),
-              SizedBox(height: divideScreenFromHeightBy15),
-              _buildGenderTextFormField(),
-              SizedBox(height: divideScreenFromHeightBy40),
-              _buildWeightTextFormField(),
-              SizedBox(height: divideScreenFromHeightBy40),
-              _buildHeightTextFormField(),
-              SizedBox(height: divideScreenFromHeightBy15),
-              _buildNextButton(context),
-            ],
+        body: Form(
+          key: _formKey,
+          child: SingleChildScrollView(
+            padding: ConstEdgeInsetsGeometry.defaultPaddingAuth,
+            child: Column(
+              children: [
+                _buildFitBoyImage(),
+                SizedBox(height: divideScreenFromHeightBy15),
+                _buildCenterText(),
+                SizedBox(height: divideScreenFromHeightBy15),
+                _buildGenderTextFormField(),
+                SizedBox(height: divideScreenFromHeightBy40),
+                _buildWeightTextFormField(),
+                SizedBox(height: divideScreenFromHeightBy40),
+                _buildHeightTextFormField(),
+                SizedBox(height: divideScreenFromHeightBy15),
+                _buildCreateUserInfoSubmitedBloc(),
+                _buildNextButton(context),
+              ],
+            ),
           ),
         ),
       ),

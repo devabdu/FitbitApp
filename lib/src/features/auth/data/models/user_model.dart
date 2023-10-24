@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:fitbit/src/features/auth/domain/entities/user.dart';
+import 'package:fitbit/src/features/auth/domain/entities/user_entity.dart';
 
-class UserModel extends UserInfo {
+class UserModel extends UserEntity {
   const UserModel({
     super.name,
     super.uid,

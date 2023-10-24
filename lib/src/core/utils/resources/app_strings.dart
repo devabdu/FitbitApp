@@ -4,6 +4,8 @@ class AppStrings {
 
   //Login Screen
   static const String email = 'Email';
+  static const String password = 'Password';
+  static const String forgotPassword = 'Forgot Password';
   static const String login = 'Login';
   static const String or = 'Or';
   static const String dontHaveAccount = 'Don\'t have an account?';
@@ -33,7 +35,7 @@ class AppStrings {
   static const String yourHeight = 'Your Height';
   static const String cm = 'CM';
   static const String next = 'Next >';
-  static const String welcome = 'Welcome, Jack';
+  static const String welcome = 'Welcome, ';
   static const String youAreAllSet =
       'You are all set now, let\'s reach your goals together with us';
   static const String goToHome = 'Go To Home';
@@ -93,8 +95,8 @@ class AppStrings {
 }
 
 class AppPharses {
-  String phraseConstruction(String firstString, String secondString) {
-    return firstString + secondString;
+  String phraseConstruction(String? firstString, String? secondString) {
+    return firstString! + secondString!;
   }
 
   String phraseConstructionWithFirstStringEmpty(String secondString) {

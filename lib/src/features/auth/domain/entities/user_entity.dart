@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-class UserInfo extends Equatable {
+class UserEntity extends Equatable {
   final String? name;
   final String? uid;
   final String? email;
@@ -8,7 +8,7 @@ class UserInfo extends Equatable {
   final double? weight;
   final double? height;
 
-  const UserInfo({
+  const UserEntity({
     this.name,
     this.uid,
     this.email,

@@ -1,4 +1,3 @@
-
 import 'package:fitbit/src/core/utils/resources/app_colors.dart';
 import 'package:fitbit/src/core/utils/resources/app_font.dart';
 import 'package:fitbit/src/core/utils/resources/app_styles.dart';
@@ -102,7 +101,7 @@ ThemeData appLightTheme() {
     inputDecorationTheme: InputDecorationTheme(
       fillColor: AppColors.grey3.withOpacity(0.4),
       filled: true,
-      contentPadding: const EdgeInsets.all(AppPadding.p8),
+      contentPadding: const EdgeInsets.all(AppPadding.p12),
       hintStyle: getRegularStyle(
         fontSize: AppSize.s14.sp,
         color: AppColors.grey2,

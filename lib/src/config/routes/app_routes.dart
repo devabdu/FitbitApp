@@ -1,9 +1,13 @@
-import 'package:fitbit/src/features/auth/presentation/screens/login/login_screen.dart';
-import 'package:fitbit/src/features/auth/presentation/screens/register/register_screen1.dart';
-import 'package:fitbit/src/features/auth/presentation/screens/register/register_screen2.dart';
-import 'package:fitbit/src/features/auth/presentation/screens/register/success_registeration_screen.dart';
+import 'package:fitbit/src/app/dependency_injection.dart';
+import 'package:fitbit/src/features/auth/presentation/controllers/login_controller/login_cubit.dart';
+import 'package:fitbit/src/features/auth/presentation/controllers/register_controller/register_cubit.dart';
+import 'package:fitbit/src/features/auth/presentation/controllers/user_controller/user_cubit.dart';
+import 'package:fitbit/src/features/auth/presentation/ui/screens/login/login_screen.dart';
 import 'package:fitbit/src/features/auth/presentation/ui/screens/onboarding/onboarding_screen1.dart';
 import 'package:fitbit/src/features/auth/presentation/ui/screens/onboarding/onboarding_screen2.dart';
+import 'package:fitbit/src/features/auth/presentation/ui/screens/register/register_screen1.dart';
+import 'package:fitbit/src/features/auth/presentation/ui/screens/register/register_screen2.dart';
+import 'package:fitbit/src/features/auth/presentation/ui/screens/register/success_registeration_screen.dart';
 import 'package:fitbit/src/features/dashboard/presentation/screens/dashboard/home_screen.dart';
 import 'package:fitbit/src/features/dashboard/presentation/screens/dashboard/notification_screen.dart';
 import 'package:fitbit/src/features/dashboard/presentation/screens/dashboard_view.dart';
@@ -14,6 +18,7 @@ import 'package:fitbit/src/features/dashboard/presentation/screens/create_workou
 import 'package:fitbit/src/features/dashboard/presentation/screens/create_workouts/workouts_screen_3.dart';
 import 'package:fitbit/src/features/dashboard/presentation/screens/create_workouts/workouts_screen_4.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AppRoutesName {
   static const String onBoarding_1Route = "/onBoarding1";
@@ -46,19 +51,32 @@ class AppRoutesGenerator {
         );
       case AppRoutesName.loginRoute:
         return MaterialPageRoute(
-          builder: (_) => const LoginScreen(),
+          builder: (_) => BlocProvider(
+            create: (_) => serviceLocator<LoginCubit>(),
+            child: const LoginScreen(),
+          ),
         );
       case AppRoutesName.register_1Route:
         return MaterialPageRoute(
-          builder: (_) => const ReigsterScreen1(),
+          builder: (_) => BlocProvider(
+            create: (_) => serviceLocator<RegisterCubit>(),
+            child: const ReigsterScreen1(),
+          ),
         );
       case AppRoutesName.register_2Route:
+        final uid = routeSettings.arguments as String;
         return MaterialPageRoute(
-          builder: (_) => const RegisterScreen2(),
+          builder: (_) => BlocProvider(
+            create: (_) => serviceLocator<RegisterCubit>(),
+            child: RegisterScreen2(userId: uid),
+          ),
         );
       case AppRoutesName.successRegisterationRoute:
         return MaterialPageRoute(
-          builder: (_) => const SuccessRegisterationScreen(),
+          builder: (_) => BlocProvider(
+            create: (_) => serviceLocator<UserCubit>(),
+            child: const SuccessRegisterationScreen(),
+          ),
         );
       case AppRoutesName.dashboardRoute:
         return MaterialPageRoute(

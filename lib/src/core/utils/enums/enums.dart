@@ -9,3 +9,9 @@ enum AuthResultStatus {
   tooManyRequests,
   undefined,
 }
+
+enum Gender {
+  male,
+  female,
+  other,
+}
