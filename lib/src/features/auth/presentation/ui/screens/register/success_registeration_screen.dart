@@ -20,6 +20,7 @@ class SuccessRegisterationScreen extends StatelessWidget {
     return BlocBuilder<UserCubit, UserState>(
       builder: (context, state) {
         if (state is GetUserInfoLoading) {
+          
         } else if (state is GetUserInfoSuccess) {
           return CustomTitleAndSubtitle(
             title: AppPharses().phraseConstruction(

@@ -1,6 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:fitbit/src/app/app.dart';
-import 'package:fitbit/src/app/dependency_injection.dart';
+import 'package:fitbit/src/app/dependency_injection.dart' as di;
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
@@ -9,8 +9,10 @@ void main() async {
   await Future.wait([
     Firebase.initializeApp(),
     dotenv.load(fileName: ".env"),
-    initAppModule(),
+    di.initAppModule(),
   ]);
 
+  di.initBlocObserver();
+  
   runApp(MyApp());
 }

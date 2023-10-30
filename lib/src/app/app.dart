@@ -5,12 +5,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../config/theme/light_theme.dart';
 
 class MyApp extends StatelessWidget {
-  const MyApp._internal();
-
-  static const MyApp _instance = MyApp._internal();
-
-  factory MyApp() => _instance;
-
+  const MyApp({super.key});
+  
   static const Size defaultSize = Size(360, 690);
 
   @override

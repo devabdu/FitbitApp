@@ -1,3 +1,4 @@
+import 'package:fitbit/src/app/bloc_observer.dart';
 import 'package:fitbit/src/features/auth/data/datasources/remote_datasource.dart';
 import 'package:fitbit/src/features/auth/data/repositories/auth_repository_impl.dart';
 import 'package:fitbit/src/features/auth/domain/repositories/auth_repository.dart';
@@ -11,6 +12,7 @@ import 'package:fitbit/src/features/auth/domain/usecases/sign_up_with_email_pass
 import 'package:fitbit/src/features/auth/presentation/controllers/login_controller/login_cubit.dart';
 import 'package:fitbit/src/features/auth/presentation/controllers/register_controller/register_cubit.dart';
 import 'package:fitbit/src/features/auth/presentation/controllers/user_controller/user_cubit.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 
 final serviceLocator = GetIt.instance;
@@ -46,4 +48,8 @@ Future<void> initAppModule() async {
   // remoteDataSources
   serviceLocator
       .registerLazySingleton<RemoteDataSoucre>(() => RemoteDataSourceImpl());
+}
+
+void initBlocObserver() {
+  Bloc.observer = serviceLocator<AppBlocObserver>();
 }
