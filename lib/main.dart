@@ -13,6 +13,6 @@ void main() async {
   ]);
 
   di.initBlocObserver();
-  
-  runApp(MyApp());
+
+  runApp(const MyApp());
 }

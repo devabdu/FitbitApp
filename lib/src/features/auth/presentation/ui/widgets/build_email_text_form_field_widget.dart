@@ -5,6 +5,7 @@ import 'package:fitbit/src/core/utils/resources/app_strings.dart';
 import 'package:fitbit/src/core/widgets/custom_form_field_text.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class BuildEmailTextFormField extends StatelessWidget {
   final TextEditingController textEditingController;
   late String email;

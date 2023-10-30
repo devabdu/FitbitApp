@@ -1,5 +1,7 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:fitbit/src/app/dependency_injection.dart';
-import 'package:fitbit/src/config/routes/app_routes.dart';
 import 'package:fitbit/src/core/utils/functions/valid_functions.dart';
 import 'package:fitbit/src/core/utils/helper/navigator.dart';
 import 'package:fitbit/src/core/utils/helper/show_components/show_progress_indicator.dart';
@@ -15,8 +17,6 @@ import 'package:fitbit/src/features/auth/presentation/controllers/register_contr
 import 'package:fitbit/src/features/auth/presentation/controllers/user_controller/user_cubit.dart';
 import 'package:fitbit/src/features/auth/presentation/ui/screens/register/success_registeration_screen.dart';
 import 'package:fitbit/src/features/auth/presentation/ui/widgets/build_measurement_text_form_field_widget.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class RegisterScreen2 extends StatefulWidget {
   final String userId;
@@ -45,7 +45,7 @@ class _RegisterScreen2State extends State<RegisterScreen2> {
   late final TextEditingController _weightController;
   late final TextEditingController _heightController;
 
-  late String _selectedValue = '';
+  late final String _selectedValue = '';
   late String gender;
   late String weight;
   late String height;

@@ -1,11 +1,9 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:fitbit/src/core/utils/helper/show_components/show_progress_indicator.dart';
-import 'package:fitbit/src/core/utils/helper/show_components/show_snack_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:fitbit/src/config/routes/app_routes.dart';
+import 'package:fitbit/src/core/utils/helper/show_components/show_snack_bar.dart';
 import 'package:fitbit/src/core/utils/resources/app_strings.dart';
 import 'package:fitbit/src/core/utils/resources/app_values.dart';
 import 'package:fitbit/src/core/widgets/custom_text_button.dart';
@@ -20,7 +18,6 @@ class SuccessRegisterationScreen extends StatelessWidget {
     return BlocBuilder<UserCubit, UserState>(
       builder: (context, state) {
         if (state is GetUserInfoLoading) {
-          
         } else if (state is GetUserInfoSuccess) {
           return CustomTitleAndSubtitle(
             title: AppPharses().phraseConstruction(
@@ -33,9 +30,9 @@ class SuccessRegisterationScreen extends StatelessWidget {
         } else if (state is GetUserInfoError) {
           String message = (state).error;
           showSnackBar(context, message);
-          return SizedBox();
+          return const SizedBox();
         }
-        return SizedBox();
+        return const SizedBox();
       },
     );
   }

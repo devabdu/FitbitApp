@@ -76,8 +76,6 @@ class RemoteDataSourceImpl implements RemoteDataSoucre {
       DocumentReference userRef = _firestore.collection('users').doc(uId);
 
       await userRef.set(userModel.toFirestore());
-
-      print('${userModel.email} + ${userModel.name} + ${userModel.uid}');
     } catch (error) {
       AuthExceptionHandler.handleException(error);
     }

@@ -1,5 +1,4 @@
 import 'package:fitbit/src/app/dependency_injection.dart';
-import 'package:fitbit/src/config/routes/app_routes.dart';
 import 'package:fitbit/src/core/utils/functions/valid_functions.dart';
 import 'package:fitbit/src/core/utils/helper/navigator.dart';
 import 'package:fitbit/src/core/utils/helper/show_components/show_progress_indicator.dart';
@@ -15,7 +14,6 @@ import 'package:fitbit/src/core/widgets/custom_text_button.dart';
 import 'package:fitbit/src/features/auth/presentation/controllers/register_controller/register_cubit.dart';
 import 'package:fitbit/src/features/auth/presentation/ui/screens/login/login_screen.dart';
 import 'package:fitbit/src/features/auth/presentation/ui/screens/register/register_screen2.dart';
-import 'package:fitbit/src/features/auth/presentation/ui/widgets/build_compination_auth_icons_and_or_divider_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
