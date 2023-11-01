@@ -7,26 +7,9 @@ class FirebaseException extends Equatable implements Exception {
 
   @override
   List<Object?> get props => [message];
-}
 
-
-
-class FacebookSignInException implements Exception {
-  final String message;
-
-  FacebookSignInException(this.message);
-}
-
-class SignInWithGmailException implements Exception {
-  final String message;
-
-  SignInWithGmailException(this.message);
-}
-
-class SignOutException implements Exception {
-  final String message;
-
-  SignOutException(this.message);
+  @override
+  String toString() => '$message';
 }
 
 class InvalidEmailException extends FirebaseException {
@@ -127,4 +110,22 @@ class UnavailableException extends FirebaseException {
 class UnimplementedException extends FirebaseException {
   const UnimplementedException([message])
       : super("The requested operation is not implemented or supported.");
+}
+
+class FacebookSignInException implements Exception {
+  final String message;
+
+  FacebookSignInException(this.message);
+}
+
+class SignInWithGmailException implements Exception {
+  final String message;
+
+  SignInWithGmailException(this.message);
+}
+
+class SignOutException implements Exception {
+  final String message;
+
+  SignOutException(this.message);
 }

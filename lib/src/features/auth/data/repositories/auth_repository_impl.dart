@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:fitbit/src/core/network/network_info.dart';
 import 'package:fitbit/src/core/utils/errors/exceptions.dart' as exception;
 import 'package:fitbit/src/core/utils/errors/failure.dart';
 import 'package:fitbit/src/features/auth/data/datasources/remote_datasource.dart';
@@ -12,82 +13,111 @@ import 'package:fitbit/src/features/auth/domain/usecases/sign_up_with_email_pass
 
 class AuthRepositoryImpl implements AuthRepository {
   final RemoteDataSoucre remoteDataSoucre;
+  final NetworkInfo networkInfo;
 
-  const AuthRepositoryImpl(this.remoteDataSoucre);
+  const AuthRepositoryImpl(this.remoteDataSoucre, this.networkInfo);
 
   @override
   Future<Either<Failure, void>> createUserInfo(
       UserInfoParameters parameters) async {
-    try {
-      final response = await remoteDataSoucre.createUserInfo(parameters);
-      return Right(response);
-    } on exception.FirebaseException catch (exception) {
-      return Left(FirebaseFailure(exception.message!));
+    if (await networkInfo.isConnected) {
+      try {
+        final response = await remoteDataSoucre.createUserInfo(parameters);
+        return Right(response);
+      } on exception.FirebaseException {
+        return Left(FirebaseFailure());
+      }
+    } else {
+      return Left(InternetFailure());
     }
   }
 
   @override
   Future<Either<Failure, UserEntity>> getUserInfo(
       GetUserInfoParameters parameters) async {
-    try {
-      final response = await remoteDataSoucre.getUserInfo(parameters);
-      return Right(response);
-    } on exception.FirebaseException catch (exception) {
-      return Left(FirebaseFailure(exception.message!));
+    if (await networkInfo.isConnected) {
+      try {
+        final response = await remoteDataSoucre.getUserInfo(parameters);
+        return Right(response);
+      } on exception.FirebaseException {
+        return Left(FirebaseFailure());
+      }
+    } else {
+      return Left(InternetFailure());
     }
   }
 
   @override
   Future<Either<Failure, UserEntity>> signUpWithEmailAndPassword(
       SignUpParameters parameters) async {
-    try {
-      final response =
-          await remoteDataSoucre.signUpWithEmailAndPassword(parameters);
-      return Right(response);
-    } on exception.FirebaseException catch (exception) {
-      return Left(FirebaseFailure(exception.message!));
+    if (await networkInfo.isConnected) {
+      try {
+        final response =
+            await remoteDataSoucre.signUpWithEmailAndPassword(parameters);
+        return Right(response);
+      } on exception.FirebaseException {
+        return Left(FirebaseFailure());
+      }
+    } else {
+      return Left(InternetFailure());
     }
   }
 
   @override
   Future<Either<Failure, void>> signInWithEmailAndPassword(
       SignInParameters parameters) async {
-    try {
-      final response =
-          await remoteDataSoucre.signInWithEmailAndPassword(parameters);
-      return Right(response);
-    } on exception.FirebaseException catch (exception) {
-      return Left(FirebaseFailure(exception.message!));
+    if (await networkInfo.isConnected) {
+      try {
+        final response =
+            await remoteDataSoucre.signInWithEmailAndPassword(parameters);
+        return Right(response);
+      } on exception.FirebaseException {
+        return Left(FirebaseFailure());
+      }
+    } else {
+      return Left(InternetFailure());
     }
   }
 
   @override
   Future<Either<Failure, User?>> signInWithGoogle() async {
-    try {
-      final response = await remoteDataSoucre.signInWithGoogle();
-      return Right(response);
-    } on exception.FirebaseException catch (exception) {
-      return Left(FirebaseFailure(exception.message!));
+    if (await networkInfo.isConnected) {
+      try {
+        final response = await remoteDataSoucre.signInWithGoogle();
+        return Right(response);
+      } on exception.FirebaseException {
+        return Left(FirebaseFailure());
+      }
+    } else {
+      return Left(InternetFailure());
     }
   }
 
   @override
   Future<Either<Failure, void>> signInWithFacebook() async {
-    try {
-      final response = await remoteDataSoucre.signInWithFacebook();
-      return Right(response);
-    } on exception.FirebaseException catch (exception) {
-      return Left(FirebaseFailure(exception.message!));
+    if (await networkInfo.isConnected) {
+      try {
+        final response = await remoteDataSoucre.signInWithFacebook();
+        return Right(response);
+      } on exception.FirebaseException {
+        return Left(FirebaseFailure());
+      }
+    } else {
+      return Left(InternetFailure());
     }
   }
 
   @override
   Future<Either<Failure, void>> signOut() async {
-    try {
-      final response = await remoteDataSoucre.signOut();
-      return Right(response);
-    } on exception.FirebaseException catch (exception) {
-      return Left(FirebaseFailure(exception.message!));
+    if (await networkInfo.isConnected) {
+      try {
+        final response = await remoteDataSoucre.signOut();
+        return Right(response);
+      } on exception.FirebaseException {
+        return Left(FirebaseFailure());
+      }
+    } else {
+      return Left(InternetFailure());
     }
   }
 }

@@ -1,4 +1,5 @@
 import 'package:fitbit/src/app/bloc_observer.dart';
+import 'package:fitbit/src/core/network/network_info.dart';
 import 'package:fitbit/src/features/auth/data/datasources/remote_datasource.dart';
 import 'package:fitbit/src/features/auth/data/repositories/auth_repository_impl.dart';
 import 'package:fitbit/src/features/auth/domain/repositories/auth_repository.dart';
@@ -14,6 +15,7 @@ import 'package:fitbit/src/features/auth/presentation/controllers/register_contr
 import 'package:fitbit/src/features/auth/presentation/controllers/user_controller/user_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
+import 'package:internet_connection_checker/internet_connection_checker.dart';
 
 final serviceLocator = GetIt.instance;
 
@@ -43,11 +45,18 @@ Future<void> initAppModule() async {
 
   // Repositories
   serviceLocator.registerLazySingleton<AuthRepository>(
-      () => AuthRepositoryImpl(serviceLocator()));
+      () => AuthRepositoryImpl(serviceLocator(), serviceLocator()));
 
   // remoteDataSources
   serviceLocator
       .registerLazySingleton<RemoteDataSoucre>(() => RemoteDataSourceImpl());
+
+  // Core
+  serviceLocator.registerLazySingleton<NetworkInfo>(
+      () => NetworkInfoImpl(connectionChecker: serviceLocator()));
+  // External
+  serviceLocator.registerLazySingleton(() => InternetConnectionChecker());
+  serviceLocator.registerLazySingleton(() => AppBlocObserver());
 }
 
 void initBlocObserver() {

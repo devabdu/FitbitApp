@@ -26,6 +26,7 @@ dependencies:
   flutter_svg: ^2.0.5
   get_it: ^7.6.0
   google_sign_in: ^6.1.4
+  internet_connection_checker: ^1.0.0+1
   syncfusion_flutter_charts: ^22.1.36
 
 dev_dependencies:

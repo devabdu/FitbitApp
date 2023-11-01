@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:fitbit/src/core/utils/maps/maps.dart';
 import 'package:fitbit/src/features/auth/domain/entities/user_entity.dart';
 import 'package:fitbit/src/features/auth/domain/usecases/create_user_info_usecase.dart';
 import 'package:fitbit/src/features/auth/domain/usecases/sign_up_with_email_password_usecase.dart';
@@ -27,10 +28,10 @@ class RegisterCubit extends Cubit<RegisterState> {
     );
     final response = await _createUserInfoUseCase(userInfoParameters);
 
-    response.fold(
-      (l) => emit(CreateUserInfoError(error: l.message)),
-      (r) => emit(CreateUserInfoSuccess()),
-    );
+    emit(response.fold(
+      (failure) => CreateUserInfoError(error: Maps.mapFailureToMsg(failure)),
+      (r) => CreateUserInfoSuccess(),
+    ));
   }
 
   Future<void> signUpWithEmailAndPassword({
@@ -45,9 +46,9 @@ class RegisterCubit extends Cubit<RegisterState> {
     );
     final response = await _signUpWithEmailAndPasswordUseCase(signUpParameters);
 
-    response.fold(
-      (l) => emit(SignUpError(error: l.message)),
-      (r) => emit(SignUpSuccess(user: r)),
-    );
+    emit(response.fold(
+      (failure) => SignUpError(error: Maps.mapFailureToMsg(failure)),
+      (user) => SignUpSuccess(user: user),
+    ));
   }
 }

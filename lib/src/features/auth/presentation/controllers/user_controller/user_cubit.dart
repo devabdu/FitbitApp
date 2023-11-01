@@ -3,6 +3,8 @@ import 'package:equatable/equatable.dart';
 import 'package:fitbit/src/features/auth/domain/entities/user_entity.dart';
 import 'package:fitbit/src/features/auth/domain/usecases/get_user_info_usecase.dart';
 
+import '../../../../../core/utils/maps/maps.dart';
+
 part 'user_state.dart';
 
 class UserCubit extends Cubit<UserState> {
@@ -15,9 +17,10 @@ class UserCubit extends Cubit<UserState> {
         GetUserInfoParameters(uid: uid);
     final response = await _getUserInfoUseCase(getUserInfoParameters);
 
-    response.fold(
-      (l) => emit(GetUserInfoError(error: l.message)),
-      (r) => emit(GetUserInfoSuccess(user: r)),
-    );
+    emit(response.fold(
+      (failure) => GetUserInfoError(error: Maps.mapFailureToMsg(failure)),
+      (user) => GetUserInfoSuccess(user: user),
+    ));
+    
   }
 }

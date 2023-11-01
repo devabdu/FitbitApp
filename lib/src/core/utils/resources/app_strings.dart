@@ -90,8 +90,12 @@ class AppStrings {
 
   //Notification Screen
   static const String notificationScreen = 'Notification Screen';
-
   static const String profileScreen = 'Profile Screen';
+
+  //Failures & Errors
+  static const String firebaseFailure = 'Firebase Failure';
+  static const String internetFailure = 'Internet Failure';
+  static const String unexpectedError = 'Unexpected Error';
 }
 
 class AppPharses {
