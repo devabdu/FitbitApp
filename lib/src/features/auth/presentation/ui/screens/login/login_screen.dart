@@ -67,7 +67,7 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
       hintText: AppStrings.email,
       labelText: AppStrings.email,
-      validator: (value) => validateEmail(value),
+      validator: (value) => Validator.validateEmail(value),
       onSaved: (newValue) => email = newValue!,
       //errorText: 'Error',
     );
@@ -90,7 +90,7 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
         onPressed: _togglePasswordVisibility,
       ),
-      validator: (value) => validatePassword(value),
+      validator: (value) => Validator.validatePassword(value),
       onSaved: (newValue) => password = newValue!,
     );
   }
@@ -139,8 +139,7 @@ class _LoginScreenState extends State<LoginScreen> {
           navigatePushNamed(context, AppRoutesName.homeRoute, '');
         }
         if (state is SignInError) {
-          String message = (state).error;
-          showSnackBar(context, message);
+          showSnackBar(context, state.error);
         }
       },
       child: Container(

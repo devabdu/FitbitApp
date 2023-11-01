@@ -97,7 +97,7 @@ class _ReigsterScreen1State extends State<ReigsterScreen1>
       ),
       hintText: AppStrings.firstName,
       labelText: AppStrings.firstName,
-      validator: (value) => validateName(value),
+      validator: (value) => Validator.validateName(value),
       onSaved: (newValue) => firstName = newValue!,
     );
   }
@@ -112,7 +112,7 @@ class _ReigsterScreen1State extends State<ReigsterScreen1>
       ),
       hintText: AppStrings.email,
       labelText: AppStrings.email,
-      validator: (value) => validateEmail(value),
+      validator: (value) => Validator.validateEmail(value),
       onSaved: (newValue) => email = newValue!,
       //errorText: 'Error',
     );
@@ -131,7 +131,7 @@ class _ReigsterScreen1State extends State<ReigsterScreen1>
       ),
       hintText: AppStrings.password,
       labelText: AppStrings.password,
-      validator: (value) => validatePassword(value),
+      validator: (value) => Validator.validatePassword(value),
       onSaved: (newValue) => password = newValue!,
     );
   }

@@ -92,7 +92,7 @@ class _RegisterScreen2State extends State<RegisterScreen2> {
           });
         },
       ),
-      validator: (value) => validateGender(value),
+      validator: (value) => Validator.validateGender(value),
       onSaved: (newValue) => gender = newValue!,
     );
   }

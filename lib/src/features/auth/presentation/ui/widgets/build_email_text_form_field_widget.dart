@@ -23,7 +23,7 @@ class BuildEmailTextFormField extends StatelessWidget {
       ),
       hintText: AppStrings.email,
       labelText: AppStrings.email,
-      validator: (value) => validateEmail(value),
+      validator: (value) => Validator.validateEmail(value),
       onSaved: (newValue) => email = newValue!,
       //errorText: 'Error',
     );
