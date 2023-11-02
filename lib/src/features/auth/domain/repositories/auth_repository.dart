@@ -13,10 +13,10 @@ abstract class AuthRepository {
       GetUserInfoParameters parameters);
   Future<Either<Failure, UserEntity>> signUpWithEmailAndPassword(
       SignUpParameters parameters);
-  // Future<Either<Failure, String>> getUserID();
   Future<Either<Failure, void>> signInWithEmailAndPassword(
       SignInParameters parameters);
   Future<Either<Failure, User?>> signInWithGoogle();
   Future<Either<Failure, void>> signInWithFacebook();
+  Future<Either<Failure, void>> resetPassword(String email);
   Future<Either<Failure, void>> signOut();
 }

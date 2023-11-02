@@ -1,3 +1,6 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:fitbit/src/app/dependency_injection.dart';
 import 'package:fitbit/src/config/routes/app_routes.dart';
 import 'package:fitbit/src/core/utils/functions/valid_functions.dart';
@@ -5,6 +8,7 @@ import 'package:fitbit/src/core/utils/helper/navigator.dart';
 import 'package:fitbit/src/core/utils/helper/show_components/show_progress_indicator.dart';
 import 'package:fitbit/src/core/utils/helper/show_components/show_snack_bar.dart';
 import 'package:fitbit/src/core/utils/resources/app_colors.dart';
+import 'package:fitbit/src/core/utils/resources/app_font.dart';
 import 'package:fitbit/src/core/utils/resources/app_icons.dart';
 import 'package:fitbit/src/core/utils/resources/app_strings.dart';
 import 'package:fitbit/src/core/utils/resources/app_values.dart';
@@ -16,8 +20,7 @@ import 'package:fitbit/src/features/auth/presentation/controllers/register_contr
 import 'package:fitbit/src/features/auth/presentation/ui/screens/register/register_screen1.dart';
 import 'package:fitbit/src/features/auth/presentation/ui/widgets/build_compination_auth_icons_and_or_divider_widget.dart';
 import 'package:fitbit/src/features/auth/presentation/ui/widgets/build_fit_boy_image_widget.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -100,10 +103,12 @@ class _LoginScreenState extends State<LoginScreen> {
       alignment: Alignment.centerRight,
       child: TextButton(
         onPressed: () {
-          // Todo later
+          navigatePushNamed(context, AppRoutesName.forgotPasswordRoute, '');
         },
-        child: const Text(
+        child: Text(
           AppStrings.forgotPassword,
+          style: Theme.of(context).textTheme.titleSmall!.copyWith(
+              color: AppColors.lightPrimary, fontWeight: AppFontWeight.medium),
         ),
       ),
     );

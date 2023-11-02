@@ -34,3 +34,16 @@ class SignOutError extends LoginState {
   @override
   List<Object> get props => [error];
 }
+
+class ResetPasswordLoading extends LoginState {}
+
+class ResetPasswordSuccess extends LoginState {}
+
+class ResetPasswordError extends LoginState {
+  final String error;
+
+  const ResetPasswordError({required this.error});
+
+  @override
+  List<Object> get props => [error];
+}

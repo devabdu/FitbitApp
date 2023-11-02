@@ -18,6 +18,7 @@ abstract class RemoteDataSoucre {
   Future<void> signInWithEmailAndPassword(SignInParameters parameters);
   Future<User?> signInWithGoogle();
   Future<void> signInWithFacebook();
+  Future<void> resetPassword(String email);
   Future<void> signOut();
 }
 
@@ -142,6 +143,15 @@ class RemoteDataSourceImpl implements RemoteDataSoucre {
       await _firebaseAuth.signInWithCredential(authCredential);
     } else {
       throw FacebookSignInException("Facebook login failed");
+    }
+  }
+
+  @override
+  Future<void> resetPassword(String email) async {
+    try {
+      await _firebaseAuth.sendPasswordResetEmail(email: email);
+    } catch (error) {
+      AuthExceptionHandler.handleException(error);
     }
   }
 

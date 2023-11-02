@@ -72,9 +72,7 @@ class OnBoardingScreen2 extends StatelessWidget {
       body: Column(
         children: [
           _buildMainImage(),
-          SizedBox(
-            height: MediaQuery.of(context).size.height / 13,
-          ),
+          SizedBox(height: MediaQuery.of(context).size.height / 13),
           _buildTextsSection(context),
         ],
       ),

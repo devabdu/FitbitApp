@@ -11,6 +11,8 @@ import 'package:fitbit/src/core/widgets/custom_title_and_subtitle.dart';
 import 'package:fitbit/src/features/auth/presentation/controllers/user_controller/user_cubit.dart';
 import 'package:fitbit/src/features/auth/presentation/ui/widgets/build_fit_boy_image_widget.dart';
 
+import '../../../../../../core/utils/helper/show_components/show_progress_indicator.dart';
+
 class SuccessRegisterationScreen extends StatelessWidget {
   const SuccessRegisterationScreen({super.key});
 
@@ -18,6 +20,7 @@ class SuccessRegisterationScreen extends StatelessWidget {
     return BlocBuilder<UserCubit, UserState>(
       builder: (context, state) {
         if (state is GetUserInfoLoading) {
+          showProgressIndicator(context);
         } else if (state is GetUserInfoSuccess) {
           return CustomTitleAndSubtitle(
             title: AppPharses().phraseConstruction(

@@ -108,6 +108,20 @@ class AuthRepositoryImpl implements AuthRepository {
   }
 
   @override
+  Future<Either<Failure, void>> resetPassword(String email) async {
+    if (await networkInfo.isConnected) {
+      try {
+        final response = await remoteDataSoucre.resetPassword(email);
+        return Right(response);
+      } on exception.FirebaseException {
+        return Left(FirebaseFailure());
+      }
+    } else {
+      return Left(InternetFailure());
+    }
+  }
+
+  @override
   Future<Either<Failure, void>> signOut() async {
     if (await networkInfo.isConnected) {
       try {
