@@ -60,6 +60,9 @@ Future<void> initAppModule() async {
   // External
   serviceLocator.registerLazySingleton(() => InternetConnectionChecker());
   serviceLocator.registerLazySingleton(() => AppBlocObserver());
+
+  //workouts
+// serviceLocator.registerLazySingleton<WorkoutRepository>(() => null)
 }
 
 void initBlocObserver() {

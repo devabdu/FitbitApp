@@ -14,7 +14,15 @@
       },
       "oauth_client": [
         {
-          "client_id": "456696145433-ibovgpii6fc6blbh050cbo23d72uhok1.apps.googleusercontent.com",
+          "client_id": "456696145433-ebo5f78jlhbpqbff819mjh1fuq9n0gsa.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.fitbit",
+            "certificate_hash": "17dcc84ff946237b43c9c1a7beead3f1db22c87c"
+          }
+        },
+        {
+          "client_id": "456696145433-b0afjp6eanoo0qsct5plvgd1cigdjq98.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
@@ -27,7 +35,7 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "456696145433-ibovgpii6fc6blbh050cbo23d72uhok1.apps.googleusercontent.com",
+              "client_id": "456696145433-b0afjp6eanoo0qsct5plvgd1cigdjq98.apps.googleusercontent.com",
               "client_type": 3
             },
             {
