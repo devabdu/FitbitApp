@@ -2,9 +2,9 @@ import 'package:equatable/equatable.dart';
 
 class Exercises extends Equatable {
   final String exerciseName;
-  final String exerciseWeights;
-  final String exerciseReps;
-  final String exerciseSets;
+  final int exerciseWeights;
+  final int exerciseReps;
+  final int exerciseSets;
   bool isComleted;
   Exercises({
     required this.exerciseName,

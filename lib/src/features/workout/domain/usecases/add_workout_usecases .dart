@@ -4,9 +4,11 @@ import 'package:equatable/equatable.dart';
 
 import 'package:fitbit/src/core/usecases/base_usecase.dart';
 import 'package:fitbit/src/core/utils/errors/failure.dart';
+import 'package:fitbit/src/features/workout/domain/entities/exercises.dart';
 import 'package:fitbit/src/features/workout/domain/entities/workout.dart';
 import 'package:fitbit/src/features/workout/domain/repositories/workout_repository.dart';
 
+//add the workout
 class AddWorkoutUseCase
     implements BaseUseCase<List<Workout>, AddWorkoutParameter> {
   final WorkoutRepository workoutRepository;
@@ -31,15 +33,16 @@ class AddWorkoutParameter extends Equatable {
   List<Object> get props => [workoutName];
 }
 
-class AddExerciseUseCase
-    implements BaseUseCase<List<Workout>, ExercisesParameter> {
+// addd exercises
+class AddExerciseToWorkoutUseCase
+    implements BaseUseCase<List<Exercises>, ExercisesParameter> {
   final WorkoutRepository workoutRepository;
 
-  AddExerciseUseCase(this.workoutRepository);
+  AddExerciseToWorkoutUseCase(this.workoutRepository);
 
   @override
-  Future<Either<Failure, List<Workout>>> call(exercisesParameter) {
-    return workoutRepository.addExercise(
+  Future<Either<Failure, List<Exercises>>> call(exercisesParameter) {
+    return workoutRepository.addExerciseToWorkout(
         exercisesParameter: exercisesParameter);
   }
 }
@@ -47,9 +50,9 @@ class AddExerciseUseCase
 class ExercisesParameter extends Equatable {
   final String workoutName;
   final String exerciseName;
-  final String weight;
-  final String reps;
-  final String sets;
+  final int weight;
+  final int reps;
+  final int sets;
   const ExercisesParameter({
     required this.workoutName,
     required this.exerciseName,
