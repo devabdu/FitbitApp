@@ -4,7 +4,7 @@ import 'package:fitbit/src/core/utils/resources/app_values.dart';
 import 'package:fitbit/src/core/widgets/custom_positioned_button.dart';
 import 'package:fitbit/src/core/widgets/custom_text_button.dart';
 import 'package:fitbit/src/core/widgets/custom_text_field.dart';
-import 'package:fitbit/src/features/dashboard/presentation/screens/create_workouts/widgets/workouts_app_bar_widget.dart';
+import 'package:fitbit/src/features/workout/presentation/widgets/workouts_app_bar_widget.dart';
 import 'package:flutter/material.dart';
 
 class WorkoutsScreen1 extends StatelessWidget {

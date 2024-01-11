@@ -1,6 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:fitbit/src/app/app.dart';
 import 'package:fitbit/src/app/dependency_injection.dart';
+import 'package:fitbit/src/core/utils/resources/app_strings.dart';
+import 'package:fitbit/src/features/workout/domain/entities/exercises.dart';
+import 'package:fitbit/src/features/workout/domain/entities/workout.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:hive/hive.dart';
@@ -14,7 +17,9 @@ void main() async {
     initAppModule(),
   ]);
   await Hive.initFlutter();
-  Hive.box('workout_database');
+  Hive.box(AppStrings.hiveBox);
+  Hive.registerAdapter(WorkoutModelAdapter());
+  Hive.registerAdapter(ExercisesModelAdapter());
 
   initBlocObserver();
 

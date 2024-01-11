@@ -10,14 +10,14 @@ import 'package:fitbit/src/features/workout/domain/repositories/workout_reposito
 
 //add the workout
 class AddWorkoutUseCase
-    implements BaseUseCase<List<Workout>, AddWorkoutParameter> {
+    implements BaseUseCase<List<WorkoutModel>, AddWorkoutParameter> {
   final WorkoutRepository workoutRepository;
 
   AddWorkoutUseCase(
     this.workoutRepository,
   );
   @override
-  Future<Either<Failure, List<Workout>>> call(addWorkoutUseCaseParameter) {
+  Future<Either<Failure, List<WorkoutModel>>> call(addWorkoutUseCaseParameter) {
     return workoutRepository.addWorkouts(
         addWorkoutUseCaseParameter: addWorkoutUseCaseParameter);
   }
@@ -25,8 +25,11 @@ class AddWorkoutUseCase
 
 class AddWorkoutParameter extends Equatable {
   final String workoutName;
+  final String dayOfTheWeek;
+
   const AddWorkoutParameter({
     required this.workoutName,
+    required this.dayOfTheWeek,
   });
 
   @override
@@ -35,13 +38,13 @@ class AddWorkoutParameter extends Equatable {
 
 // addd exercises
 class AddExerciseToWorkoutUseCase
-    implements BaseUseCase<List<Exercises>, ExercisesParameter> {
+    implements BaseUseCase<List<ExercisesModel>, ExercisesParameter> {
   final WorkoutRepository workoutRepository;
 
   AddExerciseToWorkoutUseCase(this.workoutRepository);
 
   @override
-  Future<Either<Failure, List<Exercises>>> call(exercisesParameter) {
+  Future<Either<Failure, List<ExercisesModel>>> call(exercisesParameter) {
     return workoutRepository.addExerciseToWorkout(
         exercisesParameter: exercisesParameter);
   }

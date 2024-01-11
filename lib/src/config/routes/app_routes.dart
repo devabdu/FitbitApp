@@ -11,10 +11,10 @@ import 'package:fitbit/src/features/auth/presentation/ui/screens/onboarding/onbo
 import 'package:fitbit/src/features/auth/presentation/ui/screens/register/register_screen1.dart';
 import 'package:fitbit/src/features/auth/presentation/ui/screens/register/register_screen2.dart';
 import 'package:fitbit/src/features/auth/presentation/ui/screens/register/success_registeration_screen.dart';
-import 'package:fitbit/src/features/dashboard/presentation/screens/create_workouts/workouts_screen_1.dart';
-import 'package:fitbit/src/features/dashboard/presentation/screens/create_workouts/workouts_screen_2.dart';
-import 'package:fitbit/src/features/dashboard/presentation/screens/create_workouts/workouts_screen_3.dart';
-import 'package:fitbit/src/features/dashboard/presentation/screens/create_workouts/workouts_screen_4.dart';
+import 'package:fitbit/src/features/workout/presentation/pages/create_workouts/workouts_screen_1.dart';
+import 'package:fitbit/src/features/workout/presentation/pages/create_workouts/workouts_screen_2.dart';
+import 'package:fitbit/src/features/workout/presentation/pages/create_workouts/workouts_screen_3.dart';
+import 'package:fitbit/src/features/workout/presentation/pages/create_workouts/workouts_screen_4.dart';
 import 'package:fitbit/src/features/dashboard/presentation/screens/dashboard/history_workouts_screen.dart';
 import 'package:fitbit/src/features/dashboard/presentation/screens/dashboard/home_screen.dart';
 import 'package:fitbit/src/features/dashboard/presentation/screens/dashboard/notification_screen.dart';
@@ -27,7 +27,7 @@ class AppRoutesName {
   static const String onBoarding_1Route = "/onBoarding1";
   static const String onBoarding_2Route = "/onBoarding2";
   static const String loginRoute = "/login";
-    static const String forgotPasswordRoute = "/forgot-password";
+  static const String forgotPasswordRoute = "/forgot-password";
   static const String register_1Route = "/register1";
   static const String register_2Route = "/register2";
   static const String successRegisterationRoute = "/successRegisteration";
@@ -60,7 +60,7 @@ class AppRoutesGenerator {
             child: const LoginScreen(),
           ),
         );
-        case AppRoutesName.forgotPasswordRoute:
+      case AppRoutesName.forgotPasswordRoute:
         return MaterialPageRoute(
           builder: (_) => BlocProvider.value(
             value: serviceLocator<LoginCubit>(),

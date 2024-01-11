@@ -9,10 +9,10 @@ import 'package:fitbit/src/core/widgets/custom_listview_builder.dart';
 import 'package:fitbit/src/core/widgets/custom_positioned_button.dart';
 import 'package:fitbit/src/core/widgets/custom_text_button.dart';
 import 'package:fitbit/src/core/widgets/custom_text_field.dart';
-import 'package:fitbit/src/features/dashboard/presentation/screens/create_workouts/widgets/custom_show_modal_bottom_sheet_widget.dart';
-import 'package:fitbit/src/features/dashboard/presentation/screens/create_workouts/widgets/workouts_app_bar_widget.dart';
-import 'package:fitbit/src/features/dashboard/presentation/screens/create_workouts/widgets/workouts_text_button_widget.dart';
-import 'package:fitbit/src/features/dashboard/presentation/screens/create_workouts/workouts_screen_1.dart';
+import 'package:fitbit/src/features/workout/presentation/widgets/custom_show_modal_bottom_sheet_widget.dart';
+import 'package:fitbit/src/features/workout/presentation/widgets/workouts_app_bar_widget.dart';
+import 'package:fitbit/src/features/workout/presentation/widgets/workouts_text_button_widget.dart';
+import 'package:fitbit/src/features/workout/presentation/pages/create_workouts/workouts_screen_1.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

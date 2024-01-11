@@ -1,27 +1,22 @@
-import 'package:equatable/equatable.dart';
+import 'package:hive/hive.dart';
+part 'exercises.g.dart';
 
-class Exercises extends Equatable {
+@HiveType(typeId: 1)
+class ExercisesModel extends HiveObject {
+  @HiveField(0)
   final String exerciseName;
+  @HiveField(1)
   final int exerciseWeights;
+  @HiveField(2)
   final int exerciseReps;
+  @HiveField(3)
   final int exerciseSets;
-  bool isComleted;
-  Exercises({
+  // bool isComleted;
+  ExercisesModel({
     required this.exerciseName,
     required this.exerciseWeights,
     required this.exerciseReps,
     required this.exerciseSets,
-    required this.isComleted,
+    // required this.isComleted,
   });
-
-  @override
-  List<Object> get props {
-    return [
-      exerciseName,
-      exerciseWeights,
-      exerciseReps,
-      exerciseSets,
-      isComleted,
-    ];
-  }
 }

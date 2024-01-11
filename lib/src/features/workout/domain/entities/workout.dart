@@ -1,16 +1,18 @@
-import 'package:equatable/equatable.dart';
 import 'package:fitbit/src/features/workout/domain/entities/exercises.dart';
+import 'package:hive/hive.dart';
+part 'workout.g.dart';
 
-class Workout extends Equatable {
+@HiveType(typeId: 0)
+class WorkoutModel extends HiveObject {
+  @HiveField(0)
   final String workoutName;
+  @HiveField(1)
   final String dayOfTheWeek;
-  final List<Exercises> exercises;
-  const Workout({
+  @HiveField(2)
+  final List<ExercisesModel> exercises;
+  WorkoutModel({
     required this.workoutName,
     required this.dayOfTheWeek,
     required this.exercises,
   });
-
-  @override
-  List<Object> get props => [workoutName, dayOfTheWeek, exercises];
 }

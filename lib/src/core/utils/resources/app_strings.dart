@@ -6,7 +6,7 @@ class AppStrings {
   static const String email = 'Email';
   static const String password = 'Password';
   static const String forgotPassword = 'Forgot Password';
-    static const String resetPassword = 'Reset Password';
+  static const String resetPassword = 'Reset Password';
   static const String login = 'Login';
   static const String or = 'Or';
   static const String dontHaveAccount = 'Don\'t have an account?';
@@ -97,6 +97,8 @@ class AppStrings {
   static const String firebaseFailure = 'Firebase Failure';
   static const String internetFailure = 'Internet Failure';
   static const String unexpectedError = 'Unexpected Error';
+  // HIVE box
+  static const String hiveBox = 'workout_database';
 }
 
 class AppPharses {

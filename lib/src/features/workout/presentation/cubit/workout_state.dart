@@ -7,4 +7,14 @@ abstract class WorkoutState extends Equatable {
   List<Object> get props => [];
 }
 
-class WorkoutInitial extends WorkoutState {}
+class WorkoutInitialState extends WorkoutState {}
+
+class WorkoutloadingState extends WorkoutState {}
+
+class WorkoutSuccessState extends WorkoutState {}
+
+class WorkoutFailurerState extends WorkoutState {
+  final String errorMessage;
+
+  const WorkoutFailurerState(this.errorMessage);
+}
